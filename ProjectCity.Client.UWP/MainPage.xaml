@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
+        <Button Content="S'authentifier" Margin="613,592,0,0" VerticalAlignment="Top" Height="61" Width="186" Click="Button_Click" FontSize="24" />
 
     </Grid>
 </Page>
