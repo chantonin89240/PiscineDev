@@ -13,5 +13,11 @@ namespace ProjectCity.EntitiesShare
         {
             this.TrainingSessions = new List<TrainingSession>();
         }
+
+        public School(string name):this()
+        {
+            Name = name;
+        
+        }
     }
 }
