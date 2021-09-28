@@ -34,6 +34,7 @@
                             <ColumnDefinition Width="140"/>
                             <ColumnDefinition Width="140"/>
                             <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
                         </Grid.ColumnDefinitions>
                         <Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">
                             <TextBlock Text="Partie" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
@@ -41,6 +42,7 @@
                         <TextBlock Grid.Column="1" Text="Nb de Joueurs inscris" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
                         <TextBlock Grid.Column="2" Text="Nb Joueurs Max" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
                         <TextBlock Grid.Column="3" Text="Capital de départ" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="4" Text="Administrateur" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
