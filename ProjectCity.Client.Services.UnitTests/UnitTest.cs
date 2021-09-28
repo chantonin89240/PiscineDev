@@ -2,7 +2,7 @@
 
 namespace ProjectCity.Client.Services.UnitTests
 {
-    public class Class1
+    public class UnitTest
     {
     }
 }
