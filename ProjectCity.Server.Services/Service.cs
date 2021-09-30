@@ -10,6 +10,7 @@ namespace ProjectCity.Server.Services
         List<Level> levels = new List<Level>();
         List<Field> fields = new List<Field>();
         List<School> schools = new List<School>();
+        List<Project> developpers = new List<Project>();
 
         public List<Level> GetLevels()
         {
@@ -45,6 +46,19 @@ namespace ProjectCity.Server.Services
                 });
 
             return schools;
+        }
+
+        public List<Project> GenerateDeveloppers()
+        {
+            developpers.AddRange(new List<Project> {
+                new Project(),
+                new Project(),
+                new Project(),
+                new Project(),
+            });
+
+
+            return developpers;
         }
     }
 }
