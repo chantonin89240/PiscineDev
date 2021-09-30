@@ -13,21 +13,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Client.UWP", "ProjectCity.Client.UWP\ProjectCity.Client.UWP.csproj", "{A3350A24-1D5A-417F-93C5-680374FD44E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Client.Services", "ProjectCity.Client.Services\ProjectCity.Client.Services.csproj", "{B5A7ACF4-CDCD-4E89-A770-C16F9F2668BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Client.Services", "ProjectCity.Client.Services\ProjectCity.Client.Services.csproj", "{B5A7ACF4-CDCD-4E89-A770-C16F9F2668BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Server.Core", "ProjectCity.Server.Core\ProjectCity.Server.Core.csproj", "{71053FFF-96E6-4151-820A-F89E7A9C07AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Core", "ProjectCity.Server.Core\ProjectCity.Server.Core.csproj", "{71053FFF-96E6-4151-820A-F89E7A9C07AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Server.Entities", "ProjectCity.Server.Entities\ProjectCity.Server.Entities.csproj", "{BEB9E100-9536-406F-91A1-5DCA9A9D4F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Entities", "ProjectCity.Server.Entities\ProjectCity.Server.Entities.csproj", "{BEB9E100-9536-406F-91A1-5DCA9A9D4F2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Server.Services", "ProjectCity.Server.Services\ProjectCity.Server.Services.csproj", "{5FCDEDA7-5CC3-4047-A38E-FD4D3F9175D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Services", "ProjectCity.Server.Services\ProjectCity.Server.Services.csproj", "{5FCDEDA7-5CC3-4047-A38E-FD4D3F9175D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.EntitiesShare", "ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj", "{1A0F96FF-2E6F-42E8-9B75-2C92E7D59E6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.EntitiesShare", "ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj", "{1A0F96FF-2E6F-42E8-9B75-2C92E7D59E6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.VM", "ProjectCity.VM\ProjectCity.VM.csproj", "{2D7599A4-17EC-4368-904A-F96F97857060}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.VM", "ProjectCity.VM\ProjectCity.VM.csproj", "{2D7599A4-17EC-4368-904A-F96F97857060}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Client.Services.UnitTests", "ProjectCity.Client.Services.UnitTests\ProjectCity.Client.Services.UnitTests.csproj", "{A608F0CC-FA57-4684-BD7E-189F2B642C4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Client.Services.UnitTests", "ProjectCity.Client.Services.UnitTests\ProjectCity.Client.Services.UnitTests.csproj", "{A608F0CC-FA57-4684-BD7E-189F2B642C4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectCity.Server.Services.UnitTests", "ProjectCity.Server.Services.UnitTests\ProjectCity.Server.Services.UnitTests.csproj", "{A3C31FB8-87A7-4379-83BC-C42509824376}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Services.UnitTests", "ProjectCity.Server.Services.UnitTests\ProjectCity.Server.Services.UnitTests.csproj", "{A3C31FB8-87A7-4379-83BC-C42509824376}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
