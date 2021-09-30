@@ -9,9 +9,20 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <GridView x:Name="gvJoueurs" HorizontalAlignment="Left" Height="984" Margin="45,44,0,0" VerticalAlignment="Top" Width="915" RequestedTheme="Dark" BorderBrush="Black"/>
-        <TextBlock x:Name="txtNbJoueur" HorizontalAlignment="Left" Height="933" Margin="965,44,0,0" Text="0/6 joueur en attente" TextWrapping="Wrap" VerticalAlignment="Top" Width="879" FontSize="80"/>
+        <TextBlock x:Name="txtNbJoueur" HorizontalAlignment="Left" Height="390" Margin="965,44,0,0" Text="0/6 joueur en attente" TextWrapping="Wrap" VerticalAlignment="Top" Width="879" FontSize="80"/>
         <Button x:Name="btnQuit" Content="Quitter" Margin="1146,887,0,0" VerticalAlignment="Top" Height="141" Width="566" FontSize="75" Click="btnQuit_Click"/>
+        <TextBlock HorizontalAlignment="Left" Height="69" Margin="981,540,0,0" Text="Nom de votre companie :" TextWrapping="Wrap" VerticalAlignment="Top" Width="465" FontSize="40"/>
+        <TextBox x:Name="txbNom" HorizontalAlignment="Left" Margin="1465,540,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="40" Width="402"/>
+        <ListView x:Name="lvJoueurs" HorizontalAlignment="Left" Height="984" Margin="60,44,0,0" VerticalAlignment="Top" Width="747" ItemsSource="{x:Bind Game.Players}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Pseudo}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="btnValid" Content="Valider" Margin="1546,644,0,0" VerticalAlignment="Top" Height="66" Width="239" FontSize="40" Click="btnValid_Click"/>
 
     </Grid>
 </Page>
