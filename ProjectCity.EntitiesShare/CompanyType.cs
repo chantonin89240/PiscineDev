@@ -14,5 +14,11 @@ namespace ProjectCity.EntitiesShare
         {
 
         }
+        public CompanyType(int id, string title, int salariesLimite)
+        {
+            Id = id;
+            Title = title;
+            SalariesLimite = salariesLimite;
+        }
     }
 }
