@@ -31,5 +31,14 @@ namespace ProjectCity.EntitiesShare
             this.Players = new List<Player>();
             this.Trainings = new List<Training>();
         }
+
+        public Game(int id, int playerMax, int turnMax, int startBudget, string etat = "creation"):this()
+        {
+            Id = id;
+            PlayerMax = playerMax;
+            TurnMax = turnMax;
+            StartBudget = startBudget;
+            Etat = etat;
+        }
     }
 }
