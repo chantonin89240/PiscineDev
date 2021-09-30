@@ -16,10 +16,5 @@ namespace ProjectCity.EntitiesShare
             this.Certifications = new List<Certification>();
             this.Projects = new List<Project>();
         }
-
-        public Developer(double salary):this()
-        {
-            Salary = salary;
-        }
     }
 }
