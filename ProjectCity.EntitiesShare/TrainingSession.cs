@@ -8,15 +8,14 @@ namespace ProjectCity.EntitiesShare
     {
         public int Id { get; set; }
 
-        public string Title { get; set; }
-        public int Duration { get; set; } //turn  =month
-        public double Price { get; set; }
-        public int Capacity { get; set; }
-        public List<Certification> Certifications { get; set; }
+        public StaffMember StaffMember { get; set; }
+        public Training Training { get; set; }
+        public Turn StartTurn { get; set; }
+        public Turn EndTurn { get; set; }
 
         public TrainingSession()
         {
-            this.Certifications = new List<Certification>();
+
         }
     }
 }
