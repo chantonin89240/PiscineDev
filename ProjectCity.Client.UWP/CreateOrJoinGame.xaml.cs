@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,12 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class CreateOrJoinGame : Page
     {
+        public List<Game> LstGame { get; set; }
         public CreateOrJoinGame()
         {
             this.InitializeComponent();
+            LstGame = Service.Games();
+
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

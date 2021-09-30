@@ -2,17 +2,20 @@
 using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjectCity.Client.Services
 {
     public class Service
     {
-        public List<Game> Games()
+        public static List<Game> Games()
         {
             List<Game> games = new List<Game>();
 
-            var dataGame = Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/Data.json");
+            var dataGame = Serializer.FromJson<dynamic>("JSon/Data.json");
 
             //games.Add(x["data"]["game"][0]);
 
