@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
 
 namespace ProjectCity.Server.Services
 {
@@ -49,6 +50,7 @@ namespace ProjectCity.Server.Services
 
                 }
             );
+            List<Training> listeForma = Call.FromJson<List<Training>>("formation");
 
             return listeTraining;
         }

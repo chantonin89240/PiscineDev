@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj" />
+    <ProjectReference Include="..\ProjectCity.VM\ProjectCity.VM.csproj" />
   </ItemGroup>
 
 </Project>
