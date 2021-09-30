@@ -29,6 +29,7 @@ namespace ProjectCity.EntitiesShare
             Duration = duration;
             Cost = cost;
             Start = start;
+            IsSuccessFul = isSuccessFul; 
         }
 
     }

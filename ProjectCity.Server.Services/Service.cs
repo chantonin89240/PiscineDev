@@ -10,7 +10,7 @@ namespace ProjectCity.Server.Services
         List<Level> levels = new List<Level>();
         List<Field> fields = new List<Field>();
         List<School> schools = new List<School>();
-        List<Project> developpers = new List<Project>();
+        List<Project> projects = new List<Project>();
 
         public List<Level> GetLevels()
         {
@@ -48,17 +48,28 @@ namespace ProjectCity.Server.Services
             return schools;
         }
 
-        public List<Project> GenerateDeveloppers()
+        public List<Project> GenerateProjects()
         {
-            developpers.AddRange(new List<Project> {
-                new Project(),
-                new Project(),
-                new Project(),
-                new Project(),
-            });
+            List<string> projectTitles = new List<string>();
+            List<int> projectCosts = new List<int>() { 
+                20000,
+                50000,
+                75000,
+                100000,
+                150000,
+                200000,
+                500000,
+                };
+
+            var duration = new Random();
+            duration.Next(1, 4);
+
+            projects.Add(
+                new Project()
+            );
 
 
-            return developpers;
+            return projects;
         }
     }
 }

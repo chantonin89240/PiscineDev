@@ -1,0 +1,83 @@
+{
+  "data": {
+    "game": [ 
+      {
+        "id": 1,
+        "playerMax": 6,
+        "turnMax": 100,
+        "startBudget": 1000000
+      },
+      {
+        "id": 2,
+        "playerMax": 4,
+        "turnMax": 80,
+        "startBudget": 500000
+      },
+      {
+        "id": 3,
+        "playerMax": 2,
+        "turnMax": 120,
+        "startBudget": 200000
+      }
+    ],
+    "developper": [
+      {
+        "title": "Mr",
+        "first": "Jacko",
+        "last": "De Graaff"
+      },
+      {
+          "title": "Miss",
+          "first": "Rocio",
+          "last": "Prieto"
+      },
+      {
+          "title": "Mrs",
+          "first": "Julia",
+          "last": "Pelletier"
+      },
+      {
+          "title": "Mr",
+          "first": "Konsta",
+          "last": "Latvala"
+
+      },
+      {
+          "title": "Mr",
+          "first": "Oscar",
+          "last": "Walker"
+      },
+      {
+          "title": "Mrs",
+          "first": "Darlene",
+          "last": "Carlson"
+       }
+    ],
+    "project": [
+      {
+        "id": 1,
+        "title": "spaceX",
+        "duration": 2,
+        "cost": 50000
+      },
+      {
+        "id": 2,
+        "title": "Metavers",
+        "duration": 3,
+        "cost": 40000
+      },
+      {
+        "id": 3,
+        "title": "IBP",
+        "duration": 1,
+        "cost": 80000
+      },
+      {
+        "id": 4,
+        "title": "GoodLife",
+        "duration": 5,
+        "cost": 100000
+      }
+    ]
+  }
+}
