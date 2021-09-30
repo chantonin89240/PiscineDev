@@ -15,5 +15,11 @@ namespace ProjectCity.EntitiesShare
         {
 
         }
+        public Certification(int id, Level level, Field field)
+        {
+            Id = id;
+            Level = level;
+            Field = field;
+        }
     }
 }
