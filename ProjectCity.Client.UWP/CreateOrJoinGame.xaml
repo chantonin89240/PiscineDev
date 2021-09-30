@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="ProjectCity.Client.UWP.CreateOrJoinGame"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ProjectCity.Client.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="CornflowerBlue">
+        <TextBlock HorizontalAlignment="Left" Margin="200,68,0,0" Text="Bienvenue à ProjectCity !" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="54" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="200,140,0,0" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="35" FontWeight="SemiBold"/>
+        <Button Content="Créer une partie" Margin="795,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" RenderTransformOrigin="2.032,0.65"/>
+        <Button Content="Rejoindre la partie" Margin="1080,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold"/>
+        
+        <ListView ItemsSource="{x:Bind LstGame}" Background="WhiteSmoke" Height="600" Margin="200,200,200,200" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" BorderBrush="Black">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListViewItem">
+                                <ListViewItemPresenter ContentMargin="0"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="208"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">
+                            <TextBlock Text="Partie" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        </Border>
+                        <TextBlock Grid.Column="1" Text="Nb de Joueurs inscris" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="2" Text="Nb Joueurs Max" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="3" Text="Capital de départ" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="4" Text="Administrateur" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:Name="TableDataTemplate">
+                    <Grid Height="48" AutomationProperties.Name="{Binding Id}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="48"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="140"/>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="200"/>
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Height="32" Width="32" VerticalAlignment="Center">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Placeholder.png"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding PlayerMax}" />
+                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding TurnMax}"/>
+                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Text="{Binding StartBudget}"/>
+                        <TextBlock Grid.Column="5" VerticalAlignment="Center" Text=""/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>
