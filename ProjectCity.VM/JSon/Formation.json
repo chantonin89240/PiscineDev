@@ -1,0 +1,35 @@
+{
+    "Training": [
+      {
+        "Title": "formation PHP",
+        "Duration": 2,
+        "Price": 800,
+        "Capacity": 3
+      },
+      {
+        "Title": "formation PHP",
+        "Duration": 2,
+        "Price": 800,
+        "Capacity": 3
+      },
+      {
+        "Title": "formation PHP",
+        "Duration": 2,
+        "Price": 800,
+        "Capacity": 3
+      },
+      {
+        "Title": "formation PHP",
+        "Duration": 2,
+        "Price": 800,
+        "Capacity": 3
+      },
+      {
+        "Title": "formation PHP",
+        "Duration": 2,
+        "Price": 800,
+        "Capacity": 3
+      }
+    ]
+
+  } 

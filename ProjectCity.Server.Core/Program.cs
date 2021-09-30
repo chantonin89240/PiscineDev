@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
+using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Sockets;
 
@@ -8,7 +11,8 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            StartAsynchroneClient();
+            //StartAsynchroneClient();
+            List<Training> listeForma = Call.FromJson<List<Training>>("formation");
 
             //Console.WriteLine("Hello World!");
         }
