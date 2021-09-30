@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace ProjectCity.Server.Services
 {
-    public static partial class Service
+    public partial class Service
     {
-        public static void GenerateDeveloper()
+        public void GenerateDeveloper()
         {
 
             List<Developer> developers = new List<Developer>();
@@ -32,7 +32,7 @@ namespace ProjectCity.Server.Services
 
         }
 
-        public static List<Certification> GenerateCertifications(int number)
+        public List<Certification> GenerateCertifications(int number)
         {
             List<Certification> certifications = new List<Certification>();
             var rdn = new Random();
@@ -41,18 +41,7 @@ namespace ProjectCity.Server.Services
 
             return certifications;
         }
-
-        private static List<Level> GetLevel()
-        {
-            throw new NotImplementedException();
-        }
-
-        private static List<Field> GetField()
-        {
-            throw new NotImplementedException();
-        }
-
-        public static List<CompanyType> GetCompagnyType()
+        public List<CompanyType> GetCompagnyType()
         {
             List<CompanyType> companyTypes = new List<CompanyType>() {
                 new CompanyType(1,"Société à responsabilité limitée (SARL)",10),
@@ -64,19 +53,19 @@ namespace ProjectCity.Server.Services
             return companyTypes;
         }
 
-        public static List<Certification> GetCertifications()
+        public List<Certification> GetCertifications()
         {
 
-            Level level1 = GetLevel().First(lvl => lvl.Id == 1);
-            Level level2 = GetLevel().First(lvl => lvl.Id == 2);
-            Level level3 = GetLevel().First(lvl => lvl.Id == 3);
+            Level level1 = GetLevels().First(lvl => lvl.Id == 1);
+            Level level2 = GetLevels().First(lvl => lvl.Id == 2);
+            Level level3 = GetLevels().First(lvl => lvl.Id == 3);
 
-            Field field1 = GetField().First(lvl => lvl.Id == 1);
-            Field field2 = GetField().First(lvl => lvl.Id == 2);
-            Field field3 = GetField().First(lvl => lvl.Id == 3);
-            Field field4 = GetField().First(lvl => lvl.Id == 4);
-            Field field5 = GetField().First(lvl => lvl.Id == 5);
-            Field field6 = GetField().First(lvl => lvl.Id == 6);
+            Field field1 = GetFields().First(lvl => lvl.Id == 1);
+            Field field2 = GetFields().First(lvl => lvl.Id == 2);
+            Field field3 = GetFields().First(lvl => lvl.Id == 3);
+            Field field4 = GetFields().First(lvl => lvl.Id == 4);
+            Field field5 = GetFields().First(lvl => lvl.Id == 5);
+            Field field6 = GetFields().First(lvl => lvl.Id == 6);
 
             List<Certification> certifications = new List<Certification>()
             {
