@@ -9,7 +9,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace ProjectCity.Client.Services
 {
-    public class Service
+    public partial class Service
     {
         public static List<Game> Games()
         {
@@ -31,6 +31,11 @@ namespace ProjectCity.Client.Services
                 });
             }
             return games;
+        }
+
+        public static void SetGame(Game game)
+        {
+            Serializer.ToJSon("JSon/Activity.json", game);
         }
     }
 }
