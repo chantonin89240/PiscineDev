@@ -55,6 +55,8 @@ namespace ProjectCity.Client.UWP
             txbNom.Text = Company.Name;
             Company.Player = Player;
 
+            txtNbJoueur.Text = Game.Players.Count() + "/" + Game.PlayerMax + "joueur(s) en attente";
+
             Game.Players.Add(Player);
             Service.SetGame(Game);
         }
@@ -73,7 +75,7 @@ namespace ProjectCity.Client.UWP
 
         private void SyncLoop()
         {
-            while (Game.Players.Count() < 6)
+            while (Game.Players.Count() < Game.PlayerMax)
             {
                 Game = Services.Service.Games().Find(g => g.Id == Game.Id);
 
@@ -83,6 +85,7 @@ namespace ProjectCity.Client.UWP
                 {
                     Players.Add(p);
                 }
+                txtNbJoueur.Text = Game.Players.Count() + "/" + Game.PlayerMax + "joueur(s) en attente";
             }
 
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
