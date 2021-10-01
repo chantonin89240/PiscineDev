@@ -19,7 +19,7 @@ namespace Client
             Console.WriteLine("Attente de 100ms"); //Pour ne pas se connecter à un serveur pas encore prêt
             System.Threading.Thread.Sleep(100);
 
-            string serverip = "10.4.0.136";
+            string serverip = "172.16.30.13";
             int serverport = 1000;
 
             //Connexion

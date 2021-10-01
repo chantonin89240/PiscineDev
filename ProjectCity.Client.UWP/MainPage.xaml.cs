@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,14 +24,22 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public List<Game> LstGame { get; set; }
         public MainPage()
         {
             this.InitializeComponent();
+            LstGame = Service.Games();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(CreateOrJoinGame));
+            var laGameSelect = LstGame[lvGame.SelectedIndex];
+            Frame.Navigate(typeof(WaitGame), laGameSelect);
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
