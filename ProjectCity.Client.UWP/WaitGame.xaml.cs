@@ -1,6 +1,8 @@
-﻿using ProjectCity.EntitiesShare;
+﻿using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,38 +28,42 @@ namespace ProjectCity.Client.UWP
     {
         public Game Game { get; set; }
         public Player Player { get; set; }
+        public ObservableCollection<Player> Players { get; set; }
         public Company Company { get; set; }
 
         public WaitGame()
         {
             this.InitializeComponent();
             Task.Factory.StartNew(() => { SyncLoop(); });
-
-            //socket ajoute le joueur
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
 
-            Player = (Player)Parameters["Player"];
             Game = (Game)Parameters["Game"];
 
+            Player = (Player)Parameters["Player"];
+            foreach (Player p in Game.Players)
+            {
+                Players.Add(p);
+            }
+
             Company = new Company();
-            Company.CompanyType = new CompanyType(); //Socket récupère le type de companie
+            Company.CompanyType = Game.Companies[0].CompanyType;
             Company.Name = Company.CompanyType.Title + " de " + Player.Pseudo;
             txbNom.Text = Company.Name;
             Company.Player = Player;
 
             Game.Players.Add(Player);
+            Service.SetGame(Game);
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             Game.Players.Remove(Game.Players.Find(player => player.Id == Player.Id));
-            //Socket retirer le joueur dans la game
-            //Frame.Navigate(typeof(CreateOrJoinGame), Player);
+            Service.SetGame(Game);
+            Frame.Navigate(typeof(CreateOrJoinGame), Player);
         }
 
         private void btnValid_Click(object sender, RoutedEventArgs e)
@@ -69,16 +75,21 @@ namespace ProjectCity.Client.UWP
         {
             while (Game.Players.Count() < 6)
             {
-                Game = new Game();//socket récupère la game;
+                Game = Services.Service.Games().Find(g => g.Id == Game.Id);
 
-                System.Threading.Thread.Sleep(3000);
+                System.Threading.Thread.Sleep(3000); 
+                
+                foreach (Player p in Game.Players)
+                {
+                    Players.Add(p);
+                }
             }
 
             Dictionary<string, object> Parameters = new Dictionary<string, object>();
             Parameters.Add("Company", Company);
             Parameters.Add("Game", Game);
 
-            //Frame.Navigate(typeof(Plate), Parameters);
+            Frame.Navigate(typeof(Plate), Parameters);
         }
     }
 }
