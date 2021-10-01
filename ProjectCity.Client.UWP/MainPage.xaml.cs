@@ -34,6 +34,9 @@ namespace ProjectCity.Client.UWP
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var laGameSelect = LstGame[lvGame.SelectedIndex];
+
+            //faire evoluer e en dictionnaire dico["game"] = object lagame, dico["player"] = objet leplayer
+
             Frame.Navigate(typeof(WaitGame), laGameSelect);
         }
 

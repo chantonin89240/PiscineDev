@@ -34,12 +34,13 @@ namespace ProjectCity.Client.UWP
         public WaitGame()
         {
             this.InitializeComponent();
-            Task.Factory.StartNew(() => { SyncLoop(); });
+            //Task.Factory.StartNew(() => { SyncLoop(); });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
+
 
             Game = (Game)Parameters["Game"];
 
@@ -89,7 +90,7 @@ namespace ProjectCity.Client.UWP
             Parameters.Add("Company", Company);
             Parameters.Add("Game", Game);
 
-            Frame.Navigate(typeof(Plate), Parameters);
+            //Frame.Navigate(typeof(Plate), Parameters);
         }
     }
 }
