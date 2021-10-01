@@ -35,10 +35,46 @@ namespace ProjectCity.Client.UWP
             Company Company = (Company)Parameters["Compagny"];*/
         }
 
-        // méthode qui incrémente les plateau (tour, argent, projet en cours, devops recruter)
+        // méthode qui incrémente le plateau (tour, argent, projet en cours, devops recruter)
         public void UpdatePlate()
         {
 
         }
+        private void ButPasserTour_Click(object sender, RoutedEventArgs e)
+        {
+           
+        }
+
+        private void ButDev_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(DevOpsRecruit));
+        }
+
+        private void ButProjet_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ProjectRecup)); 
+        }
+
+        private void ButFormation_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Formation));
+        }
+
+        private void ButPrevision_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(Preview));
+        }
+
+        private void ButListDev_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ListDevOps));
+        }
+
+        private void ButListProjet_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ListProject));
+        }
+
+       
     }
 }

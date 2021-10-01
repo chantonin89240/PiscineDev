@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#FFFFFF">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -20,29 +20,31 @@
         </Grid.ColumnDefinitions>
 
         <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0">
-            <TextBlock Foreground="black">Player 1</TextBlock>
-                        <TextBlock Foreground="black">Player 2</TextBlock>
-                        <TextBlock Foreground="black">Player 3</TextBlock>
-                        <TextBlock Foreground="black">Player 4</TextBlock>
-                        <TextBlock Foreground="black">Player 5</TextBlock>
-                        <TextBlock Foreground="black">Player 6</TextBlock>
+            <TextBlock x:Name="TxtPlayer1">Player 1</TextBlock>
+            <TextBlock x:Name="TxtPlayer2">Player 2</TextBlock>
+            <TextBlock x:Name="TxtPlayer3">Player 3</TextBlock>
+            <TextBlock x:Name="TxtPlayer4">Player 4</TextBlock>
+            <TextBlock x:Name="TxtPlayer5">Player 5</TextBlock>
         </ListView>
 
-        <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="20,0,0,40" Background="black">Prévisualisation</Button>
-        <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="black" Margin="0,0,40,40">Liste de mes DevOps</Button>
+        <TextBlock x:Name="TxtTour" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">Tours :</TextBlock>
 
-        <TextBlock Grid.Column="1" Grid.Row="1" Foreground="black" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,40">Pseudo du joueur</TextBlock>
+        <Button x:Name="ButPasserTour"  Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButPasserTour_Click" Margin="0,30,30,30">Passer Tours</Button>
+        
+        <Button x:Name="ButDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButDev_Click">DevOps</Button>
 
-        <Button Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Background="black">Liste de mes Projet</Button>
+        <Button x:Name="ButProjet" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Click="ButProjet_Click">Projet</Button>
+        <Button x:Name="ButFormation" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButFormation_Click">Formation</Button>
 
-        <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="Black" Margin="260,0,0,90">Projet en cours :</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="Black" Margin="260,0,0,50">DevOps recruter :</TextBlock>
+        <Button x:Name="ButPrevision" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="20,0,0,40" Click="ButPrevision_Click">Prévisualisation</Button>
+        <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Click="ButListDev_Click">Liste de mes DevOps</Button>
 
+        <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,40">Pseudo du joueur</TextBlock>
 
+        <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Click="ButListProjet_Click">Liste de mes Projet</Button>
 
-
-
-
+        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="260,0,0,90">Projet en cours :</TextBlock>
+        <TextBlock x:Name="TxtDevRecruter" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="260,0,0,50">DevOps recruter :</TextBlock>
 
     </Grid>
 </Page>
