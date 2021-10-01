@@ -58,5 +58,10 @@ namespace ProjectCity.Server.Services
         {
 
         }
+
+        public void GetTurn()
+        {
+
+        }
     }
 }
