@@ -13,5 +13,10 @@ namespace ProjectCity.EntitiesShare
         {
 
         }
+
+        public Player(string pseudo)
+        {
+            Pseudo = pseudo;
+        }
     }
 }
