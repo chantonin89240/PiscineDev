@@ -8,36 +8,46 @@ namespace ProjectCity.Server.Services
 {
     public partial class Service
     {
-        public void GenerateDeveloper()
+        public void GenerateDeveloper(int numberDev)
         {
 
             List<Developer> developers = new List<Developer>();
 
             var rdn = new Random();
-
-            for (int i = 0; i < 5; i++)
+            var number = GetFields().Count +1;
+            for (int i = 0; i < numberDev; i++)
             {
                 developers.Add(new Developer()
                 {
                     FirstName = "",
                     LastName = "",
                     Salary = 1,
-                    Certifications = GenerateCertifications(rdn.Next(1,7))
+                    Certifications = GenerateCertifications(rdn.Next(1, number))
                 });
 
             };
-            
-
-
-
         }
 
-        public List<Certification> GenerateCertifications(int number)
+        public List<Certification> GenerateCertifications(int numberCertif)
         {
             List<Certification> certifications = new List<Certification>();
+
+            List<Certification> allCertif = GetCertifications();
+
             var rdn = new Random();
 
-            rdn.Next(1, 19);
+            for (int i = 0; i < numberCertif; i++)
+            {
+                //var rednLevel = rdn.Next(1, GetLevels().Count);
+                //var rdnField = rdn.Next(1, GetCertifications().Count);
+                //certifications.Add(newCertification.First(certif => certif.Level.Niveau == rednLevel && certif.Field.Id == rdnField));
+
+                var newCertif = allCertif.ElementAt(rdn.Next(0, allCertif.Count));
+                allCertif.RemoveAll(certif => certif.Field.Id == newCertif.Field.Id);
+
+                certifications.Add(newCertif);
+
+            }
 
             return certifications;
         }
