@@ -219,7 +219,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ProjectCity.Client.Services\ProjectCity.Client.Services.csproj">
-      <Project>{b5a7acf4-cdcd-4e89-a770-c16f9f2668ba}</Project>
+      <Project>{B5A7ACF4-CDCD-4E89-A770-C16F9F2668BA}</Project>
       <Name>ProjectCity.Client.Services</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj">

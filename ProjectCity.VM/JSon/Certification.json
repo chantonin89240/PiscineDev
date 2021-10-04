@@ -1,0 +1,205 @@
+{
+  "Certifications": [
+      {
+        "$id": "1",
+        "Id": 1,
+        "Level": {
+          "$id": "2",
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+        "Field": {
+          "$id": "3",
+          "Id": 1,
+          "Title": "C#"
+        }
+      },
+      {
+        "$id": "4",
+        "Id": 2,
+        "Level": {
+          "$ref": "2"
+        },
+        "Field": {
+          "$id": "5",
+          "Id": 2,
+          "Title": "SqlServer"
+        }
+      },
+      {
+        "$id": "6",
+        "Id": 3,
+        "Level": {
+          "$ref": "2"
+        },
+        "Field": {
+          "$id": "7",
+          "Id": 3,
+          "Title": "PHP"
+        }
+      },
+      {
+        "$id": "8",
+        "Id": 4,
+        "Level": {
+          "$ref": "2"
+        },
+        "Field": {
+          "$id": "9",
+          "Id": 4,
+          "Title": "Cybersécurité"
+        }
+      },
+      {
+        "$id": "10",
+        "Id": 5,
+        "Level": {
+          "$ref": "2"
+        },
+        "Field": {
+          "$id": "11",
+          "Id": 5,
+          "Title": "PowerShell"
+        }
+      },
+      {
+        "$id": "12",
+        "Id": 6,
+        "Level": {
+          "$ref": "2"
+        },
+        "Field": {
+          "$id": "13",
+          "Id": 6,
+          "Title": "JavaScript"
+        }
+      },
+      {
+        "$id": "14",
+        "Id": 7,
+        "Level": {
+          "$id": "15",
+          "Id": 2,
+          "Niveau": 3,
+          "Description": "Intermediate"
+        },
+        "Field": {
+          "$ref": "3"
+        }
+      },
+      {
+        "$id": "16",
+        "Id": 8,
+        "Level": {
+          "$ref": "15"
+        },
+        "Field": {
+          "$ref": "5"
+        }
+      },
+      {
+        "$id": "17",
+        "Id": 9,
+        "Level": {
+          "$ref": "15"
+        },
+        "Field": {
+          "$ref": "7"
+        }
+      },
+      {
+        "$id": "18",
+        "Id": 10,
+        "Level": {
+          "$ref": "15"
+        },
+        "Field": {
+          "$ref": "9"
+        }
+      },
+      {
+        "$id": "19",
+        "Id": 11,
+        "Level": {
+          "$ref": "15"
+        },
+        "Field": {
+          "$ref": "11"
+        }
+      },
+      {
+        "$id": "20",
+        "Id": 12,
+        "Level": {
+          "$ref": "15"
+        },
+        "Field": {
+          "$ref": "13"
+        }
+      },
+      {
+        "$id": "21",
+        "Id": 13,
+        "Level": {
+          "$id": "22",
+          "Id": 3,
+          "Niveau": 3,
+          "Description": "Confirmed"
+        },
+        "Field": {
+          "$ref": "3"
+        }
+      },
+      {
+        "$id": "23",
+        "Id": 14,
+        "Level": {
+          "$ref": "22"
+        },
+        "Field": {
+          "$ref": "5"
+        }
+      },
+      {
+        "$id": "24",
+        "Id": 15,
+        "Level": {
+          "$ref": "22"
+        },
+        "Field": {
+          "$ref": "7"
+        }
+      },
+      {
+        "$id": "25",
+        "Id": 16,
+        "Level": {
+          "$ref": "22"
+        },
+        "Field": {
+          "$ref": "9"
+        }
+      },
+      {
+        "$id": "26",
+        "Id": 17,
+        "Level": {
+          "$ref": "22"
+        },
+        "Field": {
+          "$ref": "11"
+        }
+      },
+      {
+        "$id": "27",
+        "Id": 18,
+        "Level": {
+          "$ref": "22"
+        },
+        "Field": {
+          "$ref": "13"
+        }
+      }
+  ]
+}

@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using ProjectCity.VM;
 
 namespace ProjectCity.Server.Services
 {
@@ -15,17 +16,45 @@ namespace ProjectCity.Server.Services
 
             var rdn = new Random();
             var number = GetFields().Count +1;
+            var allName = GetName();
+
             for (int i = 0; i < numberDev; i++)
             {
-                developers.Add(new Developer()
-                {
-                    FirstName = "",
-                    LastName = "",
-                    Salary = 1,
-                    Certifications = GenerateCertifications(rdn.Next(1, number))
-                });
+                var numberOfName = GetName().Count + 1;
+                var random = rdn.Next(0, numberOfName);
 
+
+                var a = new Developer()
+                {
+                    FirstName = allName.ElementAt(random).FirstName,
+                    LastName = allName.ElementAt(random).LastName,
+                    Certifications = GenerateCertifications(rdn.Next(1, number)),
+                };
+
+                a.Salary = a.Certifications.Sum(b => b.Level.Niveau)*1000;
+
+                developers.Add(a);
+
+                allName.RemoveAt(random);
             };
+        }
+
+        public List<NameDeveloper> GetName()
+        {
+            var allNameJson =  Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/NameDeveloper.json");
+
+            List<NameDeveloper> allName = new List<NameDeveloper>();
+
+            foreach (var name in allNameJson.nameDeveloper)
+            {
+                allName.Add(new NameDeveloper()
+                {
+                    FirstName = name.firstName,
+                    LastName = name.lastName
+                });
+            }
+
+            return allName;
         }
 
         public List<Certification> GenerateCertifications(int numberCertif)
