@@ -10,7 +10,11 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            StartAsynchroneClient();
+            //StartAsynchroneClient();
+
+            Service serv = new Service();
+
+            serv.GenerateDeveloper(3);
 
             //Console.WriteLine("Hello World!");
         }

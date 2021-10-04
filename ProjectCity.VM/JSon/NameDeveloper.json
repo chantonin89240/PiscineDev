@@ -1,564 +1,325 @@
 {
-  "Developer":[
+  "nameDeveloper":[
     {
-      "name": {
-        "title": "Mr",
-        "first": "Jacko",
-        "last": "De Graaff"
-      }
+        "firstName": "Jacko",
+        "lastName": "De Graaff"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Rocio",
-        "last": "Prieto"
-      }
+        "firstName": "Rocio",
+        "lastName": "Prieto"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Julia",
-        "last": "Pelletier"
-      }
+        "firstName": "Julia",
+        "lastName": "Pelletier"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Konsta",
-        "last": "Latvala"
-      }
+        "firstName": "Konsta",
+        "lastName": "Latvala"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Oscar",
-        "last": "Walker"
-      }
+        "firstName": "Oscar",
+        "lastName": "Walker"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Darlene",
-        "last": "Carlson"
-      }
+        "firstName": "Darlene",
+        "lastName": "Carlson"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Deann",
-        "last": "Mccoy"
-      }
+        "firstName": "Deann",
+        "lastName": "Mccoy"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Mario",
-        "last": "Morales"
-      }
+        "firstName": "Mario",
+        "lastName": "Morales"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Oswin",
-        "last": "Junge"
-      }
+        "firstName": "Oswin",
+        "lastName": "Junge"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Philip",
-        "last": "Campbell"
-      }
+        "firstName": "Philip",
+        "lastName": "Campbell"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "José",
-        "last": "Jankowski"
-      }
+        "firstName": "José",
+        "lastName": "Jankowski"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Nissrine",
-        "last": "Snoeks"
-      }
+        "firstName": "Nissrine",
+        "lastName": "Snoeks"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Blanca",
-        "last": "Castro"
-      }
+        "firstName": "Blanca",
+        "lastName": "Castro"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Ilyès",
-        "last": "Thomas"
-      }
+        "firstName": "Ilyès",
+        "lastName": "Thomas"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Roope",
-        "last": "Latvala"
-      }
+        "firstName": "Roope",
+        "lastName": "Latvala"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Özge",
-        "last": "Koorevaar"
-      }
+        "firstName": "Ozge",
+        "lastName": "Koorevaar"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Borja",
-        "last": "Muñoz"
-      }
+        "firstName": "Borja",
+        "lastName": "Muñoz"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Albert",
-        "last": "Pohle"
-      }
+        "firstName": "Albert",
+        "lastName": "Pohle"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Borja",
-        "last": "Duran"
-      }
+        "firstName": "Borja",
+        "lastName": "Duran"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Adam",
-        "last": "Bakkehaug"
-      }
+        "firstName": "Adam",
+        "lastName": "Bakkehaug"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Candice",
-        "last": "Terry"
-      }
+        "firstName": "Candice",
+        "lastName": "Terry"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Joakim",
-        "last": "Holden"
-      }
+        "firstName": "Joakim",
+        "lastName": "Holden"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Alexis",
-        "last": "Chambers"
-      }
+        "firstName": "Alexis",
+        "lastName": "Chambers"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Victoria",
-        "last": "Sørensen"
-      }
+        "firstName": "Victoria",
+        "lastName": "Sørensen"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Caleb",
-        "last": "Morris"
-      }
+        "firstName": "Caleb",
+        "lastName": "Morris"
     },
     {
-      "name": {
-        "title": "Monsieur",
-        "first": "Julio",
-        "last": "Fabre"
-      }
+        "firstName": "Julio",
+        "lastName": "Fabre"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Carina",
-        "last": "Barbosa"
-      }
+        "firstName": "Carina",
+        "lastName": "Barbosa"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Milja",
-        "last": "Kauppi"
-      }
+        "firstName": "Milja",
+        "lastName": "Kauppi"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Victoria",
-        "last": "Sanz"
-      }
+        "firstName": "Victoria",
+        "lastName": "Sanz"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Francis",
-        "last": "Pierce"
-      }
+        "firstName": "Francis",
+        "lastName": "Pierce"
+      
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Harold",
-        "last": "Graves"
-      }
+        "firstName": "Harold",
+        "lastName": "Graves"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Louella",
-        "last": "Ryan"
-      }
+        "firstName": "Louella",
+        "lastName": "Ryan"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Gunar",
-        "last": "Möckel"
-      }
+        "firstName": "Gunar",
+        "lastName": "Mockel"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Nieves",
-        "last": "Velasco"
-      }
+        "firstName": "Nieves",
+        "lastName": "Velasco"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Abigail",
-        "last": "Bergeron"
-      }
+        "firstName": "Abigail",
+        "lastName": "Bergeron"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Jannita",
-        "last": "Provoost"
-      }
+        "firstName": "Jannita",
+        "lastName": "Provoost"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Ege",
-        "last": "Türkylmaz"
-      }
+        "firstName": "Ege",
+        "lastName": "Turkylmaz"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Hunter",
-        "last": "Cole"
-      }
+        "firstName": "Hunter",
+        "lastName": "Cole"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Jasmina",
-        "last": "Bremer"
-      }
+        "firstName": "Jasmina",
+        "lastName": "Bremer"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Alvin",
-        "last": "Grant"
-      }
+        "firstName": "Alvin",
+        "lastName": "Grant"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Gotthold",
-        "last": "Jeske"
-      }
+        "firstName": "Gotthold",
+        "lastName": "Jeske"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Janos",
-        "last": "Kalb"
-      }
+        "firstName": "Janos",
+        "lastName": "Kalb"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Billie",
-        "last": "Chapman"
-      }
+        "firstName": "Billie",
+        "lastName": "Chapman"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Hugo",
-        "last": "Molina"
-      }
+        "firstName": "Hugo",
+        "lastName": "Molina"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Jack",
-        "last": "Torres"
-      }
+        "firstName": "Jack",
+        "lastName": "Torres"
     },
     {
-      "name": {
-        "title": "Madame",
-        "first": "Therese",
-        "last": "Berger"
-      }
+        "firstName": "Therese",
+        "lastName": "Berger"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Tara",
-        "last": "Jackson"
-      }
+        "firstName": "Tara",
+        "lastName": "Jackson"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Thomas",
-        "last": "Davies"
-      }
+        "firstName": "Thomas",
+        "lastName": "Davies"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Laila",
-        "last": "De Coninck"
-      }
+        "firstName": "Laila",
+        "lastName": "De Coninck"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Gema",
-        "last": "Ortega"
-      }
+        "firstName": "Gema",
+        "lastName": "Ortega"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "George",
-        "last": "Mitchelle"
-      }
+        "firstName": "George",
+        "lastName": "Mitchelle"
     },
     {
-      "name": {
-        "title": "Mademoiselle",
-        "first": "Tina",
-        "last": "Dupuis"
-      }
+        "firstName": "Tina",
+        "lastName": "Dupuis"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Flávia",
-        "last": "Castro"
-      }
+        "firstName": "Flávia",
+        "lastName": "Castro"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Chloe",
-        "last": "Roy"
-      }
+        "firstName": "Chloe",
+        "lastName": "Roy"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Caleb",
-        "last": "Clarke"
-      }
+        "firstName": "Caleb",
+        "lastName": "Clarke"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Zoe",
-        "last": "Wong"
-      }
+        "firstName": "Zoe",
+        "lastName": "Wong"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Delicia",
-        "last": "Nederstigt"
-      }
+        "firstName": "Delicia",
+        "lastName": "Nederstigt"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Elif",
-        "last": "Santiago"
-      }
+        "firstName": "Elif",
+        "lastName": "Santiago"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Arttu",
-        "last": "Peura"
-      }
+        "firstName": "Arttu",
+        "lastName": "Peura"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Emil",
-        "last": "Perala"
-      }
+        "firstName": "Emil",
+        "lastName": "Perala"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Imogen",
-        "last": "Wright"
-      }
+        "firstName": "Imogen",
+        "lastName": "Wright"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Nieves",
-        "last": "Jimenez"
-      }
+        "firstName": "Nieves",
+        "lastName": "Jimenez"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Vicenta",
-        "last": "Santos"
-      }
+        "firstName": "Vicenta",
+        "lastName": "Santos"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Alicia",
-        "last": "Santiago"
-      }
+        "firstName": "Alicia",
+        "lastName": "Santiago"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Tony",
-        "last": "Richardson"
-      }
+        "firstName": "Tony",
+        "lastName": "Richardson"
     },
     {
-      "name": {
-        "title": "Ms",
-        "first": "Maasje",
-        "last": "Bliek"
-      }
+        "firstName": "Maasje",
+        "lastName": "Bliek"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Thiago",
-        "last": "Dupuis"
-      }
+        "firstName": "Thiago",
+        "lastName": "Dupuis"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Aaliyah",
-        "last": "Smith"
-      }
+        "firstName": "Aaliyah",
+        "lastName": "Smith"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Erick",
-        "last": "Vrins"
-      }
+        "firstName": "Erick",
+        "lastName": "Vrins"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Shawn",
-        "last": "Lawson"
-      }
+        "firstName": "Shawn",
+        "lastName": "Lawson"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Solène",
-        "last": "Gauthier"
-      }
+        "firstName": "Solène",
+        "lastName": "Gauthier"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Eduardo",
-        "last": "Richardson"
-      }
+        "firstName": "Eduardo",
+        "lastName": "Richardson"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "George",
-        "last": "Woods"
-      }
+        "firstName": "George",
+        "lastName": "Woods"
     },
     {
-      "name": {
-        "title": "Miss",
-        "first": "Jasmine",
-        "last": "Campbell"
-      }
+        "firstName": "Jasmine",
+        "lastName": "Campbell"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Felice",
-        "last": "Hesse"
-      }
+        "firstName": "Felice",
+        "lastName": "Hesse"
     },
     {
-      "name": {
-        "title": "Monsieur",
-        "first": "Jeremy",
-        "last": "Petit"
-      }
+        "firstName": "Jeremy",
+        "lastName": "Petit"
     },
     {
-      "name": {
-        "title": "Mademoiselle",
-        "first": "Joëlle",
-        "last": "Deschamps"
-      }
+        "firstName": "Joelle",
+        "lastName": "Deschamps"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Ed",
-        "last": "Tucker"
-      }
+        "firstName": "Ed",
+        "lastName": "Tucker"
     },
     {
-      "name": {
-        "title": "Mrs",
-        "first": "Maelya",
-        "last": "Rolland"
-      }
+        "firstName": "Maelya",
+        "lastName": "Rolland"
     },
     {
-      "name": {
-        "title": "Mr",
-        "first": "Volkan",
-        "last": "Koylolu"
-      }
+        "firstName": "Volkan",
+        "lastName": "Koylolu"
     }
   ]
 }
