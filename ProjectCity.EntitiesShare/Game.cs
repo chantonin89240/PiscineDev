@@ -35,6 +35,7 @@ namespace ProjectCity.EntitiesShare
             this.Companies = new List<Company>();
             this.Players = new List<Player>();
             this.Trainings = new List<Training>();
+            Etat = "creation";
         }
 
         public Game(int id, int playerMax, int turnMax, int startBudget, CompanyType companyType):this()
@@ -42,8 +43,7 @@ namespace ProjectCity.EntitiesShare
             Id = id;
             PlayerMax = playerMax;
             TurnMax = turnMax;
-            StartBudget = startBudget;
-            Etat = "creation";
+            StartBudget = startBudget;          
             CompanyType = companyType;
         }
     }

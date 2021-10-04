@@ -20,12 +20,11 @@ namespace ProjectCity.Client.Services
            
             foreach (var game in dataGame.data.game)
             {
-                CompanyType compType = new CompanyType()
-                {
-                    Id = (int)game.companyType.id,
-                    Title = (string)game.companyType.title,
-                    SalariesLimite = (int)game.companyType.salariesLimite
-                };
+                CompanyType compType = new CompanyType(          
+                    (int)game.companyType.id,
+                    (string)game.companyType.title,
+                    (int)game.companyType.salariesLimite
+                );
 
 
                 games.Add(new Game(
@@ -42,7 +41,7 @@ namespace ProjectCity.Client.Services
 
         public static void SetGame(Game game)
         {
-            Serializer.SaveUWP("essai.json", game); 
+            Serializer.SaveUWP("server.json", game); 
         }
 
         
