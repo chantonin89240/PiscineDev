@@ -15,6 +15,12 @@ namespace ProjectCity.VM
             {
                 //serialisation
                 //on écrit dans le fichier fileName dans lequel on sérialise l'objet
+                
+                if (!File.Exists(filename))
+                {
+                    File.Create(filename);
+                }
+                File.SetAttributes(filename, FileAttributes.Normal);
                 File.WriteAllText(filename, JsonConvert.SerializeObject(objetASerialiser, Formatting.Indented,
                     new JsonSerializerSettings
                     {

@@ -41,6 +41,8 @@ namespace ProjectCity.Server.Services
 
             return certifications;
         }
+
+        //Ne servirait plus car le type de Cie est rentré par l'administrateur dans les fichiers de config
         public List<CompanyType> GetCompagnyType()
         {
             List<CompanyType> companyTypes = new List<CompanyType>() {

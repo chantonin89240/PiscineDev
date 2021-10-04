@@ -14,7 +14,7 @@ namespace ProjectCity.EntitiesShare
 
         }
 
-        public Player(string pseudo)
+        public Player(int id, string firstName, string lastName, string pseudo):base(id, firstName, lastName)
         {
             Pseudo = pseudo;
         }

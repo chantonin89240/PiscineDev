@@ -13,13 +13,9 @@ namespace ProjectCity.Client.Services
     {
         public static List<Game> Games()
         {
-            List<Game> games = new List<Game>();
-
             var dataGame = Serializer.FromJson<dynamic>("JSon/Data.json");
-
-            //games.Add(x["data"]["game"][0]);
-
-
+            List<Game> games = new List<Game>();
+           
             foreach (var game in dataGame.data.game)
             {
                 games.Add(new Game()
@@ -27,15 +23,22 @@ namespace ProjectCity.Client.Services
                     Id = game.id,
                     PlayerMax = game.playerMax,
                     TurnMax = game.turnMax,
-                    StartBudget = game.startBudget
-                });
+                    StartBudget = game.startBudget,
+                    CompanyType = new CompanyType()
+                    {
+                        Id = game.companyType.id,
+                        Title = game.companyType.title,
+                        SalariesLimite = game.companyType.salariesLimite,
+
+                    }
+            });
             }
             return games;
         }
 
         public static void SetGame(Game game)
         {
-            Serializer.ToJSon("JSon/Activity.json", game);
+            Serializer.ToJSon("D:/JSon/Activity2.json", game);
         }
     }
 }

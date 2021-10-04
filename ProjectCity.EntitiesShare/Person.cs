@@ -15,5 +15,12 @@ namespace ProjectCity.EntitiesShare
         {
 
         }
+
+        public Person(int id, string firstName, string lastName)
+        {
+            Id = id;
+            FirstName = firstName;
+            LastName = lastName;
+        }
     }
 }

@@ -25,21 +25,29 @@ namespace ProjectCity.Client.UWP
     public sealed partial class MainPage : Page
     {
         public List<Game> LstGame { get; set; }
+        public Player Player { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
             LstGame = Service.Games();
         }
 
+        // Rejoindre une partie
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             var laGameSelect = LstGame[lvGame.SelectedIndex];
 
+            Player = new Player(1, "Vinc", "Sim", "pseudo");
+            Dictionary<string, object> Inscription = new Dictionary<string, object>();
+            Inscription["Game"] = laGameSelect;
+            Inscription["Player"] = Player;
+
             //faire evoluer e en dictionnaire dico["game"] = object lagame, dico["player"] = objet leplayer
 
-            Frame.Navigate(typeof(WaitGame), laGameSelect);
+            Frame.Navigate(typeof(WaitGame), Inscription );
         }
-
+         
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

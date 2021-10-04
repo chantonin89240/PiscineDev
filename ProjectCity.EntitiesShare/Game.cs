@@ -16,6 +16,9 @@ namespace ProjectCity.EntitiesShare
         public Player Winner { get; set; }
         public Player Admin { get; set; }
         public List<Training> Trainings { get; set; }
+
+        public CompanyType CompanyType { get; set; }
+
         /// <summary>
         /// 3 etat :
         /// - creation
@@ -32,13 +35,14 @@ namespace ProjectCity.EntitiesShare
             this.Trainings = new List<Training>();
         }
 
-        public Game(int id, int playerMax, int turnMax, int startBudget, string etat = "creation"):this()
+        public Game(int id, int playerMax, int turnMax, int startBudget, CompanyType companyType, string etat = "creation"):this()
         {
             Id = id;
             PlayerMax = playerMax;
             TurnMax = turnMax;
             StartBudget = startBudget;
             Etat = etat;
+            CompanyType = companyType;
         }
     }
 }
