@@ -28,7 +28,7 @@ namespace ProjectCity.Client.UWP
         public CreateOrJoinGame()
         {
             this.InitializeComponent();
-            LstGame = Service.Games();
+            //LstGame = Service.Games();
 
         }
 

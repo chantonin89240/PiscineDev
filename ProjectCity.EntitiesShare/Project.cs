@@ -22,14 +22,14 @@ namespace ProjectCity.EntitiesShare
             this.Requirements = new List<Certification>();
         }
 
-        public Project(int id, string title, int duration, double cost, int start, bool isSuccessFul =false):this()
+        public Project(int id, string title, int duration, double cost, int start):this()
         {
             Id = id;
             Title = title;
             Duration = duration;
             Cost = cost;
             Start = start;
-            IsSuccessFul = isSuccessFul; 
+            IsSuccessFul = false; 
         }
 
     }

@@ -27,7 +27,7 @@ namespace ProjectCity.Client.UWP
             this.InitializeComponent();
         }
 
-        private void ButGoBAckRescuit_Click(object sender, RoutedEventArgs e)
+        private void ButGoBAck_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
         }

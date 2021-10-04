@@ -100,6 +100,8 @@ namespace Client
                 string clientIP = ((System.Net.IPEndPoint)client.RemoteEndPoint).Address.ToString();
                 Console.WriteLine("Client connecté: {0}", clientIP);
 
+                //Traitement des données avec les actions à mener
+
                 //échanges (le client écrit en premier
                 while (true)
                 {

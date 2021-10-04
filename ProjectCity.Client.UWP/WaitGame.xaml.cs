@@ -67,7 +67,7 @@ namespace ProjectCity.Client.UWP
             Game.Players.Add(Player);
 
             //-----------------------------------------------------------------------------------------------
-            //Service.SetGame(Game);
+            Service.SetGame(Game);
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
@@ -87,7 +87,7 @@ namespace ProjectCity.Client.UWP
         {
             while (Game.Players.Count() < Game.PlayerMax)
             {
-                Game = Services.Service.Games().Find(g => g.Id == Game.Id);
+                Game = Services.Service.Games("filename du server").Find(g => g.Id == Game.Id);
 
                 System.Threading.Thread.Sleep(3000); 
                 
@@ -101,7 +101,7 @@ namespace ProjectCity.Client.UWP
             Parameters.Add("Company", Company);
             Parameters.Add("Game", Game);
 
-            //Frame.Navigate(typeof(Plate), Parameters);
+            Frame.Navigate(typeof(Plate), Parameters);
         }
     }
 }
