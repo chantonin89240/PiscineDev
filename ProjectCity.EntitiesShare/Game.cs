@@ -6,6 +6,7 @@ namespace ProjectCity.EntitiesShare
 {
     public class Game
     {
+
         public int Id { get; set; }
         public List<Turn> Turns { get; set; }
         public List<Company> Companies { get; set; }
@@ -16,6 +17,7 @@ namespace ProjectCity.EntitiesShare
         public Player Winner { get; set; }
         public Player Admin { get; set; }
         public List<Training> Trainings { get; set; }
+        private string etat;
 
         public CompanyType CompanyType { get; set; }
 
@@ -25,7 +27,7 @@ namespace ProjectCity.EntitiesShare
         /// - cours
         /// - finish
         /// </summary>
-        public string Etat { get; set; }
+        public string Etat { get => etat; set => etat = value; }
 
         public Game()
         {
@@ -35,13 +37,13 @@ namespace ProjectCity.EntitiesShare
             this.Trainings = new List<Training>();
         }
 
-        public Game(int id, int playerMax, int turnMax, int startBudget, CompanyType companyType, string etat = "creation"):this()
+        public Game(int id, int playerMax, int turnMax, int startBudget, CompanyType companyType):this()
         {
             Id = id;
             PlayerMax = playerMax;
             TurnMax = turnMax;
             StartBudget = startBudget;
-            Etat = etat;
+            Etat = "creation";
             CompanyType = companyType;
         }
     }

@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.Storage;
+using Newtonsoft.Json;
 
 namespace ProjectCity.Client.UWP
 {
@@ -66,7 +68,7 @@ namespace ProjectCity.Client.UWP
                     // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
                     // puis configurez la nouvelle page en transmettant les informations requises en tant que
                     // paramètre
-                    rootFrame.Navigate(typeof(Plate), e.Arguments);
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 // Vérifiez que la fenêtre actuelle est active
                 Window.Current.Activate();
@@ -96,5 +98,7 @@ namespace ProjectCity.Client.UWP
             //TODO: enregistrez l'état de l'application et arrêtez toute activité en arrière-plan
             deferral.Complete();
         }
+
+        
     }
 }

@@ -30,7 +30,7 @@ namespace ProjectCity.Client.UWP
         public MainPage()
         {
             this.InitializeComponent();
-            LstGame = Service.Games();
+            LstGame = Service.Games("JSon/Data.json");
         }
 
         // Rejoindre une partie
