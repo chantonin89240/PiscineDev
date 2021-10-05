@@ -27,7 +27,7 @@ namespace ProjectCity.Client.Services
                 );
 
                 games.Add(new Game(
-                    (int)game.id,
+                    (int)game.id, 
                     (int)game.playerMax,
                     (int)game.turnMax,
                     (int)game.startBudget,
