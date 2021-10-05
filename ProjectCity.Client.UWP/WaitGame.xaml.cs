@@ -65,16 +65,12 @@ namespace ProjectCity.Client.UWP
 
             txtNbJoueur.Text = Game.Players.Count() + "/" + Game.PlayerMax + " joueur(s) en attente";
 
-
-            //-----------------------------------------------------------------------------------------------
             Service.SetGame(Game);
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             Game.Players.Remove(Game.Players.Find(player => player.Id == Player.Id));
-            //-----------------------------------------------------------------------------------------------
-            //Service.SetGame(Game);
             Frame.GoBack();
         }
 
@@ -82,49 +78,9 @@ namespace ProjectCity.Client.UWP
         {
             Company.Name = txbNom.Text;
             //var paramters = Task.Factory.StartNew(() => { SyncLoop(); });
-            Dictionary<string, object> parameters =  SyncLoop();
+            Dictionary<string, object> parameters = Service.SyncLoop(Game, Company);
 
             Frame.Navigate(typeof(Plate), parameters);
-        }
-
-
-
-        // a placer dans service
-        private Dictionary<string, object> SyncLoop()
-        {
-            // attention players n'est pas lié a game
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
-            int loop = 0;
-
-            if (Game != null)
-            {
-                while (Game.Players.Count() < Game.PlayerMax)
-                {
-
-                    // ici on ajoute les joueurs via le server
-                    if (loop == 3)
-                    {
-                        Game.Players.Add(new Player(2, "anto", "Dec", "pseudo2"));
-                    }
-
-                    //Game = Service.Games("JSon/server.json").Find(g => g.Id == Game.Id);                   
-                    System.Threading.Thread.Sleep(3000);
-
-                    //foreach (Player p in Game.Players)
-                    //{
-                    //    Players.Add(p);
-                    //}
-                    loop++;
-                }
-
-
-                parameters.Add("Company", Company);
-                parameters.Add("Game", Game);
-
-                //
-            }
-
-            return parameters;
         }
     }
 }
