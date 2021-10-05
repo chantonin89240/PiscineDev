@@ -26,35 +26,36 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class WaitGame : Page
     {
-        public Game Game { get; set; }
+        public Game Game = new Game();
         public Player Player { get; set; }
-        public ObservableCollection<Player> Players { get; set; }
-        
+        public ObservableCollection<Player> Players = new ObservableCollection<Player>();
 
-        public Company Company { get; set; }
+
+        public Company Company = new Company();
 
 
 
         public WaitGame()
         {
             this.InitializeComponent();
-            //Task.Factory.StartNew(() => { SyncLoop(); });
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
-            Players = new ObservableCollection<Player>();
+            //Players = new ObservableCollection<Player>();
 
             Game = (Game)Parameters["Game"];
 
             Player = (Player)Parameters["Player"];
-            Players.Add(Player);
+            Game.Players.Add(Player);
 
-            foreach (Player p in Game.Players)
-            {
-                Players.Add(p);
-            }
+            //foreach (Player p in Game.Players)
+            //{
+            //    Players.Add(p);
+            //}
+
+            Players.Add(Player);
 
             Company = new Company();
             Company.CompanyType = (CompanyType)Game.CompanyType;
@@ -62,46 +63,24 @@ namespace ProjectCity.Client.UWP
             txbNom.Text = Company.Name;
             Company.Player = Player;
 
-            txtNbJoueur.Text = Players.Count() + "/" + Game.PlayerMax + " joueur(s) en attente";
+            txtNbJoueur.Text = Game.Players.Count() + "/" + Game.PlayerMax + " joueur(s) en attente";
 
-            Game.Players.Add(Player);
-
-            //-----------------------------------------------------------------------------------------------
             Service.SetGame(Game);
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             Game.Players.Remove(Game.Players.Find(player => player.Id == Player.Id));
-            //-----------------------------------------------------------------------------------------------
-            //Service.SetGame(Game);
             Frame.GoBack();
         }
 
         private void btnValid_Click(object sender, RoutedEventArgs e)
         {
             Company.Name = txbNom.Text;
-        }
+            //var paramters = Task.Factory.StartNew(() => { SyncLoop(); });
+            Dictionary<string, object> parameters = Service.SyncLoop(Game, Company);
 
-        private void SyncLoop()
-        {
-            while (Game.Players.Count() < Game.PlayerMax)
-            {
-                Game = Services.Service.Games("filename du server").Find(g => g.Id == Game.Id);
-
-                System.Threading.Thread.Sleep(3000); 
-                
-                foreach (Player p in Game.Players)
-                {
-                    Players.Add(p);
-                }
-            }
-
-            Dictionary<string, object> Parameters = new Dictionary<string, object>();
-            Parameters.Add("Company", Company);
-            Parameters.Add("Game", Game);
-
-            Frame.Navigate(typeof(Plate), Parameters);
+            Frame.Navigate(typeof(Plate), parameters);
         }
     }
 }

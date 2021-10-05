@@ -143,9 +143,6 @@
     <Compile Include="ProjectRecup.xaml.cs">
       <DependentUpon>ProjectRecup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CreateOrJoinGame.xaml.cs">
-      <DependentUpon>CreateOrJoinGame.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WaitGame.xaml.cs">
       <DependentUpon>WaitGame.xaml</DependentUpon>
     </Compile>
@@ -200,10 +197,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ProjectRecup.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CreateOrJoinGame.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

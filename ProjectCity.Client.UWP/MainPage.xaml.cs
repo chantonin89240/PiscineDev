@@ -39,6 +39,7 @@ namespace ProjectCity.Client.UWP
             var laGameSelect = LstGame[lvGame.SelectedIndex];
 
             Player = new Player(1, "Vinc", "Sim", "pseudo");
+
             Dictionary<string, object> Inscription = new Dictionary<string, object>();
             Inscription["Game"] = laGameSelect;
             Inscription["Player"] = Player;
