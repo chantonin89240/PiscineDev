@@ -1,6 +1,10 @@
-﻿using ProjectCity.Server.Services;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using ProjectCity.EntitiesShare;
+using ProjectCity.Server.Services;
 using ProjectCity.VM;
 using System;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 
@@ -10,17 +14,21 @@ namespace Client
     {
         static void Main(string[] args)
         {
-            StartAsynchroneClient();
+            StreamReader r = new StreamReader("server.json");
+            string text = r.ReadToEnd();
 
-            //Console.WriteLine("Hello World!");
+            StartAsynchroneClient(text);
+            //StartAsynchroneServer();
+
+
         }
 
-        static void StartAsynchroneClient()
+        static void StartAsynchroneClient(string text)
         {
             Console.WriteLine("Attente de 100ms"); //Pour ne pas se connecter à un serveur pas encore prêt
             System.Threading.Thread.Sleep(100);
 
-            string serverip = "172.16.30.13";
+            string serverip = "172.16.30.14";
             int serverport = 1000;
 
             //Connexion
@@ -45,17 +53,20 @@ namespace Client
             //échanges(le client écrit en premier)
             byte[] data = new byte[1024]; // création d'un buffer
 
-            while (true)
-            {
-                //attente d'une entrée utilisateur
-                string text = Console.ReadLine();
-                if (text == "exit") break;
+            //while (true)
+            //{
+            //    //attente d'une entrée utilisateur
+            //    //string text = Console.ReadLine();
+            //    if (text == "exit") break;
 
                 // envoi de la commande
                 byte[] msg = System.Text.Encoding.UTF8.GetBytes(text); //conversion string en tableau
                 int size = socket.Send(msg);
-                if (size == 0) break;
+                //if (size == 0) break;
                 Console.WriteLine(">>" + text);
+
+            while (true)
+                {
 
                 //réception de la réponse
                 size = socket.Receive(data);
@@ -63,13 +74,18 @@ namespace Client
                 string resp = System.Text.Encoding.UTF8.GetString(data, 0, size); //conversion tableau en string
                 Console.WriteLine("<<" + resp);
 
+                if (size == 0) break;
+
                 //traitement de la réponse (type de données)
                 //switch(resp):
                 //case()
             }
+
             Console.WriteLine("Déconnexion");
-            Service serv = new Service();
-            serv.GenerateDeveloper(2);
+
+            Console.ReadKey();
+            //Service serv = new Service();
+            //serv.GenerateDeveloper(2);
             //StartAsynchroneServer();
 
         }
@@ -81,7 +97,7 @@ namespace Client
             Console.WriteLine("Démarrage du serveur monouser sur le port {0}...", serverport);
 
             //IPAddress ipAddress = IPAddress.Loopback;
-            IPAddress ipAddress = IPAddress.Parse("172.16.30.13");
+            IPAddress ipAddress = IPAddress.Parse("172.16.30.10");
 
             Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.IP);
 
@@ -92,7 +108,7 @@ namespace Client
                 //mise en écoute
                 IPEndPoint localEndPoint = new IPEndPoint(ipAddress, serverport);
                 listener.Bind(localEndPoint);
-                listener.Listen();
+                listener.Listen(1);
                 Console.WriteLine("Attente du client...");
 
                 //connexion entrante
@@ -110,6 +126,12 @@ namespace Client
                     if (size == 0) break;
                     string text = System.Text.Encoding.UTF8.GetString(data, 0, size);
                     Console.WriteLine("<< " + text);
+
+                    //traitement des données client
+                    //JObject json = JObject.Parse(text);
+                    Game game = JsonConvert.DeserializeObject<Game>(text);
+                   
+
 
                     //envoie reponse
                     string resp = "Ceci est la réponse du serveur";
