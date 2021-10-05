@@ -51,6 +51,8 @@ namespace ProjectCity.Client.UWP
                 Players.Add(p);
             }
 
+            Game.Players.Add(Player);
+
             Company = new Company();
             Company.CompanyType = (CompanyType)Game.CompanyType;
             Company.Name = Company.CompanyType.Title + " de " + Player.Pseudo;
