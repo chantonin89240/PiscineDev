@@ -43,9 +43,9 @@ namespace ProjectCity.Client.Services
             Serializer.SaveUWP("server.json", game); 
         }
 
-        public static Dictionary<string, object> SyncLoop(Game game, Company company)
-        {           
-            Dictionary<string, object> parameters = new Dictionary<string, object>();
+        public static InitGame SyncLoop(Game game, Company company)
+        {
+            InitGame parameters = new InitGame();
             int loop = 0;
             if (game != null)
             {
@@ -58,12 +58,12 @@ namespace ProjectCity.Client.Services
                     }
 
                     //Game = Service.Games("JSon/server.json").Find(g => g.Id == Game.Id);                   
-                    System.Threading.Thread.Sleep(3000);
+                    System.Threading.Thread.Sleep(1000);
                 
                     loop++;
                 }
-                parameters.Add("Company", company);
-                parameters.Add("Game", game);
+                parameters.Game = game;
+                parameters.Company = company;
 
             }
 

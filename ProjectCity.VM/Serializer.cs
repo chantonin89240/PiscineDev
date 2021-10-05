@@ -68,9 +68,9 @@ namespace ProjectCity.VM
                 };
                 string result = JsonConvert.SerializeObject(objetASerialiser, settings);
 
-                StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+                //StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
 
-                File.WriteAllText(storageFolder.Path + "\\" + filename, result);
+                //File.WriteAllText(storageFolder.Path + "\\" + filename, result);
 
 
 

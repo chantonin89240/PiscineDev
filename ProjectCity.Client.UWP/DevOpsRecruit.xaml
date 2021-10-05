@@ -8,8 +8,19 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#17385D">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
         <TextBlock FontSize="89">test</TextBlock>
-        <Button x:Name="ButGoBAckRescuit" Click="ButGoBAck_Click">retour</Button>
+
+        <Button x:Name="ButGoBAckRescuit" Grid.Row="0" Grid.Column="2" Click="ButGoBAck_Click" HorizontalAlignment="Right" VerticalAlignment="Top">retour</Button>
     </Grid>
 </Page>

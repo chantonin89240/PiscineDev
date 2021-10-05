@@ -8,23 +8,23 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#17385D">
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
+            <RowDefinition Height="50*"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
 
         <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0" ItemsSource="{x:Bind Game.Players}">
-            <TextBlock x:Name="TxtPlayer1" Text="{Binding Pseudo }"></TextBlock>
-            <TextBlock x:Name="TxtPlayer2" Text="{Binding Pseudo }"></TextBlock>
-            <TextBlock x:Name="TxtPlayer3" Text="{Binding Pseudo }"></TextBlock>
-            <TextBlock x:Name="TxtPlayer4" Text="{Binding Pseudo }"></TextBlock>
-            <TextBlock x:Name="TxtPlayer5" Text="{Binding Pseudo }"></TextBlock>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock x:Name="TxtPlayer1" Text="{Binding Pseudo }"></TextBlock>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
 
         <TextBlock x:Name="TxtTour" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
@@ -51,12 +51,10 @@
 
         <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Click="ButListProjet_Click">Liste de mes Projet</Button>
 
-        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="240,0,0,90">
+        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,25,25">
             <Run Text="Nombre de Projet en cours :"></Run>
             <Run Text="{x:Bind UpPlateProjet()}"></Run>
-        </TextBlock>
-
-        <TextBlock x:Name="TxtDevRecruter" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="240,0,0,50">
+            <LineBreak/>
             <Run Text="DevOps recruter :"></Run>
             <Run Text="{x:Bind UpPlateDevops()}"></Run>
         </TextBlock>
