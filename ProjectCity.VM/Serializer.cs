@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
 namespace ProjectCity.VM
