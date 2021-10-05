@@ -1,5 +1,6 @@
 ﻿using ProjectCity.Client.Services;
 using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,9 +29,7 @@ namespace ProjectCity.Client.UWP
     {
         public Game Game = new Game();
         public Player Player { get; set; }
-        public ObservableCollection<Player> Players = new ObservableCollection<Player>();
-
-
+        public List<Player> Players { get; set; }
         public Company Company = new Company();
 
 
@@ -42,7 +41,7 @@ namespace ProjectCity.Client.UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
+           /* Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
             //Players = new ObservableCollection<Player>();
 
             Game = (Game)Parameters["Game"];
@@ -53,7 +52,15 @@ namespace ProjectCity.Client.UWP
             //foreach (Player p in Game.Players)
             //{
             //    Players.Add(p);
-            //}
+            //}*/
+
+            Game = (Game)e.Parameter;
+
+            Player = (Player)e.Parameter;
+            foreach (Player p in Game.Players)
+            {
+                Players.Add(p);
+            }
 
             Players.Add(Player);
 
@@ -80,7 +87,12 @@ namespace ProjectCity.Client.UWP
             //var paramters = Task.Factory.StartNew(() => { SyncLoop(); });
             Dictionary<string, object> parameters = Service.SyncLoop(Game, Company);
 
-            Frame.Navigate(typeof(Plate), parameters);
+            InitGame param = new InitGame();
+            param.Game = Game;
+            param.Company = Company;
+            param.Player = Player;
+
+            Frame.Navigate(typeof(Plate), param);
         }
     }
 }

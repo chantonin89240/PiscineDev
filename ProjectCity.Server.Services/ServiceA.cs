@@ -50,7 +50,7 @@ namespace ProjectCity.Server.Services
 
                 }
             );
-            List<Training> listeForma = Call.FromJson<List<Training>>("formation");
+            List<Training> listeForma = Serializer.FromJson<List<Training>>("formation");
 
             return listeTraining;
         }

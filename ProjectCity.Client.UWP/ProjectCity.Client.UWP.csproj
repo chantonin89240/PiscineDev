@@ -219,6 +219,10 @@
       <Project>{1A0F96FF-2E6F-42E8-9B75-2C92E7D59E6F}</Project>
       <Name>ProjectCity.EntitiesShare</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ProjectCity.VM\ProjectCity.VM.csproj">
+      <Project>{2D7599A4-17EC-4368-904A-F96F97857060}</Project>
+      <Name>ProjectCity.VM</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
