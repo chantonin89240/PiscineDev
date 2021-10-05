@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="Windows.Foundation.UniversalApiContract">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Windows Kits\10\References\10.0.19041.0\Windows.Foundation.UniversalApiContract\10.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
     </Reference>

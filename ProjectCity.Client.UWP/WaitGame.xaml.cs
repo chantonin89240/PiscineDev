@@ -1,5 +1,6 @@
 ﻿using ProjectCity.Client.Services;
 using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,9 +29,7 @@ namespace ProjectCity.Client.UWP
     {
         public Game Game = new Game();
         public Player Player { get; set; }
-        public ObservableCollection<Player> Players = new ObservableCollection<Player>();
-
-
+        public List<Player> Players { get; set; }
         public Company Company = new Company();
 
 
@@ -42,20 +41,15 @@ namespace ProjectCity.Client.UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Dictionary<string, object> Parameters = (Dictionary<string, object>)e.Parameter;
-            //Players = new ObservableCollection<Player>();
+            InitGame initGame = (InitGame)e.Parameter;
 
-            Game = (Game)Parameters["Game"];
+            Game = initGame.Game;
 
-            Player = (Player)Parameters["Player"];
-            Game.Players.Add(Player);
-
-            //foreach (Player p in Game.Players)
-            //{
-            //    Players.Add(p);
-            //}
-
-            Players.Add(Player);
+            Player = initGame.Player;
+            foreach (Player p in Game.Players)
+            {
+                Players.Add(p);
+            }
 
             Company = new Company();
             Company.CompanyType = (CompanyType)Game.CompanyType;

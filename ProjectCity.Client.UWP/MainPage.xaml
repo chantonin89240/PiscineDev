@@ -9,12 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="CornflowerBlue">
-        <TextBlock x:Name="txtTitle" HorizontalAlignment="Left" Margin="200,68,0,0" Text="Bienvenue à ProjectCity !" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="54" FontWeight="Bold"/>
-        <TextBlock HorizontalAlignment="Left" Margin="200,140,0,0" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="35" FontWeight="SemiBold"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="10*"></RowDefinition>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="15*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock  x:Name="txtTitle" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Bienvenue à ProjectCity !" TextWrapping="Wrap" FontSize="54" FontWeight="Bold"/>
+        <TextBlock Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" FontSize="35" FontWeight="SemiBold"/>
         <!--<Button Content="Créer une partie" Margin="795,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" RenderTransformOrigin="2.032,0.65"/>-->
-        <Button Content="Rejoindre la partie" Margin="1080,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" Click="Button_Click_1"/>
+        <Button Grid.Row="4" Content="Rejoindre la partie" Margin="0,0,100,0" HorizontalAlignment="Right" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" Click="Button_Click_1"/>
 
-        <ListView ItemsSource="{x:Bind LstGame}" Background="WhiteSmoke" Margin="200,200,200,574" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" BorderBrush="Black">
+        <ListView x:Name="lvGame" Grid.Row="2" ItemsSource="{x:Bind LstGame}" Background="WhiteSmoke" Height="auto" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Template">
@@ -31,19 +37,19 @@
                 <DataTemplate>
                     <Grid Padding="12" Background="{ThemeResource SystemBaseLowColor}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="208"/>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
                         <!--<Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">-->
-                        <TextBlock Text="Partie" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Text="Partie" Foreground="black"  HorizontalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
                         <!--</Border>-->
-                        <TextBlock Grid.Column="1" Text="Joueurs Max" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
-                        <TextBlock Grid.Column="2" Text="Tours Max" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
-                        <TextBlock Grid.Column="3" Text="Capital de départ" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
-                        <TextBlock Grid.Column="4" Text="Administrateur" Style="{ThemeResource CaptionTextBlockStyle}" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="1" Text="Joueurs Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold" />
+                        <TextBlock Grid.Column="2" Text="Tours Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="3" Text="Capital de départ" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
+                        <TextBlock Grid.Column="4" Text="Administrateur" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
                     </Grid>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -52,39 +58,21 @@
                 <DataTemplate x:Name="TableDataTemplate">
                     <Grid Height="48" AutomationProperties.Name="{Binding Id}">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="48"/>
-                            <ColumnDefinition Width="160"/>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition Width="140"/>
-                            <ColumnDefinition Width="200"/>
-                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
-                        <Ellipse Height="32" Width="32" VerticalAlignment="Center">
-                            <Ellipse.Fill>
-                                <ImageBrush ImageSource="Placeholder.png"/>
-                            </Ellipse.Fill>
-                        </Ellipse>
-                        <TextBlock Grid.Column="1" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding Id}" />
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding PlayerMax}" />
-                        <TextBlock Grid.Column="3" VerticalAlignment="Center" Text="{Binding TurnMax}"/>
-                        <TextBlock Grid.Column="4" VerticalAlignment="Center" Text="{Binding StartBudget}"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding Id}"/>
+
+
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding PlayerMax}" />
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding TurnMax}"/>
+                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding StartBudget}"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <ListView x:Name="lvGame" ItemsSource="{x:Bind LstGame}" Background="White" Margin="200,500,376,186">
-            <ListView.ItemTemplate>
-                <DataTemplate x:Name="FourLineDataTemplate">
-                    <StackPanel Height="120" Padding="20" AutomationProperties.Name="{Binding Id}">
-                        <TextBlock Text="{Binding Id}"  Style="{ThemeResource BaseTextBlockStyle}" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding PlayerMax}"  Style="{ThemeResource CaptionTextBlockStyle}" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding TurnMax}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity="1" Margin="0,4,0,0"/>
-                        <TextBlock Text="{Binding StartBudget}" Style="{ThemeResource CaptionTextBlockStyle}" Opacity="1" Margin="0,4,0,0"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-        
     </Grid>
 </Page>

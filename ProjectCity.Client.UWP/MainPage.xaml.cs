@@ -1,5 +1,6 @@
 ﻿using ProjectCity.Client.Services;
 using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -36,17 +37,23 @@ namespace ProjectCity.Client.UWP
         // Rejoindre une partie
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            var laGameSelect = LstGame[lvGame.SelectedIndex];
+            //var laGameSelect = LstGame[lvGame.SelectedIndex];
 
-            Player = new Player(1, "Vinc", "Sim", "pseudo");
+            //Player = new Player(1, "Vinc", "Sim", "pseudo");
 
-            Dictionary<string, object> Inscription = new Dictionary<string, object>();
-            Inscription["Game"] = laGameSelect;
-            Inscription["Player"] = Player;
+            //Dictionary<string, object> Inscription = new Dictionary<string, object>();
+            //Inscription["Game"] = laGameSelect;
+            //Inscription["Player"] = Player;
+
+
+            InitGame initGame = new InitGame() {
+                Game = (Game)lvGame.SelectedItem,
+                Player = new Player(1, "Vinc", "Sim", "pseudo")
+        };
 
             //faire evoluer e en dictionnaire dico["game"] = object lagame, dico["player"] = objet leplayer
 
-            Frame.Navigate(typeof(WaitGame), Inscription );
+            Frame.Navigate(typeof(WaitGame), initGame );
         }
          
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
