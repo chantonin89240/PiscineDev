@@ -17,13 +17,13 @@ namespace Client
             StreamReader r = new StreamReader("server.json");
             string text = r.ReadToEnd();
 
-            StartAsynchroneClient();
+            StartAsynchroneClient(text);
             //StartAsynchroneServer();
 
 
         }
 
-        static void StartAsynchroneClient()
+        static void StartAsynchroneClient(string text)
         {
             Console.WriteLine("Attente de 100ms"); //Pour ne pas se connecter à un serveur pas encore prêt
             System.Threading.Thread.Sleep(100);
@@ -53,11 +53,11 @@ namespace Client
             //échanges(le client écrit en premier)
             byte[] data = new byte[1024]; // création d'un buffer
 
-            while (true)
-            {
-                //attente d'une entrée utilisateur
-                string text = Console.ReadLine();
-                if (text == "exit") break;
+            //while (true)
+            //{
+            //    //attente d'une entrée utilisateur
+            //    //string text = Console.ReadLine();
+            //    if (text == "exit") break;
 
                 // envoi de la commande
                 byte[] msg = System.Text.Encoding.UTF8.GetBytes(text); //conversion string en tableau
@@ -65,8 +65,8 @@ namespace Client
                 //if (size == 0) break;
                 Console.WriteLine(">>" + text);
 
-            //while (true)
-                //{
+            while (true)
+                {
 
                 //réception de la réponse
                 size = socket.Receive(data);
