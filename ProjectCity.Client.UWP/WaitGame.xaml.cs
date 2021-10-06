@@ -73,8 +73,7 @@ namespace ProjectCity.Client.UWP
         private void btnValid_Click(object sender, RoutedEventArgs e)
         {
             Company.Name = txbNom.Text;
-            //var paramters = Task.Factory.StartNew(() => { SyncLoop(); });
-            Dictionary<string, object> parameters = Service.SyncLoop(Game, Company);
+            InitGame parameters = Service.SyncLoop(Game, Company);
 
             Frame.Navigate(typeof(Plate), parameters);
         }

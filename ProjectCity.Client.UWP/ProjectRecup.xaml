@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <Grid Background="#17385D">
         <TextBlock>Test</TextBlock>
         <Button x:Name="ButGoBackProjectRecup" Click="ButGoBackProjectRecup_Click">retour</Button>
     </Grid>

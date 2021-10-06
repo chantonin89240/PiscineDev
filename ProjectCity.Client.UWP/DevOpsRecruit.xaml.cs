@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,14 +25,51 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class DevOpsRecruit : Page
     {
+        public Game Game { get; set; }
+        public Player Player { get; set; }
+        public List<Player> lstPlayers { get; set; }
+        public Company Company { get; set; }
+
         public DevOpsRecruit()
         {
             this.InitializeComponent();
+        }
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var init = (InitGame)e.Parameter;
+            Game = init.Game;
+            Player = init.Player;
+            Company = init.Company;
+            lstPlayers = init.lstPlayers;
+
         }
 
         private void ButGoBAck_Click(object sender, RoutedEventArgs e)
         {
             Frame.GoBack();
+        }
+        // méthode qui retourne le dernier tour 
+        private string UpTours()
+        {
+            int TourSup = Game.Turns.Count();
+            string total;
+            if (TourSup == 0)
+            {
+                total = "0";
+            }
+            else
+            {
+                int tours = Game.Turns.Max().Id;
+                total = tours.ToString();
+            }
+            return total;
+        }
+
+        // méthode qui maj le nombre de devops recruter
+        public string UpPlateDevops()
+        {
+            string Devops = Service.UpdateDevops(Company);
+            return Devops;
         }
     }
 }
