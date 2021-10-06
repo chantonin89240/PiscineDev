@@ -3,6 +3,7 @@ using ProjectCity.EntitiesShare;
 using ProjectCity.Server.Services;
 using ProjectCity.Client.Services;
 using ProjectCity.VM;
+using ProjectCity.Client.Services;
 using System.Collections.Generic;
 
 namespace ProjectCity.Client.Services.UnitTests
@@ -23,6 +24,19 @@ namespace ProjectCity.Client.Services.UnitTests
             games.Add(new Game() {
                 Id = x.data.game[0].id
             });
+
+            Assert.IsTrue(x.Count > 0);
         }
+
+        [TestMethod]
+        public void TestGames()
+        {
+            var x = Service.Games("JSon/Data.json");
+
+            Assert.IsTrue(x.Count > 0);
+        }
+
+        [TestMethod]
+        public void Test
     }
 }
