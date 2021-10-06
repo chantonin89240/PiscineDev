@@ -39,7 +39,7 @@ namespace ProjectCity.Server.Services
             };
         }
 
-        public List<NameDeveloper> GetName()
+        public static List<NameDeveloper> GetName()
         {
             var allNameJson =  Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/NameDeveloper.json");
 
@@ -57,7 +57,6 @@ namespace ProjectCity.Server.Services
             return allName;
         }
 
-        public List<Certification> GenerateCertifications(int numberCertif)
         public static List<Certification> GenerateCertifications(int numberCertif)
         {
             List<Certification> certifications = new List<Certification>();

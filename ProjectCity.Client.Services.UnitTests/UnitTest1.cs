@@ -1,9 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectCity.EntitiesShare;
-using ProjectCity.Server.Services;
 using ProjectCity.Client.Services;
 using ProjectCity.VM;
-using ProjectCity.Client.Services;
 using System.Collections.Generic;
 
 namespace ProjectCity.Client.Services.UnitTests
