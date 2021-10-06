@@ -70,7 +70,7 @@ namespace ProjectCity.Client.UWP
             Frame.GoBack();
         }
 
-        private void btnValid_Click(object sender, RoutedEventArgs e)
+        private void btnValid_Click(object sender, RoutedEventArgs e) /////////////////////////////////////// UN THREAD
         {
             Company.Name = txbNom.Text;
             InitGame parameters = Service.SyncLoop(Game, Company);
