@@ -1,4 +1,5 @@
-﻿using ProjectCity.EntitiesShare;
+﻿using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
 using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
@@ -32,7 +33,6 @@ namespace ProjectCity.Client.UWP
         public Plate()
         {
             this.InitializeComponent();
-
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -55,13 +55,31 @@ namespace ProjectCity.Client.UWP
             //Player.projec
             return truc;
         }
+
         // méthode qui maj le nombre de devops recruter
         public string UpPlateDevops()
         {
-            int total = Company.StaffMembers.Count();
-            string truc = total.ToString();
-            return truc;
+            string Devops = Service.UpdateDevops(Company);
+            return Devops;
         }
+
+        // méthode qui retourne le dernier tour 
+        private string UpTours()
+        {
+            int TourSup = Game.Turns.Count();
+            string total;
+            if(TourSup == 0)
+            {
+                total = "0";
+            }
+            else
+            {
+                int tours = Game.Turns.Max().Id;
+                total = tours.ToString();
+            }
+            return total;
+        }
+
         // méthode qui passe le tours, une fois que tout les joueurs ont passer le tours passe au suivant
         private void ButPasserTour_Click(object sender, RoutedEventArgs e)
         {

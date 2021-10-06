@@ -70,6 +70,15 @@ namespace ProjectCity.Client.Services
             return parameters;
         }
 
+        // méthode qui maj le nombre de devops recruter
+        public static string UpdateDevops(Company company)
+        {
+            int total = company.StaffMembers.Count;
+            string devops = total.ToString();
+            return devops = total.ToString();
+        }
+
+
 
     }
 }

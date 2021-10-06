@@ -10,17 +10,40 @@
 
     <Grid Background="#17385D">
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition  Height="50*"/>
+            <RowDefinition Height="50*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
+            <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
-        
-        <TextBlock FontSize="89">test</TextBlock>
 
-        <Button x:Name="ButGoBAckRescuit" Grid.Row="0" Grid.Column="2" Click="ButGoBAck_Click" HorizontalAlignment="Right" VerticalAlignment="Top">retour</Button>
+        <TextBlock x:Name="TxtTour" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,40,0,0">
+            <Run Text="Tours : "/>
+            <Run Text="{x:Bind UpTours()}"/>
+        </TextBlock>
+        
+        <Button x:Name="ButGoBAckRescuit" Grid.Row="0" Grid.Column="2" Click="ButGoBAck_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,40,0">retour</Button>
+
+        <Button x:Name="ButPrevision" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="20,0,0,40" Click="ButPrevision_Click">Prévisualisation</Button>
+        <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Click="ButListDev_Click">Liste de mes DevOps</Button>
+
+        <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,40">
+            <Run Text="{x:Bind Player.Pseudo}"></Run>
+            <LineBreak/>
+            <Run Text="argent :" ></Run>
+            <Run Text="{x:Bind Company.Budget}"></Run>
+        </TextBlock>
+
+        <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Click="ButListProjet_Click">Liste de mes Projet</Button>
+
+        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,25,25">
+            <Run Text="Nombre de Projet en cours :"></Run>
+            <Run Text="{x:Bind UpPlateProjet()}"></Run>
+            <LineBreak/>
+            <Run Text="DevOps recruter :"></Run>
+            <Run Text="{x:Bind UpPlateDevops()}"></Run>
+        </TextBlock>  
     </Grid>
 </Page>
