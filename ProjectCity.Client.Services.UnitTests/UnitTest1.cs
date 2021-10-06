@@ -31,12 +31,27 @@ namespace ProjectCity.Client.Services.UnitTests
         [TestMethod]
         public void TestGames()
         {
-            var x = Service.Games("JSon/Data.json");
-
-            Assert.IsTrue(x.Count > 0);
+            Assert.IsTrue(Service.Games("JSon/Data.json").Count > 0);
         }
 
         [TestMethod]
-        public void Test
+        public void TestSyncLoop()
+        {
+            Game game = new Game(1, 1, 1, 1, new CompanyType(1, "test", 1));
+            game.Players.Add(new Player(1, "test", "test", "test"));
+            Company company = new Company();
+
+            Assert.IsTrue(Service.SyncLoop(game, company).GetType() == new InitGame().GetType());
+        }
+
+        [TestMethod]
+        public void TestUpdateDevops()
+        {
+            Company company = new Company();
+            StaffMember staff = new StaffMember();
+            company.StaffMembers.Add(staff);
+
+            Assert.IsTrue(Service.UpdateDevops(company) == "1");
+        }
     }
 }
