@@ -19,7 +19,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ProjectCity.Client.Services\ProjectCity.Client.Services.csproj" />
     <ProjectReference Include="..\ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj" />
-    <ProjectReference Include="..\ProjectCity.Server.Services\ProjectCity.Server.Services.csproj" />
     <ProjectReference Include="..\ProjectCity.VM\ProjectCity.VM.csproj" />
   </ItemGroup>
 
