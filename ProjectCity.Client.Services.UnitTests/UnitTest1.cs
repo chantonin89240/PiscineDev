@@ -53,5 +53,6 @@ namespace ProjectCity.Client.Services.UnitTests
 
             Assert.IsTrue(Service.UpdateDevops(company) == "1");
         }
+
     }
 }

@@ -77,8 +77,5 @@ namespace ProjectCity.Client.Services
             string devops = total.ToString();
             return devops = total.ToString();
         }
-
-
-
     }
 }
