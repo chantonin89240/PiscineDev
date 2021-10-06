@@ -82,6 +82,7 @@ namespace ProjectCity.Server.Core
                         handler.Shutdown(SocketShutdown.Both);
                         handler.Close();
                     });
+                    tServer.Start();
                 }
 
             }

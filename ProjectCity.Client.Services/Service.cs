@@ -80,6 +80,7 @@ namespace ProjectCity.Client.Services
             string devops = total.ToString();
             return devops = total.ToString();
         }
+         
         public static void StartClient()
         {
             // Data buffer for incoming data.  
@@ -88,10 +89,7 @@ namespace ProjectCity.Client.Services
             // Connect to a remote device.  
             try
             {
-                // Establish the remote endpoint for the socket.  
-                // This example uses port 11000 on the local computer.  
-                //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-                //IPAddress ipAddress = ipHostInfo.AddressList[0];
+
                 IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
@@ -99,7 +97,6 @@ namespace ProjectCity.Client.Services
                 Socket sender = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
-                // Connect the socket to the remote endpoint. Catch any errors.  
                 try
                 {
                     sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
@@ -123,17 +120,6 @@ namespace ProjectCity.Client.Services
                     Console.WriteLine("Socket connected to {0}",
                         sender.RemoteEndPoint.ToString());
 
-                    // Encode the data string into a byte array.  
-                    //byte[] msg = Encoding.UTF8.GetBytes(text);
-
-                    // Send the data through the socket.  
-                    //int bytesSent = sender.Send(msg);////// invoquer depuis une méthode depuis un événement
-
-
-
-                    // Release the socket.  
-                    //sender.Shutdown(SocketShutdown.Both);
-                    //sender.Close();
 
                 }
                 catch (ArgumentNullException ane)
