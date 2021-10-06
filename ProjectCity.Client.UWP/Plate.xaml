@@ -22,7 +22,7 @@
         <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0" ItemsSource="{x:Bind Game.Players}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock x:Name="TxtPlayer1" Text="{Binding Pseudo }"></TextBlock>
+                    <TextBlock x:Name="TxtPlayer1" Text="{Binding Pseudo}"></TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -1,0 +1,18 @@
+[
+      {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      {
+        "Id": 2,
+        "Niveau": 2,
+        "Description": "Intermediate"
+      },
+      {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      }
+
+]
