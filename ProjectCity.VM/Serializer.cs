@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
 namespace ProjectCity.VM
@@ -69,9 +68,9 @@ namespace ProjectCity.VM
                 };
                 string result = JsonConvert.SerializeObject(objetASerialiser, settings);
 
-                StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
+                //StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
 
-                File.WriteAllText(storageFolder.Path + "\\" + filename, result);
+                //File.WriteAllText(storageFolder.Path + "\\" + filename, result);
 
 
 
