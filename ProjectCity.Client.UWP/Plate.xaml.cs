@@ -48,7 +48,7 @@ namespace ProjectCity.Client.UWP
         // méthode qui maj le nombre de projet en cours pour le joueur 
         public string UpPlateProjet()
         {
-            string truc = "oof";
+            string truc = "0";
             List<Project> LstProject = new List<Project>();
             // il faut récupérer la liste des projets d'une compagnie puis faut une condition qui ajoute les projet dans la liste seulement s'il n'ont pas dépasser leurs durer depuis leurs debut (start)
             //Service.GetProject();

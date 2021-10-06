@@ -65,11 +65,5 @@ namespace ProjectCity.Client.UWP
             return total;
         }
 
-        // méthode qui maj le nombre de devops recruter
-        public string UpPlateDevops()
-        {
-            string Devops = Service.UpdateDevops(Company);
-            return Devops;
-        }
     }
 }
