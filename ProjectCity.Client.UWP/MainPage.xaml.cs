@@ -29,12 +29,25 @@ namespace ProjectCity.Client.UWP
 
         public MainPage()
         {
+            Service.StartClient();
+
             this.InitializeComponent();
             LstGame = Service.Games("JSon/Data.json");
         }
 
-        // Rejoindre une partie
+
         private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            
+        }
+         
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        // Rejoindre une partie
+        private void JoinGame_Click(object sender, RoutedEventArgs e)
         {
             var laGameSelect = LstGame[lvGame.SelectedIndex];
 
@@ -46,12 +59,7 @@ namespace ProjectCity.Client.UWP
 
             //faire evoluer e en dictionnaire dico["game"] = object lagame, dico["player"] = objet leplayer
 
-            Frame.Navigate(typeof(WaitGame), Inscription );
-        }
-         
-        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+            Frame.Navigate(typeof(WaitGame), Inscription);
         }
     }
 }

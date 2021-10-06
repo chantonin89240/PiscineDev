@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace ProjectCity.Server.Services
 {
-    public partial class Service
+    public static partial class Service
     {
-        public void GenerateDeveloper(int numberDev)
+        public static void GenerateDeveloper(int numberDev)
         {
 
             List<Developer> developers = new List<Developer>();
@@ -28,7 +28,7 @@ namespace ProjectCity.Server.Services
             };
         }
 
-        public List<Certification> GenerateCertifications(int numberCertif)
+        public static List<Certification> GenerateCertifications(int numberCertif)
         {
             List<Certification> certifications = new List<Certification>();
 
@@ -53,7 +53,7 @@ namespace ProjectCity.Server.Services
         }
 
         //Ne servirait plus car le type de Cie est rentré par l'administrateur dans les fichiers de config
-        public List<CompanyType> GetCompagnyType()
+        public static List<CompanyType> GetCompagnyType()
         {
             List<CompanyType> companyTypes = new List<CompanyType>() {
                 new CompanyType(1,"Société à responsabilité limitée (SARL)",10),
@@ -65,7 +65,7 @@ namespace ProjectCity.Server.Services
             return companyTypes;
         }
 
-        public List<Certification> GetCertifications()
+        public static List<Certification> GetCertifications()
         {
 
             Level level1 = GetLevels().First(lvl => lvl.Id == 1);

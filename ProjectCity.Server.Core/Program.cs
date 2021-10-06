@@ -1,156 +1,110 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using ProjectCity.EntitiesShare;
-using ProjectCity.Server.Services;
 using ProjectCity.VM;
 using System;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text;
+using System.Threading;
 
-namespace Client
+namespace ProjectCity.Server.Core
 {
     class Program
     {
-        static void Main(string[] args)
+        // Incoming data from the client.  
+        public static string data = null;
+
+        public static void StartListening()
         {
-            StreamReader r = new StreamReader("server.json");
-            string text = r.ReadToEnd();
+            // Data buffer for incoming data.  
+            byte[] bytes = new Byte[1024];
 
-            StartAsynchroneClient();
-            //StartAsynchroneServer();
+            // Establish the local endpoint for the socket.  
+            // Dns.GetHostName returns the name of the
+            // host running the application.  
+            IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
+            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 1000);
 
+            // Create a TCP/IP socket.  
+            Socket listener = new Socket(ipAddress.AddressFamily,
+                SocketType.Stream, ProtocolType.Tcp);
 
-        }
-
-        static void StartAsynchroneClient()
-        {
-            Console.WriteLine("Attente de 100ms"); //Pour ne pas se connecter à un serveur pas encore prêt
-            System.Threading.Thread.Sleep(100);
-
-            string serverip = "172.16.30.14";
-            int serverport = 1000;
-
-            //Connexion
-            IPAddress IP = IPAddress.Parse(serverip);
-
-            //Je veux une socket internet de type TCP
-            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-
-            Console.WriteLine("Connexion au serveur {0}:{1}...", serverip, serverport);
-
+            // Bind the socket to the local endpoint and
+            // listen for incoming connections.  
             try
             {
-                socket.Connect(IP, serverport);
-                Console.WriteLine("Connecté Ecrire ci dessous vos commandes:");
+                listener.Bind(localEndPoint);
+                listener.Listen(10);
+
+                // Start listening for connections.  
+                while (true)
+                {
+                    Console.WriteLine("Waiting for a connection...");
+                    // Program is suspended while waiting for an incoming connection.  
+                    Socket handler = listener.Accept();//////////////////////////////////////////////////////// UN THREAD
+
+                    var tServer = new Thread(() =>
+                    {
+                        Console.WriteLine("Client connecté: {0}");
+                        data = null;
+
+                        // An incoming connection needs to be processed.  
+                        while (true)
+                        {
+                            int bytesRec = handler.Receive(bytes);
+                            data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+                            var game = JsonConvert.DeserializeObject<Game>(data);
+
+                            foreach (var g in game.Players)
+                            {
+                                Console.WriteLine(g.Pseudo);
+                            }
+
+                            data = "String sérialisé";
+
+                            break;
+
+                            /////// TRAITEMENT 
+
+                            /////// ENVOI MISE A JOUR Gesdtion TOUR PAR TOUR
+                        }
+
+                        // Show the data on the console.  
+                        Console.WriteLine("Text received : {0}", data);
+
+                        // Echo the data back to the client.  
+                        byte[] msg = Encoding.UTF8.GetBytes(data);
+
+                        handler.Send(msg);
+                        handler.Shutdown(SocketShutdown.Both);
+                        handler.Close();
+                    });
+                }
+
             }
             catch (Exception e)
             {
-                Console.WriteLine("Erreur de connexion: {0}", e.Message);
+                Console.WriteLine(e.ToString());
             }
 
-
-            //échanges(le client écrit en premier)
-            byte[] data = new byte[1024]; // création d'un buffer
-
-            while (true)
-            {
-                //attente d'une entrée utilisateur
-                string text = Console.ReadLine();
-                if (text == "exit") break;
-
-                // envoi de la commande
-                byte[] msg = System.Text.Encoding.UTF8.GetBytes(text); //conversion string en tableau
-                int size = socket.Send(msg);
-                //if (size == 0) break;
-                Console.WriteLine(">>" + text);
-
-            //while (true)
-                //{
-
-                //réception de la réponse
-                size = socket.Receive(data);
-                if (size == 0) break;
-                string resp = System.Text.Encoding.UTF8.GetString(data, 0, size); //conversion tableau en string
-                Console.WriteLine("<<" + resp);
-
-                if (size == 0) break;
-
-                //traitement de la réponse (type de données)
-                //switch(resp):
-                //case()
-            }
-
-            Console.WriteLine("Déconnexion");
-
-            Console.ReadKey();
-            //Service serv = new Service();
-            //serv.GenerateDeveloper(2);
-            //StartAsynchroneServer();
+            Console.WriteLine("\nPress ENTER to continue...");
+            Console.Read();
 
         }
 
-        static void StartAsynchroneServer()
+
+        public static int Main(String[] args)
         {
-            int serverport = 1000;
+            StartListening();
 
-            Console.WriteLine("Démarrage du serveur monouser sur le port {0}...", serverport);
-
-            //IPAddress ipAddress = IPAddress.Loopback;
-            IPAddress ipAddress = IPAddress.Parse("172.16.30.10");
-
-            Socket listener = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.IP);
-
-            byte[] data = new Byte[1024];
-
-            try
-            {
-                //mise en écoute
-                IPEndPoint localEndPoint = new IPEndPoint(ipAddress, serverport);
-                listener.Bind(localEndPoint);
-                listener.Listen(1);
-                Console.WriteLine("Attente du client...");
-
-                //connexion entrante
-                Socket client = listener.Accept();
-                string clientIP = ((System.Net.IPEndPoint)client.RemoteEndPoint).Address.ToString();
-                Console.WriteLine("Client connecté: {0}", clientIP);
-
-                //Traitement des données avec les actions à mener
-
-                //échanges (le client écrit en premier
-                while (true)
-                {
-                    //attente réception
-                    int size = client.Receive(data);
-                    if (size == 0) break;
-                    string text = System.Text.Encoding.UTF8.GetString(data, 0, size);
-                    Console.WriteLine("<< " + text);
-
-                    //traitement des données client
-                    //JObject json = JObject.Parse(text);
-                    Game game = JsonConvert.DeserializeObject<Game>(text);
-                   
-
-
-                    //envoie reponse
-                    string resp = "Ceci est la réponse du serveur";
-                    switch (text)
-                    {
-                        default:
-                            break;
-                    }
-                    byte[] msg = System.Text.Encoding.UTF8.GetBytes(resp);
-                    size = client.Send(msg);
-                    if (size == 0) break;
-                    Console.WriteLine(">> " + resp);
-                }
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
+            return 0;
         }
+
+
     }
 }
+    
+

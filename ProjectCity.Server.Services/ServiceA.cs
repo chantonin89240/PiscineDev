@@ -6,10 +6,10 @@ using ProjectCity.VM;
 
 namespace ProjectCity.Server.Services
 {
-    public partial class Service
+    public static partial class Service
     { 
 
-        public List<Training> GetTraining()
+        public static List<Training> GetTraining()
         {
             List<Training> listeTraining = new List<Training>();
 
@@ -54,12 +54,12 @@ namespace ProjectCity.Server.Services
 
             return listeTraining;
         }
-        public void GenerateTraining()
+        public static void GenerateTraining()
         {
 
         }
 
-        public void GetTurn()
+        public static void GetTurn()
         {
             
         }

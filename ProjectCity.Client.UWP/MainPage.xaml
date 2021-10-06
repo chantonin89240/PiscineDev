@@ -12,7 +12,7 @@
         <TextBlock x:Name="txtTitle" HorizontalAlignment="Left" Margin="200,68,0,0" Text="Bienvenue à ProjectCity !" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="54" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="200,140,0,0" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" VerticalAlignment="Top" Height="101" Width="968" FontSize="35" FontWeight="SemiBold"/>
         <!--<Button Content="Créer une partie" Margin="795,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" RenderTransformOrigin="2.032,0.65"/>-->
-        <Button Content="Rejoindre la partie" Margin="1080,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" Click="Button_Click_1"/>
+        <Button Content="Rejoindre la partie" Margin="1080,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" Click="JoinGame_Click"/>
 
         <ListView ItemsSource="{x:Bind LstGame}" Background="WhiteSmoke" Margin="200,200,200,574" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" BorderBrush="Black">
             <ListView.ItemContainerStyle>
