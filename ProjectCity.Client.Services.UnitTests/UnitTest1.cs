@@ -24,5 +24,6 @@ namespace ProjectCity.Client.Services.UnitTests
                 Id = x.data.game[0].id
             });
         }
+
     }
 }
