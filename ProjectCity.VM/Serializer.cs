@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
 namespace ProjectCity.VM
@@ -62,18 +63,10 @@ namespace ProjectCity.VM
                 {
                     PreserveReferencesHandling = PreserveReferencesHandling.Objects,
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
-
-
-
                 };
                 string result = JsonConvert.SerializeObject(objetASerialiser, settings);
-
-                //StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
-
-                //File.WriteAllText(storageFolder.Path + "\\" + filename, result);
-
-
-
+                StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
+                File.WriteAllText(storageFolder.Path + "\\" + filename, result);
             }
             catch (Exception e)
             {

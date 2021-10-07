@@ -22,13 +22,13 @@ namespace ProjectCity.Server.Core
         public static void StartListening()
         {
             // Data buffer for incoming data.  
-            byte[] bytes = new Byte[1024];
+            byte[] bytes = new Byte[4096];
 
             // Establish the local endpoint for the socket.  
             // Dns.GetHostName returns the name of the
             // host running the application.  
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
+            IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 1000);
 
             // Create a TCP/IP socket.  
@@ -50,7 +50,8 @@ namespace ProjectCity.Server.Core
                     Socket handler = listener.Accept();//////////////////////////////////////////////////////// UN THREAD
                     string clientIP = ((System.Net.IPEndPoint)handler.RemoteEndPoint).Address.ToString();
                     Console.WriteLine("Client connecté: {0}", clientIP);
-                    StreamReader r = new StreamReader("../../../../Data.json");
+                    StreamReader r = new StreamReader("../../../../ProjectCity.VM/JSon/Data.json");
+
                     string json = r.ReadToEnd();
                     byte[] msg = System.Text.Encoding.UTF8.GetBytes(json); //conversion string en tableau
                     int size = handler.Send(msg);
@@ -161,9 +162,9 @@ namespace ProjectCity.Server.Core
 
                             JsonElement root = document.RootElement;
                             JsonElement gamesElement = root.GetProperty("game");
+                            
 
-
-                            Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement);
+                            //Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement);
 
                             // Appel Dispatcher
                         }
@@ -196,7 +197,7 @@ namespace ProjectCity.Server.Core
         }
         public static int Main(String[] args)
         {
-            StartClient();
+            StartListening();
 
             return 0;
         }

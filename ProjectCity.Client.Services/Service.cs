@@ -92,13 +92,13 @@ namespace ProjectCity.Client.Services
         public static void StartClient()
         {
             // Data buffer for incoming data.  
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[4096];
 
             // Connect to a remote device.  
             try
             {
 
-                IPAddress ipAddress = IPAddress.Parse("172.16.30.20");
+                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
                 // Create a TCP/IP  socket.  
@@ -109,39 +109,22 @@ namespace ProjectCity.Client.Services
                 {
                     sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
 
-                    Thread.Sleep(5000);
+                    // Receive the response from the remote device.  
+                    int bytesRec = sender.Receive(bytes);
+                    string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+                    JsonDocument document = JsonDocument.Parse(msgServer);
+                    JsonElement root = document.RootElement;
+                    JsonElement dataElement = root.GetProperty("data");
+                    JsonElement gamesElement = dataElement.GetProperty("game");
+
+                    Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement.ToString());
 
                     var t = new Thread(() =>
                     {
                         while (true)
                         {
                             
-                            // Receive the response from the remote device.  
-                            int bytesRec = sender.Receive(bytes);
-                            string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
-
-                            //var dataGame = JsonConvert.DeserializeObject<dynamic>(msgServer);
-
-                            //foreach (Game game in dataGame.data.game)
-                            //{
-                            //    CompanyType compType = new CompanyType(          
-                            //        (int)game.CompanyType.Id,
-                            //        (string)game.CompanyType.Title,
-                            //        (int)game.CompanyType.SalariesLimite
-                            //    );
-
-                            //    Initial.Add(new Game(
-                            //        (int)game.Id,
-                            //        (int)game.PlayerMax,
-                            //        (int)game.TurnMax,
-                            //        (int)game.StartBudget,
-                            //        compType
-                            //        ));
-
-                            //}
-
-
-                            Initial = JsonConvert.DeserializeObject<List<Game>>(msgServer);
 
                             // Appel Dispatcher
                         }
