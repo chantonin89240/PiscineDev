@@ -29,7 +29,7 @@ namespace ProjectCity.Client.Services.UnitTests
         [TestMethod]
         public void TestGames()
         {
-            Assert.IsTrue(Service.Games("JSon/Data.json").Count > 0);
+            Assert.IsTrue(Service.Games().Count > 0);
         }
 
         [TestMethod]

@@ -2,6 +2,7 @@
 using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProjectCity.Server.Services
@@ -51,6 +52,21 @@ namespace ProjectCity.Server.Services
 
         //    return projects;
         //}
+
+        public static List<T> RandomSelect<T>(List<T> list, int nbWanted)
+        {
+            List<T> listSelect = new List<T>();
+
+            Random rnd = new Random();
+            for (int i = 0; i < nbWanted; i++)
+            {
+                T selection = list.ElementAt(rnd.Next(0, list.Count));
+                listSelect.Add(selection);
+                list.Remove(selection);
+            }
+
+            return listSelect;
+        }
 
 
     }

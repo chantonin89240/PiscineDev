@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using ProjectCity.VM;
 
 namespace ProjectCity.Server.Services
 {
@@ -16,45 +15,17 @@ namespace ProjectCity.Server.Services
 
             var rdn = new Random();
             var number = GetFields().Count +1;
-            var allName = GetName();
-
             for (int i = 0; i < numberDev; i++)
             {
-                var numberOfName = GetName().Count + 1;
-                var random = rdn.Next(0, numberOfName);
-
-
-                var a = new Developer()
+                developers.Add(new Developer()
                 {
-                    FirstName = allName.ElementAt(random).FirstName,
-                    LastName = allName.ElementAt(random).LastName,
-                    Certifications = GenerateCertifications(rdn.Next(1, number)),
-                };
-
-                a.Salary = a.Certifications.Sum(b => b.Level.Niveau)*1000;
-
-                developers.Add(a);
-
-                allName.RemoveAt(random);
-            };
-        }
-
-        public static List<NameDeveloper> GetName()
-        {
-            var allNameJson =  Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/NameDeveloper.json");
-
-            List<NameDeveloper> allName = new List<NameDeveloper>();
-
-            foreach (var name in allNameJson.nameDeveloper)
-            {
-                allName.Add(new NameDeveloper()
-                {
-                    FirstName = name.firstName,
-                    LastName = name.lastName
+                    FirstName = "",
+                    LastName = "",
+                    Salary = 1,
+                    Certifications = GenerateCertifications(rdn.Next(1, number))
                 });
-            }
 
-            return allName;
+            };
         }
 
         public static List<Certification> GenerateCertifications(int numberCertif)
@@ -96,65 +67,42 @@ namespace ProjectCity.Server.Services
 
         public static List<Certification> GetCertifications()
         {
-            var allCertifJson = Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/Certification.json");
 
-            List<Certification> allCertif = new List<Certification>();
+            Level level1 = GetLevels().First(lvl => lvl.Id == 1);
+            Level level2 = GetLevels().First(lvl => lvl.Id == 2);
+            Level level3 = GetLevels().First(lvl => lvl.Id == 3);
 
-            foreach (var certif in allCertifJson.Certifications)
+            Field field1 = GetFields().First(lvl => lvl.Id == 1);
+            Field field2 = GetFields().First(lvl => lvl.Id == 2);
+            Field field3 = GetFields().First(lvl => lvl.Id == 3);
+            Field field4 = GetFields().First(lvl => lvl.Id == 4);
+            Field field5 = GetFields().First(lvl => lvl.Id == 5);
+            Field field6 = GetFields().First(lvl => lvl.Id == 6);
+
+            List<Certification> certifications = new List<Certification>()
             {
-                allCertif.Add(new Certification()
-                {
-                    Id = certif.Id,
-                    Field = new Field()
-                    {
-                        Id = certif.Field.Id,
-                        Title = certif.Field.Title,
-                    },
-                    Level = new Level()
-                    {
-                        Id = certif.Level.Id,
-                        Description = certif.Level.Description,
-                        Niveau = certif.Level.Niveau
-                    }
-                });
-            }
+                new Certification(1, level1, field1),
+                new Certification(2, level1, field2),
+                new Certification(3, level1, field3),
+                new Certification(4, level1, field4),
+                new Certification(5, level1, field5),
+                new Certification(6, level1, field6),
+                new Certification(7, level2, field1),
+                new Certification(8, level2, field2),
+                new Certification(9, level2, field3),
+                new Certification(10, level2, field4),
+                new Certification(11, level2, field5),
+                new Certification(12, level2, field6),
+                new Certification(13, level3, field1),
+                new Certification(14, level3, field2),
+                new Certification(15, level3, field3),
+                new Certification(16, level3, field4),
+                new Certification(17, level3, field5),
+                new Certification(18, level3, field6),
 
-            return allCertif;
-            //Level level1 = GetLevels().First(lvl => lvl.Id == 1);
-            //Level level2 = GetLevels().First(lvl => lvl.Id == 2);
-            //Level level3 = GetLevels().First(lvl => lvl.Id == 3);
+            };
 
-            //Field field1 = GetFields().First(lvl => lvl.Id == 1);
-            //Field field2 = GetFields().First(lvl => lvl.Id == 2);
-            //Field field3 = GetFields().First(lvl => lvl.Id == 3);
-            //Field field4 = GetFields().First(lvl => lvl.Id == 4);
-            //Field field5 = GetFields().First(lvl => lvl.Id == 5);
-            //Field field6 = GetFields().First(lvl => lvl.Id == 6);
-
-            //List<Certification> certifications = new List<Certification>()
-            //{
-            //    new Certification(1, level1, field1),
-            //    new Certification(2, level1, field2),
-            //    new Certification(3, level1, field3),
-            //    new Certification(4, level1, field4),
-            //    new Certification(5, level1, field5),
-            //    new Certification(6, level1, field6),
-            //    new Certification(7, level2, field1),
-            //    new Certification(8, level2, field2),
-            //    new Certification(9, level2, field3),
-            //    new Certification(10, level2, field4),
-            //    new Certification(11, level2, field5),
-            //    new Certification(12, level2, field6),
-            //    new Certification(13, level3, field1),
-            //    new Certification(14, level3, field2),
-            //    new Certification(15, level3, field3),
-            //    new Certification(16, level3, field4),
-            //    new Certification(17, level3, field5),
-            //    new Certification(18, level3, field6),
-
-            //};
-
-            //return certifications;
+            return certifications;
         }
 
         

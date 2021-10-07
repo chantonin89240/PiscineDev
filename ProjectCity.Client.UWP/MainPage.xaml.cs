@@ -25,13 +25,17 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
+       
+
         public List<Game> LstGame { get; set; }
         public Player Player { get; set; }
+
+        
 
         public MainPage()
         {
             this.InitializeComponent();
-            LstGame = Service.Games("JSon/Data.json");
+            LstGame = Service.Games();
         }
 
         // Rejoindre une partie

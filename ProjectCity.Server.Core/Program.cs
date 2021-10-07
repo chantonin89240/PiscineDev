@@ -44,10 +44,18 @@ namespace ProjectCity.Server.Core
                     Console.WriteLine("Waiting for a connection...");
                     // Program is suspended while waiting for an incoming connection.  
                     Socket handler = listener.Accept();//////////////////////////////////////////////////////// UN THREAD
+                    string clientIP = ((System.Net.IPEndPoint)handler.RemoteEndPoint).Address.ToString();
+                    Console.WriteLine("Client connecté: {0}", clientIP);
+                    StreamReader r = new StreamReader("../../../../Data.json");
+                    string json = r.ReadToEnd();
+                    byte[] msg = System.Text.Encoding.UTF8.GetBytes(json); //conversion string en tableau
+                    int size = handler.Send(msg);
+                    if (size == 0) break;
+                    Console.WriteLine(">>" + json);
 
                     var tServer = new Thread(() =>
                     {
-                        Console.WriteLine("Client connecté: {0}");
+                        
                         data = null;
 
                         // An incoming connection needs to be processed.  
@@ -63,13 +71,13 @@ namespace ProjectCity.Server.Core
                                 Console.WriteLine(g.Pseudo);
                             }
 
-                            data = "String sérialisé";
+                            data = "String désérialisé";
 
                             break;
 
                             /////// TRAITEMENT 
 
-                            /////// ENVOI MISE A JOUR Gesdtion TOUR PAR TOUR
+                            /////// ENVOI MISE A JOUR coté server Gestion TOUR PAR TOUR
                         }
 
                         // Show the data on the console.  
@@ -82,7 +90,6 @@ namespace ProjectCity.Server.Core
                         handler.Shutdown(SocketShutdown.Both);
                         handler.Close();
                     });
-                    tServer.Start();
                 }
 
             }

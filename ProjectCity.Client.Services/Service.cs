@@ -16,29 +16,36 @@ namespace ProjectCity.Client.Services
 {
     public static partial class Service
     {
-        public static List<Game> Games(string filename)
+        public static List<Game> Initial { get; set; }
+
+
+        public static List<Game> Games()
         {
-            var dataGame = Serializer.FromJson<dynamic>(filename);
-            List<Game> games = new List<Game>();
+            //var dataGame = Serializer.FromJson<dynamic>(filename);
+            //List<Game> games = new List<Game>();
            
-            foreach (var game in dataGame.data.game)
+            /*foreach(Game game in Initial)
             {
+            //}
+
+            //foreach (var game in dataGame.data.game)
+            //{
                 CompanyType compType = new CompanyType(          
-                    (int)game.companyType.id,
-                    (string)game.companyType.title,
-                    (int)game.companyType.salariesLimite
+                    (int)game.CompanyType.Id,
+                    (string)game.CompanyType.Title,
+                    (int)game.CompanyType.SalariesLimite
                 );
 
                 games.Add(new Game(
-                    (int)game.id,
-                    (int)game.playerMax,
-                    (int)game.turnMax,
-                    (int)game.startBudget,
+                    (int)game.Id,
+                    (int)game.PlayerMax,
+                    (int)game.TurnMax,
+                    (int)game.StartBudget,
                     compType
                     ));
             
-            }
-            return games;
+            }*/
+            return Initial;
         }
 
         public static void SetGame(Game game)
@@ -108,9 +115,9 @@ namespace ProjectCity.Client.Services
                         {
                             // Receive the response from the remote device.  
                             int bytesRec = sender.Receive(bytes);
-                            Console.WriteLine("Echo test = {0}",
-                                Encoding.UTF8.GetString(bytes, 0, bytesRec));
+                            string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
+                            Initial = JsonConvert.DeserializeObject<List<Game>>(msgServer);
 
                             // Appel Dispatcher
                         }
