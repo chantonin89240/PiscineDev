@@ -23,8 +23,8 @@ namespace ProjectCity.Server.Core
             // Establish the local endpoint for the socket.  
             // Dns.GetHostName returns the name of the
             // host running the application.  
-            IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
-            IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
+            //IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
+            IPAddress ipAddress = IPAddress.Parse("127.0.0.1");//172.16.30.14
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 1000);
 
             // Create a TCP/IP socket.  
@@ -56,31 +56,30 @@ namespace ProjectCity.Server.Core
                             int bytesRec = handler.Receive(bytes);
                             data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
-                            var game = JsonConvert.DeserializeObject<Game>(data);
+                            //var game = JsonConvert.DeserializeObject<Game>(data);
 
-                            foreach (var g in game.Players)
-                            {
-                                Console.WriteLine(g.Pseudo);
-                            }
+                            //foreach (var g in game.Players)
+                            //{
+                            //    Console.WriteLine(g.Pseudo);
+                            //}
 
-                            data = "String sérialisé";
+                            //data = "String sérialisé";
 
-                            break;
 
                             /////// TRAITEMENT 
+                            // Show the data on the console.  
+                            Console.WriteLine("Text received : {0}", data);
+
+                            // Echo the data back to the client.  
+                            byte[] msg = Encoding.UTF8.GetBytes(data);
+
+                            handler.Send(msg);
+                           
 
                             /////// ENVOI MISE A JOUR Gesdtion TOUR PAR TOUR
                         }
 
-                        // Show the data on the console.  
-                        Console.WriteLine("Text received : {0}", data);
-
-                        // Echo the data back to the client.  
-                        byte[] msg = Encoding.UTF8.GetBytes(data);
-
-                        handler.Send(msg);
-                        handler.Shutdown(SocketShutdown.Both);
-                        handler.Close();
+                       
                     });
                     tServer.Start();
                 }
