@@ -51,6 +51,15 @@ namespace ProjectCity.Client.Services.UnitTests
 
             Assert.IsTrue(Service.UpdateDevops(company) == "1");
         }
+        
+
+         [TestMethod]
+        public void TestConnectServer()
+        {
+            Service.StartClient();
+
+            Assert.IsTrue(Service.Games().Count==3);
+        }
 
     }
 }

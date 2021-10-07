@@ -35,6 +35,10 @@ namespace ProjectCity.Client.UWP
         public MainPage()
         {
             this.InitializeComponent();
+
+            Service.StartClient();
+
+
             LstGame = Service.Games();
         }
 

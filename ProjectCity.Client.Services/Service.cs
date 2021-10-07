@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -97,7 +98,7 @@ namespace ProjectCity.Client.Services
             try
             {
 
-                IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
+                IPAddress ipAddress = IPAddress.Parse("172.16.30.20");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
                 // Create a TCP/IP  socket.  
@@ -108,14 +109,37 @@ namespace ProjectCity.Client.Services
                 {
                     sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
 
+                    Thread.Sleep(5000);
 
                     var t = new Thread(() =>
                     {
                         while (true)
                         {
+                            
                             // Receive the response from the remote device.  
                             int bytesRec = sender.Receive(bytes);
                             string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+                            //var dataGame = JsonConvert.DeserializeObject<dynamic>(msgServer);
+
+                            //foreach (Game game in dataGame.data.game)
+                            //{
+                            //    CompanyType compType = new CompanyType(          
+                            //        (int)game.CompanyType.Id,
+                            //        (string)game.CompanyType.Title,
+                            //        (int)game.CompanyType.SalariesLimite
+                            //    );
+
+                            //    Initial.Add(new Game(
+                            //        (int)game.Id,
+                            //        (int)game.PlayerMax,
+                            //        (int)game.TurnMax,
+                            //        (int)game.StartBudget,
+                            //        compType
+                            //        ));
+
+                            //}
+
 
                             Initial = JsonConvert.DeserializeObject<List<Game>>(msgServer);
 

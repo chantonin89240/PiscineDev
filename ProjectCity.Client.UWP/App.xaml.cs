@@ -79,7 +79,7 @@ namespace ProjectCity.Client.UWP
                 Window.Current.Activate();
             }
 
-            Service.StartClient();
+            
         }
 
         /// <summary>
