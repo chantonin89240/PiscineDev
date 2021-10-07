@@ -16,4 +16,15 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectCity.Client.Services.UnitTests\ProjectCity.Client.Services.UnitTests.csproj" />
+    <ProjectReference Include="..\ProjectCity.Client.Services\ProjectCity.Client.Services.csproj" />
+    <ProjectReference Include="..\ProjectCity.EntitiesShare\ProjectCity.EntitiesShare.csproj" />
+    <ProjectReference Include="..\ProjectCity.Server.Core\ProjectCity.Server.Core.csproj" />
+    <ProjectReference Include="..\ProjectCity.Server.Entities\ProjectCity.Server.Entities.csproj" />
+    <ProjectReference Include="..\ProjectCity.Server.Services\ProjectCity.Server.Services.csproj" />
+    <ProjectReference Include="..\ProjectCity.VM\ProjectCity.VM.csproj" />
+    <ProjectReference Include="..\TestSocket\TestSocket.csproj" />
+  </ItemGroup>
+
 </Project>

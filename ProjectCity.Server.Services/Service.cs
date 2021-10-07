@@ -1,4 +1,5 @@
 ﻿using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,30 +47,6 @@ namespace ProjectCity.Server.Services
                 });
 
             return schools;
-        }
-
-        public List<Project> GenerateProjects()
-        {
-            List<string> projectTitles = new List<string>();
-            List<int> projectCosts = new List<int>() { 
-                20000,
-                50000,
-                75000,
-                100000,
-                150000,
-                200000,
-                500000,
-                };
-
-            var duration = new Random();
-            duration.Next(1, 4);
-
-            projects.Add(
-                new Project()
-            );
-
-
-            return projects;
         }
     }
 }
