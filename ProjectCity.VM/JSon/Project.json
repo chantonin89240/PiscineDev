@@ -1,0 +1,76 @@
+{
+  "Projects": 
+  [
+    {
+      "isSuccessFull": false,
+      "Id": 1,
+      "Title": "Jeu de gestion",
+      "Duration": 10,
+      "Cost": 20000,
+      "Requirements" :
+      {
+        "Id": 1,
+        "Level": 
+        {
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+
+        "Field": 
+        {
+          "Id": 1,
+          "Title": "C#"
+        }
+      },
+    },
+
+    {
+      "isSuccessFull": false,
+      "Id": 1,
+      "Title": "Cablage",
+      "Duration": 10,
+      "Cost": 50000,
+      "Requirements" :
+      {
+        "Id": 1,
+        "Level": 
+        {
+          "Id": 4,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+
+        "Field": 
+        {
+          "Id": 4,
+          "Title": "Cybersécurité#"
+        }
+      },
+    },
+
+    {
+      "isSuccessFull": false,
+      "Id": 1,
+      "Title": "Site WEB",
+      "Duration": 10,
+      "Cost": 20000,
+      "Requirements" :
+      {
+        "Id": 1,
+        "Level": 
+        {
+          "Id": 3,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+
+        "Field": 
+        {
+          "Id": 3,
+          "Title": "PHP"
+        }
+      },
+    },
+  ]
+}  

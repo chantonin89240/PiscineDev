@@ -1,4 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ProjectCity.Client.Services;
+using ProjectCity.EntitiesShare;
 
 namespace ProjectCity.Server.Services.UnitTests
 {
@@ -6,9 +8,9 @@ namespace ProjectCity.Server.Services.UnitTests
     public class UnitTest1
     {
         [TestMethod]
-        public void TestGetLevels()
+        public void TestGenerateProjects()
         {
-
+            Assert.IsTrue(Service.GenerateProjects().Count() > 0);
         }
     }
 }

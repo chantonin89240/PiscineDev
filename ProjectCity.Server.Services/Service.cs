@@ -6,52 +6,47 @@ using System.Text;
 
 namespace ProjectCity.Server.Services
 {
-    public static partial class Service
+    public partial class Service
     {
-        static List<Level> levels = new List<Level>();
-        static List<Field> fields = new List<Field>();
-        static List<School> schools = new List<School>();
-        static List<Project> projects = new List<Project>();
+        List<Level> levels = new List<Level>();
+        List<Field> fields = new List<Field>();
+        List<School> schools = new List<School>();
+        List<Project> projects = new List<Project>();
 
-        public static List<Level> GetLevels()
+        public List<Level> GetLevels()
         {
-            return Serializer.FromJson<List<Level>>(@"../../../../ProjectCity.VM/JSon/Level.json"); 
+            levels.AddRange(new List<Level>{
+                new Level(1,1,"Novice"),
+                new Level(2,3,"Intermediate"),
+                new Level(3,3,"Confirmed")
+                });
+
+            return levels;
         }
 
-        public static List<Field> GetFields()
+        public List<Field> GetFields()
         {
-            return Serializer.FromJson<List<Field>>(@"../../../../ProjectCity.VM/JSon/Field.json");
+            fields.AddRange(new List<Field>{
+                new Field(1,"C#"),
+                new Field(2,"SqlServer"),
+                new Field(3,"PHP"),
+                new Field(4,"Cybersécurité"),
+                new Field(5,"PowerShell"),
+                new Field(6,"JavaScript"),
+                });
+
+            return fields;
         }
 
-        public static List<School> GetSchools()
+        public List<School> GetSchools()
         {
-            return Serializer.FromJson<List<School>>(@"../../../../ProjectCity.VM/JSon/School.json");
+            schools.AddRange(new List<School>{
+                new School("DIIAGE"),
+                new School("Université"),
+                new School("WebForce2048")
+                });
+
+            return schools;
         }
-
-        //public List<Project> GenerateProjects()
-        //{
-        //    List<string> projectTitles = new List<string>();
-        //    List<int> projectCosts = new List<int>() { 
-        //        20000,
-        //        50000,
-        //        75000,
-        //        100000,
-        //        150000,
-        //        200000,
-        //        500000,
-        //        };
-
-        //    var duration = new Random();
-        //    duration.Next(1, 4);
-
-        //    projects.Add(
-        //        new Project()
-        //    );
-
-
-        //    return projects;
-        //}
-
-
     }
 }
