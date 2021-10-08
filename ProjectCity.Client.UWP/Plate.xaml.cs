@@ -39,9 +39,9 @@ namespace ProjectCity.Client.UWP
         {
             var init = (InitGame)e.Parameter;
             Game = init.Game;
-            Player = init.Player;
-            Company = init.Company;
-            lstPlayers = init.lstPlayers;
+            //Player = init.Game.Players;
+            //Company = init.Companies;
+            lstPlayers = init.Game.Players;
 
         }
 
@@ -90,9 +90,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(DevOpsRecruit), param);
         }
@@ -101,9 +101,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(ProjectRecup), param);
         }
@@ -112,9 +112,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(Formation), param);
         }
@@ -123,9 +123,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(Preview), param);
         }
@@ -134,9 +134,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(ListDevOps), param);
         }
@@ -145,9 +145,9 @@ namespace ProjectCity.Client.UWP
         {
             InitGame param = new InitGame();
             param.Game = Game;
-            param.Company = Company;
-            param.Player = Player;
-            param.lstPlayers = lstPlayers;
+            //param.Company = Company;
+            //param.Player = Player;
+            param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(ListProject), param);
         }

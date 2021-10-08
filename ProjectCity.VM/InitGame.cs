@@ -8,10 +8,20 @@ namespace ProjectCity.VM
     public class InitGame
     {
         public Game Game { get; set; }
-        public Player Player { get; set; }
 
-        public List<Player> lstPlayers { get; set; }
-        public Company Company { get; set; }
+        public Dictionary<Company, Developer> LstChoiceDev { get; set; }
+
+        public Dictionary<Company, Project> LstChoiceProject { get; set; }
+
+        public Dictionary<Company, TrainingSession> LstChoiceSession { get; set; }
+
+        public List<Developer> Developers { get; set; }
+
+        public List<Project> Projects { get; set; }
+
+        public List<TrainingSession> Sessions { get; set; }
+
+        public Event TurnEvent { get; set; } 
     }
 
 

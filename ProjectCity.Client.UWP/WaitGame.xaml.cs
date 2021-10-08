@@ -44,8 +44,8 @@ namespace ProjectCity.Client.UWP
             InitGame initGame = (InitGame)e.Parameter;
 
             Game = initGame.Game;
+            //Player = initGame.Game.Players.First(Player => Player.Id == );
 
-            Player = initGame.Player;
             foreach (Player p in Game.Players)
             {
                 Players.Add(p);

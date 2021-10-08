@@ -25,12 +25,12 @@ namespace ProjectCity.Client.UWP
     /// </summary>
     public sealed partial class MainPage : Page
     {
-       
+
 
         public List<Game> LstGame { get; set; }
         public Player Player { get; set; }
 
-        
+
 
         public MainPage()
         {
@@ -45,25 +45,17 @@ namespace ProjectCity.Client.UWP
         // Rejoindre une partie
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //var laGameSelect = LstGame[lvGame.SelectedIndex];
 
-            //Player = new Player(1, "Vinc", "Sim", "pseudo");
+            InitGame initGame = new InitGame();
 
-            //Dictionary<string, object> Inscription = new Dictionary<string, object>();
-            //Inscription["Game"] = laGameSelect;
-            //Inscription["Player"] = Player;
+            initGame.Game = (Game)lvGame.SelectedItem;
+            initGame.Game.Players.Add(new Player(1, "Vinc", "Sim", "pseudo"));
 
 
-            InitGame initGame = new InitGame() {
-                Game = (Game)lvGame.SelectedItem,
-                Player = new Player(1, "Vinc", "Sim", "pseudo")
-        };
-
-            //faire evoluer e en dictionnaire dico["game"] = object lagame, dico["player"] = objet leplayer
-
-            Frame.Navigate(typeof(WaitGame), initGame );
+    
+            Frame.Navigate(typeof(WaitGame), initGame);
         }
-         
+
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

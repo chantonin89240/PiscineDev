@@ -52,7 +52,7 @@ namespace ProjectCity.Client.Services
                     loop++;
                 }
                 parameters.Game = game;
-                parameters.Company = company;
+                parameters.Game.Companies.Add(company);
 
             }
 

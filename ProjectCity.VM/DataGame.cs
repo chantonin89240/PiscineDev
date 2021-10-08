@@ -21,5 +21,7 @@ namespace ProjectCity.VM
 
         public List<TrainingSession> sessions { get; set; }
 
+        public Event turnEvent { get; set; } 
+
     }
 }
