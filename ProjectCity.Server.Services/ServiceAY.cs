@@ -6,13 +6,22 @@ using System.Text;
 
 namespace ProjectCity.Server.Services
 {
-    public partial class Service
+    public static partial class Service
     {
-        public List<Project> GenerateProjects()
+        static List<Event> events = new List<Event>();
+
+        public static List<Project> GenerateProjects()
         {
-            List<Project> projects = Serializer.FromJson<List<Project>>("../../../../ProjectCity.VM/JSon/Project.json");
+            projects = Serializer.FromJson<List<Project>>("../../../../ProjectCity.VM/JSon/Project.json");
 
             return projects;
+        }
+
+        public static List<Event> GenerateEvents()
+        {
+            events = Serializer.FromJson<List<Event>>("../../../../ProjectCity.VM/JSon/Event.json");
+
+            return events;
         }
     }
 }

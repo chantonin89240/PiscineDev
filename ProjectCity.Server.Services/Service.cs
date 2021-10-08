@@ -6,14 +6,14 @@ using System.Text;
 
 namespace ProjectCity.Server.Services
 {
-    public partial class Service
+    public static partial class Service
     {
-        List<Level> levels = new List<Level>();
-        List<Field> fields = new List<Field>();
-        List<School> schools = new List<School>();
-        List<Project> projects = new List<Project>();
+        static List<Level> levels = new List<Level>();
+        static List<Field> fields = new List<Field>();
+        static List<School> schools = new List<School>();
+        static List<Project> projects = new List<Project>();
 
-        public List<Level> GetLevels()
+        public static List<Level> GetLevels()
         {
             levels.AddRange(new List<Level>{
                 new Level(1,1,"Novice"),
@@ -24,7 +24,7 @@ namespace ProjectCity.Server.Services
             return levels;
         }
 
-        public List<Field> GetFields()
+        public static List<Field> GetFields()
         {
             fields.AddRange(new List<Field>{
                 new Field(1,"C#"),
@@ -38,7 +38,7 @@ namespace ProjectCity.Server.Services
             return fields;
         }
 
-        public List<School> GetSchools()
+        public static List<School> GetSchools()
         {
             schools.AddRange(new List<School>{
                 new School("DIIAGE"),
