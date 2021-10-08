@@ -16,17 +16,17 @@ namespace ProjectCity.Server.Services
 
         public static List<Level> GetLevels()
         {
-            return Serializer.FromJson<List<Level>>(@"../../../../ProjectCity.VM/JSon/Level.json"); 
+            return Serializer.FromJson<List<Level>>("JSon/Level.json"); 
         }
 
         public static List<Field> GetFields()
         {
-            return Serializer.FromJson<List<Field>>(@"../../../../ProjectCity.VM/JSon/Field.json");
+            return Serializer.FromJson<List<Field>>("JSon/Field.json");
         }
 
         public static List<School> GetSchools()
         {
-            return Serializer.FromJson<List<School>>(@"../../../../ProjectCity.VM/JSon/School.json");
+            return Serializer.FromJson<List<School>>("JSon/School.json");
         }
 
         //public List<Project> GenerateProjects()
