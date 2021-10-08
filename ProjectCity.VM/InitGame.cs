@@ -13,4 +13,6 @@ namespace ProjectCity.VM
         public List<Player> lstPlayers { get; set; }
         public Company Company { get; set; }
     }
+
+
 }

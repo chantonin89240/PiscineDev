@@ -17,35 +17,13 @@ namespace ProjectCity.Client.Services
 {
     public static partial class Service
     {
+
+        public static Socket sender { get; set; }
         public static List<Game> Initial { get; set; }
 
 
         public static List<Game> Games()
         {
-            //var dataGame = Serializer.FromJson<dynamic>(filename);
-            //List<Game> games = new List<Game>();
-           
-            /*foreach(Game game in Initial)
-            {
-            //}
-
-            //foreach (var game in dataGame.data.game)
-            //{
-                CompanyType compType = new CompanyType(          
-                    (int)game.CompanyType.Id,
-                    (string)game.CompanyType.Title,
-                    (int)game.CompanyType.SalariesLimite
-                );
-
-                games.Add(new Game(
-                    (int)game.Id,
-                    (int)game.PlayerMax,
-                    (int)game.TurnMax,
-                    (int)game.StartBudget,
-                    compType
-                    ));
-            
-            }*/
             return Initial;
         }
 
@@ -93,6 +71,7 @@ namespace ProjectCity.Client.Services
         {
             // Data buffer for incoming data.  
             byte[] bytes = new byte[4096];
+            
 
             // Connect to a remote device.  
             try
@@ -102,7 +81,7 @@ namespace ProjectCity.Client.Services
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
                 // Create a TCP/IP  socket.  
-                Socket sender = new Socket(ipAddress.AddressFamily,
+                sender = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 try
@@ -156,5 +135,13 @@ namespace ProjectCity.Client.Services
             }
         }
 
+        public static void SendToServer(String data)
+        {
+            byte[] bytes = new Byte[4096];
+
+            bytes = System.Text.Encoding.UTF8.GetBytes(data);
+
+            sender.Send(bytes);
+        }
     }
 }

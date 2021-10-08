@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.Json;
 using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
@@ -72,6 +73,21 @@ namespace ProjectCity.VM
             {
                 throw e;
             }
+        }
+
+        public static string ObjectToJsonText<T>(T objetASerialiser)
+        {
+            return JsonConvert.SerializeObject(objetASerialiser);
+        }
+
+        public static T JsonObjectToObject<T>(string json, string jsonProperty)
+        {
+            JsonDocument document = JsonDocument.Parse(json);
+            JsonElement root = document.RootElement;
+            JsonElement dataElement = root.GetProperty("data");
+            JsonElement gamesElement = dataElement.GetProperty(jsonProperty);
+
+            return JsonConvert.DeserializeObject<T>(gamesElement.ToString());
         }
     }
 }

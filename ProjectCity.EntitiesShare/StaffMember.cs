@@ -7,7 +7,7 @@ namespace ProjectCity.EntitiesShare
     public class StaffMember
     {
         public Company Company { get; set; }
-        public Project Developer { get; set; }
+        public Developer Developer { get; set; }
         public Turn StartTurn { get; set; }
         public Turn EndTurn { get; set; }
         List<Project> Projects { get; set; }

@@ -75,6 +75,10 @@ namespace ProjectCity.Client.UWP
             Company.Name = txbNom.Text;
             InitGame parameters = Service.SyncLoop(Game, Company);
 
+            //DataGame data = Service.SyncLoop(Game, Company);
+
+            Service.SendToServer(Serializer.ObjectToJsonText(parameters));  // parameters a changer
+
             Frame.Navigate(typeof(Plate), parameters);
         }
     }

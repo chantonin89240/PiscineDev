@@ -12,8 +12,12 @@ using System.Threading;
 
 namespace ProjectCity.Server.Core
 {
-    class Program
+    public class Program
     {
+        // Data buffer for incoming data.  
+        public static byte[] bytes = new Byte[4096];
+        public static Socket handler { get; set; }
+
         // Incoming data from the client.  
         public static string data = null;
 
@@ -21,8 +25,8 @@ namespace ProjectCity.Server.Core
 
         public static void StartListening()
         {
-            // Data buffer for incoming data.  
-            byte[] bytes = new Byte[4096];
+            
+            int nbClients = 0;
 
             // Establish the local endpoint for the socket.  
             // Dns.GetHostName returns the name of the
@@ -47,54 +51,27 @@ namespace ProjectCity.Server.Core
                 {
                     Console.WriteLine("Waiting for a connection...");
                     // Program is suspended while waiting for an incoming connection.  
-                    Socket handler = listener.Accept();//////////////////////////////////////////////////////// UN THREAD
+                    handler = listener.Accept();
                     string clientIP = ((System.Net.IPEndPoint)handler.RemoteEndPoint).Address.ToString();
                     Console.WriteLine("Client connecté: {0}", clientIP);
-                    StreamReader r = new StreamReader("../../../../ProjectCity.VM/JSon/Data.json");
+                    nbClients++;
 
+                    //Envoi fichier config game
+                    //handler.Send(System.Text.Encoding.UTF8.GetBytes("Client IP : "+ clientIP + ", N° : "+ nbClients));
+                    StreamReader r = new StreamReader("../../../../ProjectCity.VM/JSon/Data.json");
                     string json = r.ReadToEnd();
                     byte[] msg = System.Text.Encoding.UTF8.GetBytes(json); //conversion string en tableau
                     int size = handler.Send(msg);
                     if (size == 0) break;
-                    Console.WriteLine(">>" + json);
+                    //Console.WriteLine(">>" + json);
 
-                    var tServer = new Thread(() =>
-                    {
-                        
-                        data = null;
+                    //Création d'une réf client
+                    ClientCommunication cc = new ClientCommunication(handler, nbClients);
 
-                        // An incoming connection needs to be processed.  
-                        while (true)
-                        {
-                            int bytesRec = handler.Receive(bytes);
-                            data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                    Thread Tc = new Thread(Communication);
+                    Tc.Start(cc);
 
-                            var game = JsonConvert.DeserializeObject<Game>(data);
-
-                            foreach (var g in game.Players)
-                            {
-                                Console.WriteLine(g.Pseudo);
-                            }
-
-                            data = "String désérialisé";
-
-                            break;
-
-                            /////// TRAITEMENT 
-
-                            /////// ENVOI MISE A JOUR coté server Gestion TOUR PAR TOUR
-                        }
-
-                        // Show the data on the console.  
-                        Console.WriteLine("Text received : {0}", data);
-
-                        // Echo the data back to the client.  
-                        byte[] msg = Encoding.UTF8.GetBytes(data);
-
-                        handler.Send(msg);
-                        handler.Shutdown(SocketShutdown.Both);
-                        handler.Close();
-                    });
+                    data = null;       
                 }
 
             }
@@ -128,7 +105,7 @@ namespace ProjectCity.Server.Core
                 {
                     sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
 
-                    Thread.Sleep(5000);
+
 
                     var t = new Thread(() =>
                     {
@@ -162,7 +139,7 @@ namespace ProjectCity.Server.Core
 
                             JsonElement root = document.RootElement;
                             JsonElement gamesElement = root.GetProperty("game");
-                            
+
 
                             //Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement);
 
@@ -195,6 +172,7 @@ namespace ProjectCity.Server.Core
                 Console.WriteLine(e.ToString());
             }
         }
+
         public static int Main(String[] args)
         {
             StartListening();
@@ -202,8 +180,45 @@ namespace ProjectCity.Server.Core
             return 0;
         }
 
+        public static void Communication(object client)
+        {
+            ClientCommunication cc = client as ClientCommunication;
 
+            // An incoming connection needs to be processed.  
+            while (true)
+            {
+                /////// ENVOI MISE A JOUR coté server Gestion TOUR PAR TOUR
+
+                int bytesRec = handler.Receive(bytes);
+                data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+                Console.WriteLine(data);
+                //int bytesRec = handler.Receive(bytes);
+                //data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                //var game = JsonConvert.DeserializeObject<Game>(data);
+                //foreach (var g in game.Players)
+                //{
+                //    Console.WriteLine(g.Pseudo);
+                //}
+                //data = "String désérialisé";
+                //break;
+                /////// TRAITEMENT 
+
+            };
+        }
+
+        class ClientCommunication
+        {
+            public Socket socket { get; set; }
+            public int numero { get; set; }
+
+            public ClientCommunication(Socket socket, int numero)
+            {
+                this.socket = socket;
+                this.numero = numero;
+            }
+        }
     }
 }
-    
+
 
