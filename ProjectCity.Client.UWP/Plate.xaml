@@ -47,6 +47,7 @@
             <LineBreak/>
             <Run Text="argent :" ></Run>
             <Run Text="{x:Bind Company.Budget}"></Run>
+            <Run Text="€"></Run>
         </TextBlock>
 
         <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Click="ButListProjet_Click">Liste de mes Projet</Button>

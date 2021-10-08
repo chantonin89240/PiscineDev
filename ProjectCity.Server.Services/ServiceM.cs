@@ -41,7 +41,7 @@ namespace ProjectCity.Server.Services
 
         public static List<NameDeveloper> GetName()
         {
-            var allNameJson =  Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/NameDeveloper.json");
+            var allNameJson =  Serializer.FromJson<dynamic>("JSon/NameDeveloper.json");
 
             List<NameDeveloper> allName = new List<NameDeveloper>();
 
@@ -96,7 +96,7 @@ namespace ProjectCity.Server.Services
 
         public static List<Certification> GetCertifications()
         {
-            var allCertifJson = Serializer.FromJson<dynamic>("../../../../ProjectCity.VM/JSon/Certification.json");
+            var allCertifJson = Serializer.FromJson<dynamic>("JSon/Certification.json");
 
             List<Certification> allCertif = new List<Certification>();
 

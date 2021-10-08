@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
 namespace ProjectCity.VM
@@ -36,23 +37,23 @@ namespace ProjectCity.VM
             }
         }
 
-        public static T FromJson<T>(string filename)
-        {
-            T result = default(T);
+        //public static T FromJson<T>(string filename)
+        //{
+        //    T result = default(T);
 
-            try
-            {
-                //deserialisation
-                //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
-                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    try
+        //    {
+        //        //deserialisation
+        //        //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
+        //        result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static void SaveUWP<T>(string filename, T objetASerialiser)
         {
@@ -68,7 +69,7 @@ namespace ProjectCity.VM
                 };
                 string result = JsonConvert.SerializeObject(objetASerialiser, settings);
 
-                //StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
+                //StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
                 //File.WriteAllText(storageFolder.Path + "\\" + filename, result);
 
@@ -79,6 +80,30 @@ namespace ProjectCity.VM
             {
                 throw e;
             }
+        }
+
+        public static T FromJson<T>(string filename)
+        {
+
+            T result = default(T);
+
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+
+
+            try
+            {
+                //deserialisation
+                //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
+                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(storageFolder.Path + "\\" + filename));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return result;
+
+        //C: \Users\antonin\AppData\Local\Packages\b3177ff3 - 46c6 - 4ed3 - 947a - 3546b5b7d14e_67611y3qn6ega\LocalState
         }
     }
 }

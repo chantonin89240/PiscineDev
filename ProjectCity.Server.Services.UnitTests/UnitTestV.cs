@@ -12,9 +12,10 @@ namespace ProjectCity.Client.Services.UnitTests
         [TestMethod]
         public void TestFromJs()
         {
-            Assert.IsTrue(Service.GetLevels().Count() != 0);
-            Assert.IsTrue(Service.GetFields().Count() != 0);
-            Assert.IsTrue(Service.GetSchools().Count() != 0);
+            Service.GenerateDeveloper(2);
+            //Assert.IsTrue(Service.GetLevels().Count() != 0);
+            //Assert.IsTrue(Service.GetFields().Count() != 0);
+            //Assert.IsTrue(Service.GetSchools().Count() != 0);
 
         }
 

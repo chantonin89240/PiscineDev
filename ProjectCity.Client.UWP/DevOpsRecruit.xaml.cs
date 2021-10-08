@@ -65,5 +65,13 @@ namespace ProjectCity.Client.UWP
             return total;
         }
 
+        // méthode qui récupére des devops est les affiche
+        public List<Developer> ListeDevops()
+        {
+            List<Developer> ListeDevops = new List<Developer>();
+            ListeDevops = Service.ListeDevops(Game);
+            return ListeDevops;
+        }
+
     }
 }

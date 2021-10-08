@@ -143,5 +143,28 @@ namespace ProjectCity.Client.Services
             }
         }
 
+        // fonction qui retourne une liste de developer, si il s'agit du premier tour de la parti le nombre de developer est mis en fonction du nombre de joueur 
+        public static List<Developer> ListeDevops(Game game)
+        {
+            List<Developer> ListeDevops = new List<Developer>();
+            int Tour = game.Turns.Count;
+            int NbTotal;
+
+            if (Tour == 0)
+            {
+                NbTotal = game.PlayerMax;
+                Server.Services.Service.GenerateDeveloper(NbTotal);
+            }
+            else
+            {
+                Random NbDev = new Random();
+                NbTotal = NbDev.Next(1, 4);
+
+                Server.Services.Service.GenerateDeveloper(NbTotal);
+            }
+            
+            return ListeDevops;
+        }
+
     }
 }
