@@ -90,7 +90,6 @@ namespace ProjectCity.VM
 
             StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
 
-
             try
             {
                 result = JsonConvert.DeserializeObject<T>(File.ReadAllText(storageFolder.Path + "\\" + filename));
@@ -99,7 +98,7 @@ namespace ProjectCity.VM
             {
                 throw ex;
             }
-            return result
+            return result;
         }
 
         public static T JsonObjectToObject<T>(string json, string jsonProperty)
