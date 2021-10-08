@@ -1,5 +1,4 @@
-{
-  "nameDeveloper":[
+[
     {
         "firstName": "Jacko",
         "lastName": "De Graaff"
@@ -321,5 +320,4 @@
         "firstName": "Volkan",
         "lastName": "Koylolu"
     }
-  ]
-}
+]

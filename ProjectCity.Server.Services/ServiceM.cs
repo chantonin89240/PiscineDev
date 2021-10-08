@@ -9,20 +9,65 @@ namespace ProjectCity.Server.Services
 {
     public static partial class Service
     {
-        public static void GenerateDeveloper(int numberDev)
+        #region GetData
+
+        /// <summary>
+        /// Récupère une liste de nom de developer à partir d'un fichier json
+        /// </summary>
+        /// <returns>Une liste qui contient des noms pour la génération des dévelopers</returns>
+        public static List<NameDeveloper> GetName()
+        {
+            return Serializer.FromJson<List<NameDeveloper>>("JSon/NameDeveloper.json");
+        }
+
+        /// <summary>
+        /// Génération de toutes les certifications possibles dans la game
+        /// </summary>
+        /// <returns>Une liste qui contient toutes les certifications possibles</returns>
+        public static List<Certification> GetCertifications()
+        {
+            //return Serializer.FromJson<List<Certification>>("../../../../ProjectCity.VM/JSon/Certification.json");
+
+            List<Level> levels = GetLevels();
+
+            List<Field> fields = GetFields();
+
+            List<Certification> certifications = new List<Certification>();
+
+            fields.ForEach(field =>
+            {
+                levels.ForEach(level =>
+                {
+                    certifications.Add(new Certification(certifications.Count + 1, level, field));
+                });
+            });
+
+            return certifications;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Génère des dévelopers aléatoirement
+        /// </summary>
+        /// <param name="numberDev">Nombre de developers à générer</param>
+        /// <returns></returns>
+        public static List<Developer> GenerateDeveloper(int numberDev)
         {
 
             List<Developer> developers = new List<Developer>();
 
             var rdn = new Random();
+
             var number = GetFields().Count +1;
-            var allName = GetName();
+
+            List<NameDeveloper> allName = GetName();
+
+            int numberOfName = allName.Count + 1;
 
             for (int i = 0; i < numberDev; i++)
             {
-                var numberOfName = GetName().Count + 1;
                 var random = rdn.Next(0, numberOfName);
-
 
                 var a = new Developer()
                 {
@@ -37,7 +82,9 @@ namespace ProjectCity.Server.Services
 
                 allName.RemoveAt(random);
             };
+            return developers;
         }
+
 
         public static List<NameDeveloper> GetName()
         {
@@ -57,6 +104,11 @@ namespace ProjectCity.Server.Services
             return allName;
         }
 
+        /// <summary>
+        /// Obtient des certfications aléatoire en fonction du field /un level max par certifications
+        /// </summary>
+        /// <param name="numberCertif">Nombre de certifications </param>
+        /// <returns>Une liste de certifications</returns>
         public static List<Certification> GenerateCertifications(int numberCertif)
         {
             List<Certification> certifications = new List<Certification>();
@@ -67,10 +119,6 @@ namespace ProjectCity.Server.Services
 
             for (int i = 0; i < numberCertif; i++)
             {
-                //var rednLevel = rdn.Next(1, GetLevels().Count);
-                //var rdnField = rdn.Next(1, GetCertifications().Count);
-                //certifications.Add(newCertification.First(certif => certif.Level.Niveau == rednLevel && certif.Field.Id == rdnField));
-
                 var newCertif = allCertif.ElementAt(rdn.Next(0, allCertif.Count));
                 allCertif.RemoveAll(certif => certif.Field.Id == newCertif.Field.Id);
 
@@ -79,6 +127,7 @@ namespace ProjectCity.Server.Services
             }
 
             return certifications;
+
         }
 
         //Ne servirait plus car le type de Cie est rentré par l'administrateur dans les fichiers de config
@@ -94,7 +143,8 @@ namespace ProjectCity.Server.Services
             return companyTypes;
         }
 
-        public static List<Certification> GetCertifications()
+        
+        public static List<Project> GetCertifications()
         {
             var allCertifJson = Serializer.FromJson<dynamic>("JSon/Certification.json");
 
@@ -120,6 +170,7 @@ namespace ProjectCity.Server.Services
             }
 
             return allCertif;
+        }
             //Level level1 = GetLevels().First(lvl => lvl.Id == 1);
             //Level level2 = GetLevels().First(lvl => lvl.Id == 2);
             //Level level3 = GetLevels().First(lvl => lvl.Id == 3);
@@ -154,9 +205,5 @@ namespace ProjectCity.Server.Services
 
             //};
 
-            //return certifications;
-        }
-
-        
     }
 }

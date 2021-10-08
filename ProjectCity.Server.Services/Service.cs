@@ -9,10 +9,7 @@ namespace ProjectCity.Server.Services
 {
     public static partial class Service
     {
-        static List<Level> levels = new List<Level>();
-        static List<Field> fields = new List<Field>();
-        static List<School> schools = new List<School>();
-        static List<Project> projects = new List<Project>();
+        
 
         public static List<Level> GetLevels()
         {
