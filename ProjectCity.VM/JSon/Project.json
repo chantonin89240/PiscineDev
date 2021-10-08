@@ -1,76 +1,83 @@
-{
-  "Projects": 
-  [
-    {
-      "isSuccessFull": false,
-      "Id": 1,
-      "Title": "Jeu de gestion",
-      "Duration": 10,
-      "Cost": 20000,
-      "Requirements" :
+[
+  {
+    "$id": "1",
+    "Id": 1,
+    "Title": "Jeu de gestion",
+    "Duration": 10,
+    "Cost": 20000.0,
+    "Start": 10,
+    "Members": [],
+    "Requirements": [
       {
+        "$id": "2",
         "Id": 1,
-        "Level": 
-        {
+        "Level": {
+          "$id": "3",
           "Id": 1,
           "Niveau": 1,
           "Description": "Novice"
         },
-
-        "Field": 
-        {
+        "Field": {
+          "$id": "4",
           "Id": 1,
           "Title": "C#"
         }
-      },
-    },
-
-    {
-      "isSuccessFull": false,
-      "Id": 1,
-      "Title": "Cablage",
-      "Duration": 10,
-      "Cost": 50000,
-      "Requirements" :
+      }
+    ],
+    "IsSuccessFul": false
+  },
+  {
+    "$id": "5",
+    "Id": 2,
+    "Title": "Intranet",
+    "Duration": 10,
+    "Cost": 20000.0,
+    "Start": 10,
+    "Members": [],
+    "Requirements": [
       {
+        "$id": "6",
         "Id": 1,
-        "Level": 
-        {
-          "Id": 4,
+        "Level": {
+          "$id": "7",
+          "Id": 1,
           "Niveau": 1,
           "Description": "Novice"
         },
-
-        "Field": 
-        {
-          "Id": 4,
-          "Title": "Cybersécurité#"
-        }
-      },
-    },
-
-    {
-      "isSuccessFull": false,
-      "Id": 1,
-      "Title": "Site WEB",
-      "Duration": 10,
-      "Cost": 20000,
-      "Requirements" :
-      {
-        "Id": 1,
-        "Level": 
-        {
-          "Id": 3,
-          "Niveau": 1,
-          "Description": "Novice"
-        },
-
-        "Field": 
-        {
-          "Id": 3,
+        "Field": {
+          "$id": "8",
+          "Id": 2,
           "Title": "PHP"
         }
-      },
-    },
-  ]
-}  
+      }
+    ],
+    "IsSuccessFul": false
+  },
+  {
+    "$id": "9",
+    "Id": 3,
+    "Title": "Installation réseau",
+    "Duration": 10,
+    "Cost": 20000.0,
+    "Start": 10,
+    "Members": [],
+    "Requirements": [
+      {
+        "$id": "10",
+        "Id": 1,
+        "Level": {
+          "$id": "11",
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+        "Field": {
+          "$id": "12",
+          "Id": 3,
+          "Title": "Cybersécurité"
+        }
+      }
+    ],
+    "IsSuccessFul": false
+  }
+]

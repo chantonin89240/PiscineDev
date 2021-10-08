@@ -1,6 +1,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ProjectCity.Client.Services;
 using ProjectCity.EntitiesShare;
+using ProjectCity.VM;
+using System.Collections.Generic;
 
 namespace ProjectCity.Server.Services.UnitTests
 {
@@ -10,7 +12,20 @@ namespace ProjectCity.Server.Services.UnitTests
         [TestMethod]
         public void TestGenerateProjects()
         {
-            Assert.IsTrue(Service.GenerateProjects().Count() > 0);
+            Assert.IsTrue(Service.GenerateProjects().Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGenerateTrainings()
+        {
+            Service.GenerateTraining();
+            Assert.IsTrue(Service.GetTraining().Count > 0);
+        }
+
+        [TestMethod]
+        public void TestGenerateEvents()
+        {
+            Assert.IsTrue(Service.GenerateEvents().Count > 0);
         }
     }
 }

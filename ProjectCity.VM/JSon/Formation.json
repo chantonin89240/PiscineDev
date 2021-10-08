@@ -1,35 +1,77 @@
-{
-    "Training": [
+[
+  {
+    "$id": "1",
+    "Id": 1,
+    "Title": "formation C#",
+    "Duration": 2,
+    "Price": 800.0,
+    "Capacity": 3,
+    "Certifications": [
       {
-        "Title": "formation PHP",
-        "Duration": 2,
-        "Price": 800,
-        "Capacity": 3
-      },
-      {
-        "Title": "formation PHP",
-        "Duration": 2,
-        "Price": 800,
-        "Capacity": 3
-      },
-      {
-        "Title": "formation PHP",
-        "Duration": 2,
-        "Price": 800,
-        "Capacity": 3
-      },
-      {
-        "Title": "formation PHP",
-        "Duration": 2,
-        "Price": 800,
-        "Capacity": 3
-      },
-      {
-        "Title": "formation PHP",
-        "Duration": 2,
-        "Price": 800,
-        "Capacity": 3
+        "$id": "2",
+        "Id": 1,
+        "Level": {
+          "$id": "3",
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+        "Field": {
+          "$id": "4",
+          "Id": 1,
+          "Title": "C#"
+        }
       }
     ]
-
-  } 
+  },
+  {
+    "$id": "5",
+    "Id": 2,
+    "Title": "formation PHP",
+    "Duration": 2,
+    "Price": 800.0,
+    "Capacity": 3,
+    "Certifications": [
+      {
+        "$id": "6",
+        "Id": 1,
+        "Level": {
+          "$id": "7",
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+        "Field": {
+          "$id": "8",
+          "Id": 2,
+          "Title": "PHP"
+        }
+      }
+    ]
+  },
+  {
+    "$id": "9",
+    "Id": 3,
+    "Title": "formation Cybersécurité",
+    "Duration": 2,
+    "Price": 800.0,
+    "Capacity": 3,
+    "Certifications": [
+      {
+        "$id": "10",
+        "Id": 1,
+        "Level": {
+          "$id": "11",
+          "Id": 1,
+          "Niveau": 1,
+          "Description": "Novice"
+        },
+        "Field": {
+          "$id": "12",
+          "Id": 3,
+          "Title": "Cybersécurité"
+        }
+      }
+    ]
+  }
+]
