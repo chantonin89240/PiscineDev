@@ -90,7 +90,7 @@ namespace ProjectCity.Client.Services
             try
             {
 
-                IPAddress ipAddress = IPAddress.Parse("172.16.30.14");
+                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");//172.16.30.14
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
                 // Create a TCP/IP  socket.  
@@ -116,9 +116,10 @@ namespace ProjectCity.Client.Services
                         }
                     });
                     t.Start();
-
+                    //sender.Send(Encoding.UTF8.GetBytes());
                     Console.WriteLine("Socket connected to {0}",
                         sender.RemoteEndPoint.ToString());
+                   
 
 
                 }

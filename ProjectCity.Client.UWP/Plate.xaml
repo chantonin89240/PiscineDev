@@ -19,10 +19,10 @@
             <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0" ItemsSource="{x:Bind Game.Players}">
+        <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0" ItemsSource="{x:Bind Game.Companies}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock x:Name="TxtPlayer1" Text="{Binding Pseudo}"></TextBlock>
+                    <TextBlock x:Name="TxtPlayer1" Text="{Binding Name}"></TextBlock>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
@@ -43,7 +43,7 @@
         <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Click="ButListDev_Click">Liste de mes DevOps</Button>
 
         <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,40">
-            <Run Text="{x:Bind Player.Pseudo}"></Run>
+            <Run Text="{x:Bind Company.Name}"></Run>
             <LineBreak/>
             <Run Text="argent :" ></Run>
             <Run Text="{x:Bind Company.Budget}"></Run>

@@ -73,6 +73,7 @@ namespace ProjectCity.Client.UWP
         private void btnValid_Click(object sender, RoutedEventArgs e) /////////////////////////////////////// UN THREAD
         {
             Company.Name = txbNom.Text;
+            Game.Companies.Add(Company);
             InitGame parameters = Service.SyncLoop(Game, Company);
 
             Frame.Navigate(typeof(Plate), parameters);
