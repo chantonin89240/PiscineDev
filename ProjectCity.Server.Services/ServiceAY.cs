@@ -12,7 +12,7 @@ namespace ProjectCity.Server.Services
 
         public static List<Project> GenerateProjects()
         {
-            projects = Serializer.FromJson<List<Project>>("../../../../ProjectCity.VM/JSon/Project.json");
+            var projects = Serializer.FromJson<List<Project>>("../../../../ProjectCity.VM/JSon/Project.json");
 
             return projects;
         }

@@ -5,6 +5,7 @@ using System.IO;
 using System.Text;
 using System.Text.Json;
 using Windows.Storage;
+using Windows.Storage;
 using FileAttributes = System.IO.FileAttributes;
 
 namespace ProjectCity.VM
@@ -38,23 +39,23 @@ namespace ProjectCity.VM
             }
         }
 
-        public static T FromJson<T>(string filename)
-        {
-            T result = default(T);
+        //public static T FromJson<T>(string filename)
+        //{
+        //    T result = default(T);
 
-            try
-            {
-                //deserialisation
-                //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
-                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    try
+        //    {
+        //        //deserialisation
+        //        //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
+        //        result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static void SaveUWP<T>(string filename, T objetASerialiser)
         {
@@ -66,6 +67,7 @@ namespace ProjectCity.VM
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore
                 };
                 string result = JsonConvert.SerializeObject(objetASerialiser, settings);
+
                 StorageFolder storageFolder =  ApplicationData.Current.LocalFolder;
                 File.WriteAllText(storageFolder.Path + "\\" + filename, result);
             }
@@ -78,6 +80,25 @@ namespace ProjectCity.VM
         public static string ObjectToJsonText<T>(T objetASerialiser)
         {
             return JsonConvert.SerializeObject(objetASerialiser);
+        }
+        
+
+        public static T FromJson<T>(string filename)
+        {
+
+            T result = default(T);
+
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+
+            try
+            {
+                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(storageFolder.Path + "\\" + filename));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
         }
 
         public static T JsonObjectToObject<T>(string json, string jsonProperty)
