@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -16,29 +17,14 @@ namespace ProjectCity.Client.Services
 {
     public static partial class Service
     {
-        public static List<Game> Games(string filename)
-        {
-            var dataGame = Serializer.FromJson<dynamic>(filename);
-            List<Game> games = new List<Game>();
-           
-            foreach (var game in dataGame.data.game)
-            {
-                CompanyType compType = new CompanyType(          
-                    (int)game.companyType.id,
-                    (string)game.companyType.title,
-                    (int)game.companyType.salariesLimite
-                );
 
-                games.Add(new Game(
-                    (int)game.id,
-                    (int)game.playerMax,
-                    (int)game.turnMax,
-                    (int)game.startBudget,
-                    compType
-                    ));
-            
-            }
-            return games;
+        public static Socket sender { get; set; }
+        public static List<Game> Initial { get; set; }
+
+
+        public static List<Game> Games()
+        {
+            return Initial;
         }
 
         public static void SetGame(Game game)
@@ -84,42 +70,48 @@ namespace ProjectCity.Client.Services
         public static void StartClient()
         {
             // Data buffer for incoming data.  
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[4096];
+            
 
             // Connect to a remote device.  
             try
             {
 
-                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");//172.16.30.14
+                IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
                 // Create a TCP/IP  socket.  
-                Socket sender = new Socket(ipAddress.AddressFamily,
+                sender = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 try
                 {
                     sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
 
+                    // Receive the response from the remote device.  
+                    int bytesRec = sender.Receive(bytes);
+                    string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+
+                    JsonDocument document = JsonDocument.Parse(msgServer);
+                    JsonElement root = document.RootElement;
+                    JsonElement dataElement = root.GetProperty("data");
+                    JsonElement gamesElement = dataElement.GetProperty("game");
+
+                    Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement.ToString());
 
                     var t = new Thread(() =>
                     {
                         while (true)
                         {
-                            // Receive the response from the remote device.  
-                            int bytesRec = sender.Receive(bytes);
-                            Console.WriteLine("Echo test = {0}",
-                                Encoding.UTF8.GetString(bytes, 0, bytesRec));
-
+                            
 
                             // Appel Dispatcher
                         }
                     });
                     t.Start();
-                    //sender.Send(Encoding.UTF8.GetBytes());
+
                     Console.WriteLine("Socket connected to {0}",
                         sender.RemoteEndPoint.ToString());
-                   
 
 
                 }
@@ -143,5 +135,13 @@ namespace ProjectCity.Client.Services
             }
         }
 
+        public static void SendToServer(String data)
+        {
+            byte[] bytes = new Byte[4096];
+
+            bytes = System.Text.Encoding.UTF8.GetBytes(data);
+
+            sender.Send(bytes);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace ProjectCity.Server.Services
@@ -15,38 +16,58 @@ namespace ProjectCity.Server.Services
 
         public static List<Level> GetLevels()
         {
-            levels.AddRange(new List<Level>{
-                new Level(1,1,"Novice"),
-                new Level(2,3,"Intermediate"),
-                new Level(3,3,"Confirmed")
-                });
-
-            return levels;
+            return Serializer.FromJson<List<Level>>(@"../../../../ProjectCity.VM/JSon/Level.json"); 
         }
 
         public static List<Field> GetFields()
         {
-            fields.AddRange(new List<Field>{
-                new Field(1,"C#"),
-                new Field(2,"SqlServer"),
-                new Field(3,"PHP"),
-                new Field(4,"Cybersécurité"),
-                new Field(5,"PowerShell"),
-                new Field(6,"JavaScript"),
-                });
-
-            return fields;
+            return Serializer.FromJson<List<Field>>(@"../../../../ProjectCity.VM/JSon/Field.json");
         }
 
         public static List<School> GetSchools()
         {
-            schools.AddRange(new List<School>{
-                new School("DIIAGE"),
-                new School("Université"),
-                new School("WebForce2048")
-                });
-
-            return schools;
+            return Serializer.FromJson<List<School>>(@"../../../../ProjectCity.VM/JSon/School.json");
         }
+
+        //public List<Project> GenerateProjects()
+        //{
+        //    List<string> projectTitles = new List<string>();
+        //    List<int> projectCosts = new List<int>() { 
+        //        20000,
+        //        50000,
+        //        75000,
+        //        100000,
+        //        150000,
+        //        200000,
+        //        500000,
+        //        };
+
+        //    var duration = new Random();
+        //    duration.Next(1, 4);
+
+        //    projects.Add(
+        //        new Project()
+        //    );
+
+
+        //    return projects;
+        //}
+
+        public static List<T> RandomSelect<T>(List<T> list, int nbWanted)
+        {
+            List<T> listSelect = new List<T>();
+
+            Random rnd = new Random();
+            for (int i = 0; i < nbWanted; i++)
+            {
+                T selection = list.ElementAt(rnd.Next(0, list.Count));
+                listSelect.Add(selection);
+                list.Remove(selection);
+            }
+
+            return listSelect;
+        }
+
+
     }
 }

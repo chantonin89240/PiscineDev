@@ -29,7 +29,7 @@ namespace ProjectCity.Client.Services.UnitTests
         [TestMethod]
         public void TestGames()
         {
-            Assert.IsTrue(Service.Games("JSon/Data.json").Count > 0);
+            Assert.IsTrue(Service.Games().Count > 0);
         }
 
         [TestMethod]
@@ -50,6 +50,15 @@ namespace ProjectCity.Client.Services.UnitTests
             company.StaffMembers.Add(staff);
 
             Assert.IsTrue(Service.UpdateDevops(company) == "1");
+        }
+        
+
+         [TestMethod]
+        public void TestConnectServer()
+        {
+            Service.StartClient();
+
+            Assert.IsTrue(Service.Games().Count==3);
         }
 
     }

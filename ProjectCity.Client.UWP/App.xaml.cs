@@ -16,6 +16,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Windows.Storage;
 using Newtonsoft.Json;
+using ProjectCity.Client.Services;
+using ProjectCity.VM;
 
 namespace ProjectCity.Client.UWP
 {
@@ -27,6 +29,9 @@ namespace ProjectCity.Client.UWP
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().
+        ///  public static InitGame initial = new InitGame();
+        
+        public static InitGame Initial { get; set; }
         /// </summary>
         public App()
         {
@@ -73,6 +78,8 @@ namespace ProjectCity.Client.UWP
                 // Vérifiez que la fenêtre actuelle est active
                 Window.Current.Activate();
             }
+
+            
         }
 
         /// <summary>
