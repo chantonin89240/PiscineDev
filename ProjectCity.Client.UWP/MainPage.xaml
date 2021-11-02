@@ -74,6 +74,5 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock x:Name="textRServ" HorizontalAlignment="Left" Height="60" Margin="95,0,0,0" Grid.Row="3" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="506"/>
     </Grid>
 </Page>
