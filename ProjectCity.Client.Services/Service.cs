@@ -154,14 +154,14 @@ namespace ProjectCity.Client.Services
             if (Tour == 0)
             {
                 NbTotal = game.PlayerMax;
-                Server.Services.Service.GenerateDeveloper(NbTotal);
+                ListeDevops = Server.Services.Service.GenerateDeveloper(NbTotal);
             }
             else
             {
                 Random NbDev = new Random();
                 NbTotal = NbDev.Next(1, 4);
 
-                Server.Services.Service.GenerateDeveloper(NbTotal);
+                ListeDevops = Server.Services.Service.GenerateDeveloper(NbTotal);
             }
             
             return ListeDevops;
