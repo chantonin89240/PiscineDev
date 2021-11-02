@@ -38,9 +38,9 @@ namespace ProjectCity.Client.UWP
         {
             var init = (InitGame)e.Parameter;
             Game = init.Game;
-            //Player = init.Player;
-            //Company = init.Company;
-            //lstPlayers = init.lstPlayers;
+            Player = init.Player;
+            Company = init.Company;
+            lstPlayers = init.lstPlayers;
 
         }
 
