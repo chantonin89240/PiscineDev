@@ -1,0 +1,218 @@
+[
+    {
+      "Id": 1,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 1,
+        "Title": "C#"
+      }
+    },
+    {
+      "Id": 2,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 2,
+        "Title": "SqlServer"
+      }
+    },
+    {
+      "Id": 3,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 3,
+        "Title": "PHP"
+      }
+    },
+    {
+      "Id": 4,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 4,
+        "Title": "Cybersécurité"
+      }
+    },
+    {
+      "Id": 5,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 5,
+        "Title": "PowerShell"
+      }
+    },
+    {
+      "Id": 6,
+      "Level": {
+        "Id": 1,
+        "Niveau": 1,
+        "Description": "Novice"
+      },
+      "Field": {
+        "Id": 6,
+        "Title": "JavaScript"
+      }
+    },
+    {
+      "Id": 7,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 1,
+        "Title": "C#"
+      }
+    },
+    {
+      "Id": 8,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 2,
+        "Title": "SqlServer"
+      }
+    },
+    {
+      "Id": 9,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 3,
+        "Title": "PHP"
+      }
+    },
+    {
+      "Id": 10,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 4,
+        "Title": "Cybersécurité"
+      }
+    },
+    {
+      "Id": 11,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 5,
+        "Title": "PowerShell"
+      }
+    },
+    {
+      "Id": 12,
+      "Level": {
+        "Id": 2,
+        "Niveau": 3,
+        "Description": "Intermediate"
+      },
+      "Field": {
+        "Id": 6,
+        "Title": "JavaScript"
+      }
+    },
+    {
+      "Id": 13,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 1,
+        "Title": "C#"
+      }
+    },
+    {
+      "Id": 14,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 2,
+        "Title": "SqlServer"
+      }
+    },
+    {
+      "Id": 15,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 3,
+        "Title": "PHP"
+      }
+    },
+    {
+      "Id": 16,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 4,
+        "Title": "Cybersécurité"
+      }
+    },
+    {
+      "Id": 17,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 5,
+        "Title": "PowerShell"
+      }
+    },
+    {
+      "Id": 18,
+      "Level": {
+        "Id": 3,
+        "Niveau": 3,
+        "Description": "Confirmed"
+      },
+      "Field": {
+        "Id": 6,
+        "Title": "JavaScript"
+      }
+    }
+  ]

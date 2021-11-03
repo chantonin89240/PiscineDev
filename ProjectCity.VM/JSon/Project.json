@@ -1,83 +1,85 @@
-[
-  {
-    "$id": "1",
-    "Id": 1,
-    "Title": "Jeu de gestion",
-    "Duration": 10,
-    "Cost": 20000.0,
-    "Start": 10,
-    "Members": [],
-    "Requirements": [
-      {
-        "$id": "2",
-        "Id": 1,
-        "Level": {
-          "$id": "3",
+{
+  "Project": [
+    {
+      "$id": "1",
+      "Id": 1,
+      "Title": "Jeu de gestion",
+      "Duration": 10,
+      "Cost": 20000.0,
+      "Start": 10,
+      "Members": [],
+      "Requirements": [
+        {
+          "$id": "2",
           "Id": 1,
-          "Niveau": 1,
-          "Description": "Novice"
-        },
-        "Field": {
-          "$id": "4",
-          "Id": 1,
-          "Title": "C#"
+          "Level": {
+            "$id": "3",
+            "Id": 1,
+            "Niveau": 1,
+            "Description": "Novice"
+          },
+          "Field": {
+            "$id": "4",
+            "Id": 1,
+            "Title": "C#"
+          }
         }
-      }
-    ],
-    "IsSuccessFul": false
-  },
-  {
-    "$id": "5",
-    "Id": 2,
-    "Title": "Intranet",
-    "Duration": 10,
-    "Cost": 20000.0,
-    "Start": 10,
-    "Members": [],
-    "Requirements": [
-      {
-        "$id": "6",
-        "Id": 1,
-        "Level": {
-          "$id": "7",
+      ],
+      "IsSuccessFul": false
+    },
+    {
+      "$id": "5",
+      "Id": 2,
+      "Title": "Intranet",
+      "Duration": 10,
+      "Cost": 20000.0,
+      "Start": 10,
+      "Members": [],
+      "Requirements": [
+        {
+          "$id": "6",
           "Id": 1,
-          "Niveau": 1,
-          "Description": "Novice"
-        },
-        "Field": {
-          "$id": "8",
-          "Id": 2,
-          "Title": "PHP"
+          "Level": {
+            "$id": "7",
+            "Id": 1,
+            "Niveau": 1,
+            "Description": "Novice"
+          },
+          "Field": {
+            "$id": "8",
+            "Id": 2,
+            "Title": "PHP"
+          }
         }
-      }
-    ],
-    "IsSuccessFul": false
-  },
-  {
-    "$id": "9",
-    "Id": 3,
-    "Title": "Installation réseau",
-    "Duration": 10,
-    "Cost": 20000.0,
-    "Start": 10,
-    "Members": [],
-    "Requirements": [
-      {
-        "$id": "10",
-        "Id": 1,
-        "Level": {
-          "$id": "11",
+      ],
+      "IsSuccessFul": false
+    },
+    {
+      "$id": "9",
+      "Id": 3,
+      "Title": "Installation réseau",
+      "Duration": 10,
+      "Cost": 20000.0,
+      "Start": 10,
+      "Members": [],
+      "Requirements": [
+        {
+          "$id": "10",
           "Id": 1,
-          "Niveau": 1,
-          "Description": "Novice"
-        },
-        "Field": {
-          "$id": "12",
-          "Id": 3,
-          "Title": "Cybersécurité"
+          "Level": {
+            "$id": "11",
+            "Id": 1,
+            "Niveau": 1,
+            "Description": "Novice"
+          },
+          "Field": {
+            "$id": "12",
+            "Id": 3,
+            "Title": "Cybersécurité"
+          }
         }
-      }
-    ],
-    "IsSuccessFul": false
-  }
-]
+      ],
+      "IsSuccessFul": false
+    }
+  ]
+}

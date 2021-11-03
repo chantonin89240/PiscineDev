@@ -23,6 +23,8 @@ namespace ProjectCity.Server.Core
 
         public static List<Game> Initial { get; set; }
 
+
+        // Implémentation du serveur
         public static void StartListening()
         {
             
@@ -30,12 +32,12 @@ namespace ProjectCity.Server.Core
 
             // Establish the local endpoint for the socket.  
             // Dns.GetHostName returns the name of the
-            // host running the application.  
+            // host running the application.
             IPHostEntry ipHostInfo = Dns.GetHostEntry(Dns.GetHostName());
             IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, 1000);
 
-            // Create a TCP/IP socket.  
+            // Creation d'une socket TCP/IP d'écoute
             Socket listener = new Socket(ipAddress.AddressFamily,
                 SocketType.Stream, ProtocolType.Tcp);
 
@@ -60,8 +62,8 @@ namespace ProjectCity.Server.Core
                     //handler.Send(System.Text.Encoding.UTF8.GetBytes("Client IP : "+ clientIP + ", N° : "+ nbClients));
                     StreamReader r = new StreamReader("../../../../ProjectCity.VM/JSon/Data.json");
                     string json = r.ReadToEnd();
-                    byte[] msg = System.Text.Encoding.UTF8.GetBytes(json); //conversion string en tableau
-                    int size = handler.Send(msg);
+                    bytes = System.Text.Encoding.UTF8.GetBytes(json); //conversion string en tableau
+                    int size = handler.Send(bytes);
                     if (size == 0) break;
                     //Console.WriteLine(">>" + json);
 

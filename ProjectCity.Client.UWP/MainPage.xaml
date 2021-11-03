@@ -32,6 +32,8 @@
                     </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
+            
+            
 
             <ListView.HeaderTemplate>
                 <DataTemplate>
@@ -43,9 +45,9 @@
                             <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
-                        <!--<Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">-->
+                        <Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">
                         <TextBlock Text="Partie" Foreground="black"  HorizontalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
-                        <!--</Border>-->
+                        </Border>
                         <TextBlock Grid.Column="1" Text="Joueurs Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold" />
                         <TextBlock Grid.Column="2" Text="Tours Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
                         <TextBlock Grid.Column="3" Text="Capital de départ" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
@@ -65,8 +67,6 @@
                             <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Grid.Column="0" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding Id}"/>
-
-
                         <TextBlock Grid.Column="1" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding PlayerMax}" />
                         <TextBlock Grid.Column="2" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding TurnMax}"/>
                         <TextBlock Grid.Column="3" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding StartBudget}"/>
@@ -74,6 +74,25 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock x:Name="textRServ" HorizontalAlignment="Left" Height="60" Margin="95,0,0,0" Grid.Row="3" Text="TextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Width="506"/>
+
+        <!--<ListView x:Name="lvGame" ItemsSource="{x:Bind LstGame}" Grid.Column="0"  Margin="10,0,10,0" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Height="48" AutomationProperties.Name="{Binding Id}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="20*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding Id}"/>
+                        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding PlayerMax}" />
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding TurnMax}"/>
+                        <TextBlock Grid.Column="3" HorizontalAlignment="Center" Foreground="black" VerticalAlignment="Center" Text="{Binding StartBudget}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView> -->
     </Grid>
 </Page>

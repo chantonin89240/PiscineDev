@@ -29,6 +29,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Client.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Services.UnitTests", "ProjectCity.Server.Services.UnitTests\ProjectCity.Server.Services.UnitTests.csproj", "{4F8CC411-6378-44B4-99A2-C59D831B7EBA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{434C7AAD-0830-493E-967B-F5728CF56978}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -229,6 +231,26 @@ Global
 		{4F8CC411-6378-44B4-99A2-C59D831B7EBA}.Release|x64.Build.0 = Release|Any CPU
 		{4F8CC411-6378-44B4-99A2-C59D831B7EBA}.Release|x86.ActiveCfg = Release|Any CPU
 		{4F8CC411-6378-44B4-99A2-C59D831B7EBA}.Release|x86.Build.0 = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|ARM.Build.0 = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|x64.Build.0 = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Debug|x86.Build.0 = Debug|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|ARM.ActiveCfg = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|ARM.Build.0 = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|ARM64.Build.0 = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|x64.ActiveCfg = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|x64.Build.0 = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|x86.ActiveCfg = Release|Any CPU
+		{434C7AAD-0830-493E-967B-F5728CF56978}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

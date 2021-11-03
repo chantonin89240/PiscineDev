@@ -4,6 +4,7 @@ using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Sockets;
 using System.Reflection;
@@ -32,18 +33,22 @@ namespace ProjectCity.Client.Services
             Serializer.SaveUWP("server.json", game); 
         }
 
-        public static InitGame SyncLoop(Game game, Company company)
+        public static InitGame SyncLoop(Game game)
         {
             InitGame parameters = new InitGame();
             int loop = 0;
             if (game != null)
             {
+                Company companyPlayer2 = new Company();
+
                 while (game.Players.Count < game.PlayerMax)
                 {
                     // ici on ajoute les joueurs via le server
-                    if (loop == 3)
+                    if (loop == 2)
                     {
                         game.Players.Add(new Player(2, "Anto", "Dec", "pseudo2"));
+                        companyPlayer2.CompanyType = game.CompanyType;
+                        companyPlayer2.Name = companyPlayer2.CompanyType.Title + " de "  + game.Players.First(p => p.Id == 2).Pseudo;
                     }
 
                     //Game = Service.Games("JSon/server.json").Find(g => g.Id == Game.Id);                   
@@ -52,7 +57,7 @@ namespace ProjectCity.Client.Services
                     loop++;
                 }
                 parameters.Game = game;
-                parameters.Game.Companies.Add(company);
+                parameters.Game.Companies.Add(companyPlayer2);
 
             }
 
@@ -63,8 +68,7 @@ namespace ProjectCity.Client.Services
         public static string UpdateDevops(Company company)
         {
             int total = company.StaffMembers.Count;
-            string devops = total.ToString();
-            return devops = total.ToString();
+            return total.ToString();
         }
          
         public static void StartClient()
@@ -76,31 +80,30 @@ namespace ProjectCity.Client.Services
             // Connect to a remote device.  
             try
             {
-
+                // Socket IP + port serveur
                 IPAddress ipAddress = IPAddress.Parse("127.0.0.1");
                 IPEndPoint remoteEP = new IPEndPoint(ipAddress, 1000);
 
-                // Create a TCP/IP  socket.  
+                // Creation d'une socket TCP/IP
                 sender = new Socket(ipAddress.AddressFamily,
                     SocketType.Stream, ProtocolType.Tcp);
 
                 try
                 {
-                    sender.Connect(ipAddress, 1000);/////////////////////////////////////////////   UN THREAD
+                    //Demande de connection au serveur distant
+                    sender.Connect(ipAddress, 1000);
 
-                    // Receive the response from the remote device.  
+                    // Réception d'une réponse serveur distant  
                     int bytesRec = sender.Receive(bytes);
                     string msgServer = Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
-                    JsonDocument document = JsonDocument.Parse(msgServer);
-                    JsonElement root = document.RootElement;
-                    JsonElement dataElement = root.GetProperty("data");
-                    JsonElement gamesElement = dataElement.GetProperty("game");
+                    // Déserialisation de la réponse et conversion en objet
+                    Initial = Serializer.JsonObjectToObject<List<Game>>(msgServer, "Game");
 
-                    Initial = JsonConvert.DeserializeObject<List<Game>>(gamesElement.ToString());
-
+                    // Instanciation d'un thread d'écoute 
                     var t = new Thread(() =>
                     {
+                        // boucle infini qui conserve la connection au serveur
                         while (true)
                         {
                             
@@ -135,16 +138,20 @@ namespace ProjectCity.Client.Services
             }
         }
 
+
+        // Fonction d'envoi au serveur appellée coté client à chaque événement client le nécessitant
         public static void SendToServer(String data)
         {
+            // instanciation d'un buffer ou tampon mémoire
             byte[] bytes = new Byte[4096];
 
             bytes = System.Text.Encoding.UTF8.GetBytes(data);
 
+            // Envoi du message
             sender.Send(bytes);
         }
 
-        // fonction qui retourne une liste de developer, si il s'agit du premier tour de la parti le nombre de developer est mis en fonction du nombre de joueur 
+        // Fonction qui retourne une liste de developer, si il s'agit du premier tour de la parti le nombre de developer est mis en fonction du nombre de joueur 
         public static List<Developer> ListeDevops(Game game)
         {
             List<Developer> ListeDevops = new List<Developer>();

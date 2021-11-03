@@ -28,7 +28,9 @@ namespace ProjectCity.Client.UWP
         public Game Game { get; set; }
         public Player Player { get; set; }
         public List<Player> lstPlayers { get; set; }
-        public Company Company { get; set; }
+        //public Company company { get; set; }
+
+        public InitGame initGame { get; set; }
 
         public Plate()
         {
@@ -37,11 +39,11 @@ namespace ProjectCity.Client.UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            var init = (InitGame)e.Parameter;
-            Game = init.Game;
+            initGame = (InitGame)e.Parameter;
+            Game = initGame.Game;
             //Player = init.Game.Players;
             //Company = init.Companies;
-            lstPlayers = init.Game.Players;
+            lstPlayers = initGame.Game.Players.Count != 0 ? initGame.Game.Players : lstPlayers;
 
         }
 
@@ -59,8 +61,7 @@ namespace ProjectCity.Client.UWP
         // méthode qui maj le nombre de devops recruter
         public string UpPlateDevops()
         {
-            string Devops = Service.UpdateDevops(Company);
-            return Devops;
+            return Service.UpdateDevops(initGame.Game.Companies.Find(p => p.Player.Id == initGame.IdPlayer));
         }
 
         // méthode qui retourne le dernier tour 

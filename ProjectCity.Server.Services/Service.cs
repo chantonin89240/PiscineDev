@@ -2,6 +2,7 @@
 using ProjectCity.VM;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -9,21 +10,40 @@ namespace ProjectCity.Server.Services
 {
     public static partial class Service
     {
-        
+        public static string GetPathRootProject()
+        {
+            string filePath = Directory.GetCurrentDirectory();
+            string directoryName = "";
+            int i = 0;
+
+            while (filePath != @"C:\Users\Twenty\Source\Repos\PiscineDev2")
+            {
+                directoryName = Path.GetDirectoryName(filePath);
+                filePath = directoryName;
+                if (i == 1)
+                {
+                    filePath = directoryName + @"\";  // this will preserve the previous path
+
+                }
+                i++;
+            }
+
+            return directoryName+@"\";
+        }
 
         public static List<Level> GetLevels()
         {
-            return Serializer.FromJson<List<Level>>("JSon/Level.json"); 
+            return Serializer.FromJson<List<Level>>(GetPathRootProject() + "Json/Level.json"); 
         }
 
         public static List<Field> GetFields()
         {
-            return Serializer.FromJson<List<Field>>("JSon/Field.json");
+            return Serializer.FromJson<List<Field>>(GetPathRootProject() + "Json/Field.json");
         }
 
         public static List<School> GetSchools()
         {
-            return Serializer.FromJson<List<School>>("JSon/School.json");
+            return Serializer.FromJson<List<School>>(GetPathRootProject() + "Json/School.json");
         }
 
         //public List<Project> GenerateProjects()

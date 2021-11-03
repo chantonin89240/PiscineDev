@@ -28,10 +28,10 @@ namespace ProjectCity.Client.UWP
     public sealed partial class WaitGame : Page
     {
         public Game Game = new Game();
-        public Player Player { get; set; }
-        public List<Player> Players { get; set; }
-        public Company Company = new Company();
-
+        //public Player Player { get; set; }
+        //public List<Player> Players { get; set; }
+        public Company company = new Company();
+        public InitGame initGame = new InitGame();
 
 
         public WaitGame()
@@ -41,24 +41,14 @@ namespace ProjectCity.Client.UWP
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            InitGame initGame = (InitGame)e.Parameter;
+            initGame = (InitGame)e.Parameter;
 
             Game = initGame.Game;
-            //Player = initGame.Game.Players.First(Player => Player.Id == );
 
-            foreach (Player p in Game.Players)
-            {
-                Players.Add(p);
-            }
+            company.CompanyType = (CompanyType)Game.CompanyType;
+            company.Name = company.CompanyType.Title + " de " + Game.Players.Find(player => player.Id == initGame.IdPlayer).Pseudo;
 
-            Game.Players.Add(Player);
-
-            Company = new Company();
-            Company.CompanyType = (CompanyType)Game.CompanyType;
-            Company.Name = Company.CompanyType.Title + " de " + Player.Pseudo;
-            txbNom.Text = Company.Name;
-            Company.Player = Player;
-
+            txbNom.Text = company.Name;
             txtNbJoueur.Text = Game.Players.Count() + "/" + Game.PlayerMax + " joueur(s) en attente";
 
             Service.SetGame(Game);
@@ -66,20 +56,18 @@ namespace ProjectCity.Client.UWP
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
-            Game.Players.Remove(Game.Players.Find(player => player.Id == Player.Id));
+            Game.Players.Remove(Game.Players.Find(player => player.Id == initGame.IdPlayer));
             Frame.GoBack();
         }
 
         private void btnValid_Click(object sender, RoutedEventArgs e) /////////////////////////////////////// UN THREAD
         {
-            Company.Name = txbNom.Text;
-            Game.Companies.Add(Company);
-            InitGame parameters = Service.SyncLoop(Game, Company);
-
-            //DataGame data = Service.SyncLoop(Game, Company);
-
+            company.Name = txbNom.Text;
+            company.Player = Game.Players.First(p => p.Id == initGame.IdPlayer); /// gestion id player
+            Game.Companies.Add(company);
+            // a modifier initgame a la place game et company
+            InitGame parameters = Service.SyncLoop(Game);
             Service.SendToServer(Serializer.ObjectToJsonText(parameters));  // parameters a changer
-
             Frame.Navigate(typeof(Plate), parameters);
         }
     }

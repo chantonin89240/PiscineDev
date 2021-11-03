@@ -43,10 +43,10 @@
         <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Click="ButListDev_Click">Liste de mes DevOps</Button>
 
         <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,40">
-            <Run Text="{x:Bind Company.Name}"></Run>
+            <Run Text="{x:Bind initGame.Game.Companies[0].Name}"></Run>
             <LineBreak/>
             <Run Text="argent :" ></Run>
-            <Run Text="{x:Bind Company.Budget}"></Run>
+            <Run Text="{x:Bind initGame.Game.Companies[0].Budget}"></Run>
             <Run Text="€"></Run>
         </TextBlock>
 
@@ -57,7 +57,7 @@
             <Run Text="{x:Bind UpPlateProjet()}"></Run>
             <LineBreak/>
             <Run Text="DevOps recruter :"></Run>
-            <Run Text="{x:Bind UpPlateDevops()}"></Run>
+            <!--<Run Text="{x:Bind UpPlateDevops()}"></Run>-->
         </TextBlock>
 
     </Grid>
