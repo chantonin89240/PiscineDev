@@ -26,6 +26,15 @@
             <Button x:Name="btnValid" Content="Valider" VerticalAlignment="center" HorizontalAlignment="center" FontSize="50" Click="btnValid_Click" Margin="0,15,0,0"/>
         </StackPanel>
         
+        <ListView x:Name="lvJoueurs" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left" VerticalAlignment="center" ItemsSource="{x:Bind Game.Players}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Pseudo}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
         <Button x:Name="btnQuit" Grid.Row="2" Grid.Column="1" Content="Quitter" VerticalAlignment="center" HorizontalAlignment="center" FontSize="50" Click="btnQuit_Click"/>
 
     </Grid>

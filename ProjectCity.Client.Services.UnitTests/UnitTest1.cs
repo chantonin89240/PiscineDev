@@ -37,8 +37,9 @@ namespace ProjectCity.Client.Services.UnitTests
         {
             Game game = new Game(1, 1, 1, 1, new CompanyType(1, "test", 1));
             game.Players.Add(new Player(1, "test", "test", "test"));
+            Company company = new Company();
 
-            Assert.IsTrue(Service.SyncLoop(game).GetType() == new InitGame().GetType());
+            Assert.IsTrue(Service.SyncLoop(game, company).GetType() == new InitGame().GetType());
         }
 
         [TestMethod]
