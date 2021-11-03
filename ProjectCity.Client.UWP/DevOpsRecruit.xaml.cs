@@ -85,5 +85,6 @@ namespace ProjectCity.Client.UWP
 
             ContentDialogResult result = await noWifiDialog.ShowAsync();
         }
+
     }
 }
