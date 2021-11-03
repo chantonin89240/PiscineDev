@@ -19,7 +19,6 @@ namespace ProjectCity.Server.Core
         public static Socket handler { get; set; }
 
         // Incoming data from the client.  
-        public static string data = null;
 
         public static List<Game> Initial { get; set; }
 
@@ -70,8 +69,6 @@ namespace ProjectCity.Server.Core
 
                     Thread Tc = new Thread(Communication);
                     Tc.Start(cc);
-
-                    data = null;       
                 }
 
             }
@@ -190,7 +187,7 @@ namespace ProjectCity.Server.Core
                 /////// ENVOI MISE A JOUR coté server Gestion TOUR PAR TOUR
 
                 int bytesRec = handler.Receive(bytes);
-                data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
+                string data = Encoding.UTF8.GetString(bytes, 0, bytesRec);
 
                 Console.WriteLine(data);
                 //int bytesRec = handler.Receive(bytes);

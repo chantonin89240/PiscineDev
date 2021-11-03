@@ -68,10 +68,22 @@ namespace ProjectCity.Client.UWP
         // méthode qui récupére des devops est les affiche
         public List<Developer> ListeDevops()
         {
-            List<Developer> ListeDevops = new List<Developer>();
-            ListeDevops = Service.ListeDevops(Game);
-            return ListeDevops;
+            return Service.ListeDevops(Game);
         }
 
+        private async void TextBlock_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+
+#pragma warning disable UWP003 // UWP-only
+            ContentDialog noWifiDialog = new ContentDialog
+            {
+                Title = "Information Devops : ",
+                Content = "",
+                CloseButtonText = "Ok"
+            };
+#pragma warning restore UWP003 // UWP-only
+
+            ContentDialogResult result = await noWifiDialog.ShowAsync();
+        }
     }
 }

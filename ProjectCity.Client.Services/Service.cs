@@ -29,7 +29,7 @@ namespace ProjectCity.Client.Services
 
         public static void SetGame(Game game)
         {
-            Serializer.SaveUWP("server.json", game); 
+            Serializer.SaveUWP("server.json", game);
         }
 
         public static InitGame SyncLoop(Game game, Company company)
@@ -48,11 +48,11 @@ namespace ProjectCity.Client.Services
 
                     //Game = Service.Games("JSon/server.json").Find(g => g.Id == Game.Id);                   
                     System.Threading.Thread.Sleep(1000);
-                
+
                     loop++;
                 }
                 parameters.Game = game;
-                parameters.Game.Companies.Add(company);
+                parameters.Company = company;
 
             }
 
@@ -66,12 +66,12 @@ namespace ProjectCity.Client.Services
             string devops = total.ToString();
             return devops = total.ToString();
         }
-         
+
         public static void StartClient()
         {
             // Data buffer for incoming data.  
             byte[] bytes = new byte[4096];
-            
+
 
             // Connect to a remote device.  
             try
@@ -103,7 +103,7 @@ namespace ProjectCity.Client.Services
                     {
                         while (true)
                         {
-                            
+
 
                             // Appel Dispatcher
                         }
@@ -147,24 +147,25 @@ namespace ProjectCity.Client.Services
         // fonction qui retourne une liste de developer, si il s'agit du premier tour de la parti le nombre de developer est mis en fonction du nombre de joueur 
         public static List<Developer> ListeDevops(Game game)
         {
-            List<Developer> ListeDevops = new List<Developer>();
-            int Tour = game.Turns.Count;
+
+
             int NbTotal;
 
-            if (Tour == 0)
+            if (game.Turns.Count == 0)
             {
                 NbTotal = game.PlayerMax;
-                Server.Services.Service.GenerateDeveloper(NbTotal);
+
             }
             else
             {
                 Random NbDev = new Random();
                 NbTotal = NbDev.Next(1, 4);
 
-                Server.Services.Service.GenerateDeveloper(NbTotal);
+
             }
-            
-            return ListeDevops;
+            return Server.Services.Service.GenerateDeveloper(NbTotal);
+
+
         }
 
     }
