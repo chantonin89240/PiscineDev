@@ -23,7 +23,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock>
+                        <TextBlock DoubleTapped="TextBlock_DoubleTapped">
                             <Run Text="{Binding FirstName }"></Run>
                             <Run Text="{Binding LastName }"></Run>
                         </TextBlock>
@@ -39,6 +39,7 @@
 
         <Button x:Name="ButGoBAckRescuit" Grid.Row="0" Grid.Column="2" Click="ButGoBAck_Click" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,40,40,0">retour</Button>
 
+        <Button x:Name="ButRescuitDevops" Grid.Row="1" Grid.Column="1" HorizontalAlignment="center" VerticalAlignment="Top">recruter Devops</Button>
 
         <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,40">
             <Run Text="{x:Bind Player.Pseudo}"></Run>
@@ -47,6 +48,6 @@
             <Run Text="{x:Bind Company.Budget}"></Run>
             <Run Text="€"></Run>
         </TextBlock>
-        
+
     </Grid>
 </Page>
