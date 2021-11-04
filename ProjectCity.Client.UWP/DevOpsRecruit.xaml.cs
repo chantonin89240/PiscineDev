@@ -55,11 +55,12 @@ namespace ProjectCity.Client.UWP
             string total;
             if (TourSup == 0)
             {
-                total = "0";
+                total = "1";
             }
             else
             {
                 int tours = Game.Turns.Max().Id;
+                tours += 1;
                 total = tours.ToString();
             }
             return total;

@@ -71,11 +71,12 @@ namespace ProjectCity.Client.UWP
             string total;
             if(TourSup == 0)
             {
-                total = "0";
+                total = "1";
             }
             else
             {
                 int tours = Game.Turns.Max().Id;
+                tours += 1;
                 total = tours.ToString();
             }
             return total;
@@ -151,6 +152,16 @@ namespace ProjectCity.Client.UWP
             param.Game.Players = lstPlayers;
 
             Frame.Navigate(typeof(ListProject), param);
+        }
+
+        private void ButDev_PointerEntered(object sender, PointerRoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(this, "VisualStateNormal", true);
+        }
+
+        private void ButDev_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            VisualStateManager.GoToState(this, "VisualStateAnimate", true);
         }
     }
 }

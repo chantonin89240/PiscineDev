@@ -39,25 +39,25 @@ namespace ProjectCity.VM
         //    }
         //}
 
-        
 
-        //public static T FromJson<T>(string filename)
-        //{
 
-        //    T result = default(T);
+        public static T FromJson<T>(string filename)
+        {
 
-        //    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+            T result = default(T);
 
-        //    try
-        //    {
-        //        result = JsonConvert.DeserializeObject<T>(File.ReadAllText(storageFolder.Path + "\\" + filename));
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-        //    return result;
-        //}
+            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+
+            try
+            {
+                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(storageFolder.Path + "\\" + filename));
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return result;
+        }
         #endregion
 
         public static void SaveUWP<T>(string filename, T objetASerialiser)
@@ -102,22 +102,22 @@ namespace ProjectCity.VM
             return JsonConvert.DeserializeObject<T>(gamesElement.ToString());
         }
 
-        public static T FromJson<T>(string filename)
-        {
-            T result = default(T);
+        //public static T FromJson<T>(string filename)
+        //{
+        //    T result = default(T);
 
-            try
-            {
-                //deserialisation
-                //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
-                result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+        //    try
+        //    {
+        //        //deserialisation
+        //        //on désérialise l'objet dans le fichier en précisant son type et en lisant le fichier avec read
+        //        result = JsonConvert.DeserializeObject<T>(File.ReadAllText(filename));
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
 
-            return result;
-        }
+        //    return result;
+        //}
     }
 }

@@ -16,7 +16,7 @@ namespace ProjectCity.Server.Services
             string directoryName = "";
             int i = 0;
 
-            while (filePath != @"C:\Users\Twenty\Source\Repos\PiscineDev2")
+            while (filePath != @"C:\\Users\\antonin\\OneDrive - CUCDB\\Documents\\DIIAGE\\PiscineDev\\ProjectCity.Client.UWP\\bin\\x86\\Debug")
             {
                 directoryName = Path.GetDirectoryName(filePath);
                 filePath = directoryName;
@@ -33,17 +33,17 @@ namespace ProjectCity.Server.Services
 
         public static List<Level> GetLevels()
         {
-            return Serializer.FromJson<List<Level>>(GetPathRootProject() + "Json/Level.json"); 
+            return Serializer.FromJson<List<Level>>( "Json/Level.json"); 
         }
 
         public static List<Field> GetFields()
         {
-            return Serializer.FromJson<List<Field>>(GetPathRootProject() + "Json/Field.json");
+            return Serializer.FromJson<List<Field>>("Json/Field.json");
         }
 
         public static List<School> GetSchools()
         {
-            return Serializer.FromJson<List<School>>(GetPathRootProject() + "Json/School.json");
+            return Serializer.FromJson<List<School>>( "Json/School.json");
         }
 
         //public List<Project> GenerateProjects()
