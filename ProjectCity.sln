@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Client.Services
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjectCity.Server.Services.UnitTests", "ProjectCity.Server.Services.UnitTests\ProjectCity.Server.Services.UnitTests.csproj", "{4F8CC411-6378-44B4-99A2-C59D831B7EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{434C7AAD-0830-493E-967B-F5728CF56978}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{434C7AAD-0830-493E-967B-F5728CF56978}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

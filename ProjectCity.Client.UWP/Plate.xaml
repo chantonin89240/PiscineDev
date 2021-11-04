@@ -8,7 +8,10 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="#17385D">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/bg.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50*"></RowDefinition>
             <RowDefinition Height="50*"></RowDefinition>
@@ -19,7 +22,7 @@
             <ColumnDefinition Width="33*"/>
         </Grid.ColumnDefinitions>
 
-        <ListView x:Name="LvPlayer" Grid.Column="0"  Margin="10,0,10,0" ItemsSource="{x:Bind Game.Companies}">
+        <ListView x:Name="LvPlayer" ItemsSource="{x:Bind Game.Companies}" Foreground="White" HorizontalAlignment="Center" Width="480" Height="500" VerticalAlignment="Top">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextBlock x:Name="TxtPlayer1" Text="{Binding Name}"></TextBlock>
@@ -27,22 +30,49 @@
             </ListView.ItemTemplate>
         </ListView>
 
-        <TextBlock x:Name="TxtTour" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0,40,0,0">
+        <TextBlock x:Name="TxtTour" Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,30,0,0" FocusVisualPrimaryBrush="White" Foreground="White" Height="157" Width="367" FontSize="50" TextAlignment="Center" Grid.Column="1">
             <Run Text="Tours : "/>
             <Run Text="{x:Bind UpTours()}"/>
         </TextBlock>
 
-        <Button x:Name="ButPasserTour"  Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButPasserTour_Click" Margin="0,30,30,0">Passer Tours</Button>
+        <Button x:Name="ButPasserTour"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Click="ButPasserTour_Click" Margin="0,0,0,15" Width="89" Content="" HorizontalAlignment="Center" Height="89">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/coche.png"/>
+            </Button.Background>
+        </Button>
 
-        <Button x:Name="ButDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Right" Click="ButDev_Click">DevOps</Button>
+        <Button x:Name="ButDev" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ButDev_Click" Width="240" Height="136" Content="" Margin="0,0,0,332" Grid.Row="1">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/Client.png"/>
+            </Button.Background>
+        </Button>
 
-        <Button x:Name="ButProjet" Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Click="ButProjet_Click">Projet</Button>
-        <Button x:Name="ButFormation" Grid.Row="1" Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Left" Click="ButFormation_Click">Formation</Button>
+        <Button x:Name="ButProjet" VerticalAlignment="Top" Click="ButProjet_Click" Height="199" Content="" Margin="0,401,40,0" Grid.RowSpan="2" Width="136" HorizontalAlignment="Right">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/RHgrey.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="ButFormation" Grid.Column="2" VerticalAlignment="Top" Click="ButFormation_Click" Height="199" Width="194" Content="" Margin="0,401,266,0" Grid.RowSpan="2" HorizontalAlignment="Right">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/Formationgrey.png"/>
+            </Button.Background>
+        </Button>
 
-        <Button x:Name="ButPrevision" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Margin="20,0,0,40" Click="ButPrevision_Click">Prévisualisation</Button>
-        <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,40,40" Click="ButListDev_Click">Liste de mes DevOps</Button>
+        <Button x:Name="ButPrevision" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,382,15" Click="ButPrevision_Click" Width="89" Content="" HorizontalAlignment="Right" Height="89">
+            <Button.FocusVisualPrimaryBrush>
+                <ImageBrush ImageSource="/Assets/projet.png"/>
+            </Button.FocusVisualPrimaryBrush>
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/prevision.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="ButListDev" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,0,15" Click="ButListDev_Click" Height="89" Content="" Width="89" HorizontalAlignment="Center">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/dev.png" Stretch="Fill"/>
+            </Button.Background>
+        </Button>
 
-        <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,40">
+        <TextBlock x:Name="TxtThisPlayer" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,250,0,0" FontSize="25" Foreground="White">
             <Run Text="{x:Bind initGame.Game.Companies[0].Name}"></Run>
             <LineBreak/>
             <Run Text="argent :" ></Run>
@@ -50,15 +80,22 @@
             <Run Text="€"></Run>
         </TextBlock>
 
-        <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" Margin="40,0,0,40" Click="ButListProjet_Click">Liste de mes Projet</Button>
+        <Button x:Name="ButListProjet"  Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="0,396,22,0" Click="ButListProjet_Click" Height="89" Content="" Width="89" HorizontalAlignment="Right">
+            <Button.Background>
+                <ImageBrush ImageSource="/Assets/projet.png"/>
+            </Button.Background>
+        </Button>
 
-        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" Grid.Column="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,25,25">
+        <TextBlock x:Name="TxtProjetEnCours" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,413,93,0" FontSize="25" Foreground="White">
             <Run Text="Nombre de Projet en cours :"></Run>
             <Run Text="{x:Bind UpPlateProjet()}"></Run>
             <LineBreak/>
             <Run Text="DevOps recruter :"></Run>
             <!--<Run Text="{x:Bind UpPlateDevops()}"></Run>-->
         </TextBlock>
+        <TextBlock x:Name="TxtTour_Copy" Grid.Row="1" VerticalAlignment="Top" Margin="0,173,88,0" FocusVisualPrimaryBrush="White" Foreground="White" Height="73" FontSize="30" TextAlignment="Center" Grid.Column="1" Text="Recrutement" HorizontalAlignment="Right" Width="330"/>
+        <TextBlock x:Name="TxtTour_Copy1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,480,243" FocusVisualPrimaryBrush="White" Foreground="White" Height="157" Width="255" FontSize="30" TextAlignment="Center" Text="Mission" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TxtTour_Copy3" Grid.Row="1" VerticalAlignment="Top" Margin="0,100,198,0" FocusVisualPrimaryBrush="White" Foreground="White" Height="157" FontSize="30" TextAlignment="Center" Text="Formation" Grid.ColumnSpan="2" Grid.Column="1" HorizontalAlignment="Right" Width="330"/>
 
     </Grid>
 </Page>

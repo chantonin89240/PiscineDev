@@ -154,6 +154,40 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\annuler.png" />
+    <Content Include="Assets\bg.png" />
+    <Content Include="Assets\bgcompany.png" />
+    <Content Include="Assets\bglst.png" />
+    <Content Include="Assets\Client.png" />
+    <Content Include="Assets\Clientgrey.png" />
+    <Content Include="Assets\coche.png" />
+    <Content Include="Assets\dev.png" />
+    <Content Include="Assets\diiage.png" />
+    <Content Include="Assets\Formation.png" />
+    <Content Include="Assets\Formationgrey.png" />
+    <Content Include="Assets\J1.png" />
+    <Content Include="Assets\J1mini.png" />
+    <Content Include="Assets\J1miniDFT.png" />
+    <Content Include="Assets\J2.png" />
+    <Content Include="Assets\J2mini.png" />
+    <Content Include="Assets\J2miniDFT.png" />
+    <Content Include="Assets\J3.png" />
+    <Content Include="Assets\J3mini.png" />
+    <Content Include="Assets\J3miniDFT.png" />
+    <Content Include="Assets\J4.png" />
+    <Content Include="Assets\J4mini.png" />
+    <Content Include="Assets\J4miniDFT.png" />
+    <Content Include="Assets\J5.png" />
+    <Content Include="Assets\J5mini.png" />
+    <Content Include="Assets\J5miniDFT.png" />
+    <Content Include="Assets\J6.png" />
+    <Content Include="Assets\J6mini.png" />
+    <Content Include="Assets\J6miniDFT.png" />
+    <Content Include="Assets\logo.png" />
+    <Content Include="Assets\prevision.png" />
+    <Content Include="Assets\projet.png" />
+    <Content Include="Assets\RH.png" />
+    <Content Include="Assets\RHgrey.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

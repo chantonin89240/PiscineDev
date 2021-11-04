@@ -5,22 +5,28 @@
     xmlns:local="using:ProjectCity.Client.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <Page.Background>
+        <ImageBrush ImageSource="/Assets/bglst.png"/>
+    </Page.Background>
 
-    <Grid Background="#17385D">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/bg.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="10*"></RowDefinition>
-            <RowDefinition Height="30*"></RowDefinition>
-            <RowDefinition Height="15*"></RowDefinition>
+            <RowDefinition Height="154*"></RowDefinition>
+            <RowDefinition Height="153*"></RowDefinition>
+            <RowDefinition Height="462*"></RowDefinition>
+            <RowDefinition Height="0*"/>
+            <RowDefinition Height="231*"></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBlock  x:Name="txtTitle" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Bienvenue à ProjectCity !" TextWrapping="Wrap" FontSize="54" FontWeight="Bold"/>
-        <TextBlock Grid.Row="1" Margin="0,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" FontSize="35" FontWeight="SemiBold"/>
+        <TextBlock  x:Name="txtTitle" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="54" FontWeight="Bold" FocusVisualPrimaryBrush="White" Foreground="White" FontFamily="Castellar" Width="981" Margin="265,0,0,0" Height="65"><Run Text="Bienvenue à "/><Run Text="FlouzeTy"/><Run Text="coon"/><Run Text=" !"/></TextBlock>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Créer votre partie ou sélectionner une partie dans la liste" TextWrapping="Wrap" FontSize="35" FontWeight="SemiBold" Foreground="White" FontFamily="Century" Height="45" Width="966"/>
         <!--<Button Content="Créer une partie" Margin="795,841,0,0" VerticalAlignment="Top" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" RenderTransformOrigin="2.032,0.65"/>-->
-        <Button Grid.Row="4" Content="Rejoindre la partie" Margin="0,0,100,0" HorizontalAlignment="Right" Height="60" Width="220" Background="Gray" FontSize="24" FontWeight="SemiBold" Click="Button_Click_1"/>
+        <Button Grid.Row="4" Content="Rejoindre la partie" Margin="1166,0,0,0" Height="60" Width="250" Background="#99FFFFFF" FontSize="24" FontWeight="SemiBold" Click="Button_Click_1" FocusVisualPrimaryBrush="White" Foreground="Black" FontFamily="Century" BorderBrush="Black"/>
 
-        <ListView x:Name="lvGame" Grid.Row="2" ItemsSource="{x:Bind LstGame}" Background="WhiteSmoke" Height="auto" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" BorderBrush="Black">
+        <ListView x:Name="lvGame" Grid.Row="2" ItemsSource="{x:Bind LstGame}" Background="#99FFFFFF" Height="auto" SelectionChanged="ListView_SelectionChanged" BorderThickness="2" Margin="30,0,30,0" BorderBrush="Black" FontFamily="Century">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="Template">
@@ -32,8 +38,8 @@
                     </Setter>
                 </Style>
             </ListView.ItemContainerStyle>
-            
-            
+
+
 
             <ListView.HeaderTemplate>
                 <DataTemplate>
@@ -46,7 +52,7 @@
                             <ColumnDefinition Width="20*"/>
                         </Grid.ColumnDefinitions>
                         <Border BorderBrush="Black" BorderThickness="1,1,1,1" Padding="0">
-                        <TextBlock Text="Partie" Foreground="black"  HorizontalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
+                            <TextBlock Text="Partie" Foreground="black"  HorizontalAlignment="Center" FontSize="20" FontWeight="SemiBold"/>
                         </Border>
                         <TextBlock Grid.Column="1" Text="Joueurs Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold" />
                         <TextBlock Grid.Column="2" Text="Tours Max" HorizontalAlignment="Center" Foreground="black" FontSize="20" FontWeight="SemiBold"/>
